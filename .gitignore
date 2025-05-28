@@ -1,0 +1,23 @@
+# Ignorar archivos y carpetas personales
+01 GIGS DE FIVERR/
+03 COLECCION_3D/
+06 AURELIA SPANISH MOST INTELIGENT IA/
+07 CABEJAS AL SOL/
+08 AIRSOFTCOIN/
+09 NUMISMATICA CREATIVA/
+10 ARTES/
+11 COMIC/
+12 ARAFURA/
+13 OVER/
+15 PRINTINGWAY/
+17 Projecte AdA/
+22 Diseño Producto/
+23 play 2/
+document1689727917102293.pdf
+fdfont80_crea_algo_diferente_--ar_34_--v_6.1_f689d9b8-7161-4a29-a083-a8774c70ec11_2.png
+hugo_extended_0.147.6_linux-amd64.deb
+ChatGPT Image 28 may 2025, 19_35_39.png
+.hugo_build.lock
+
+# Ignorar carpeta de salida Hugo
+/public/

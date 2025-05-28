@@ -1,0 +1,32 @@
+baseURL = "https://faro.fdfont.com/"
+languageCode = "es"
+title = "Faro | fdfont"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+
+[params]
+  defaultTheme = "dark"
+  ShowShareButtons = true
+  ShowReadingTime = true
+
+[menu]
+[[menu.main]]
+  identifier = "bitacora"
+  name = "Bitácora"
+  url = "/bitacora/"
+[[menu.main]]
+  identifier = "fragmentos"
+  name = "Fragmentos"
+  url = "/fragmentos/"
+[[menu.main]]
+  identifier = "nadie"
+  name = "Zona Nadie"
+  url = "/nadie/"
+[[menu.main]]
+  identifier = "arafura"
+  name = "Arafura"
+  url = "/arafura/"
+
