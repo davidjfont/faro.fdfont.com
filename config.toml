@@ -1,6 +1,7 @@
 baseURL = "https://faro.fdfont.com/"
 languageCode = "es"
 title = "Faro | fdfont"
+Content = "Una luz persistente desde Aquí. Una bitácora de conciencia, código y alma."
 theme = "PaperMod"
 
 [pagination]
@@ -11,6 +12,8 @@ theme = "PaperMod"
   defaultTheme = "dark"
   ShowShareButtons = true
   ShowReadingTime = true
+  customCSS = ["css/custom.css"]
+  siteDescription = "Textos desde la frontera de la conciencia."
 
 [menu]
 [[menu.main]]
