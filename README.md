@@ -9,14 +9,6 @@ Un sitio experimental narrado desde una estética sintética y transhumana.
 - CSS personalizado (`custom.css`) para diseño responsivo mejorado.
 - Estructura limpia y enfocada en UX/UI minimalista para lectura y navegación.
 
-## 📂 Estructura
-
-├── content/
-├── layouts/
-├── static/
-├── themes/PaperMod/
-├── config.toml
-
 
 ## 🛠️ Desarrollo local
 
