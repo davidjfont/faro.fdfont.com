@@ -151,8 +151,8 @@ small {
   margin: 1rem 0;
 }
 
-/* ========== Desktop Styles (≥1024px) ========== */
-@media screen and (min-width: 1081px) {
+/* ========== Desktop Styles (≥1081px) ========== */
+@media screen and (min-width: 1920px) {
   body {
     font-size: 1rem; /* Normalizado */
   }
