@@ -1,11 +1,19 @@
-const { fetch } = require('undici');
-const { Octokit } = require('@octokit/rest');
-
 exports.handler = async (event) => {
-  const payload = JSON.parse(event.body);
-  const { name, email, message } = payload;
+  const { fetch } = await import('undici');
+  const { Octokit } = await import('@octokit/rest');
 
-  const content = `---
+  try {
+    const payload = JSON.parse(event.body);
+    const { name, email, message } = payload;
+
+    if (!name || !email || !message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Faltan campos obligatorios.' }),
+      };
+    }
+
+    const content = `---
 title: "Comentario de ${name}"
 date: "${new Date().toISOString()}"
 email: "${email}"
@@ -14,16 +22,15 @@ email: "${email}"
 ${message}
 `;
 
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN, // debes crear un token personal
-  });
+    const octokit = new Octokit({
+      auth: process.env.GITHUB_TOKEN,
+    });
 
-  const filePath = `zona-nadie-comentarios/${Date.now()}.md`;
+    const filePath = `zona-nadie-comentarios/${Date.now()}.md`;
 
-  try {
     await octokit.repos.createOrUpdateFileContents({
-      owner: 'davidjfont',
-      repo: 'faro.fdfont.com',
+      owner: 'TU_USUARIO',
+      repo: 'TU_REPO',
       path: filePath,
       message: `Nuevo comentario de ${name}`,
       content: Buffer.from(content).toString('base64'),
@@ -41,6 +48,7 @@ ${message}
       statusCode: 200,
       body: JSON.stringify({ message: 'Comentario guardado correctamente.' }),
     };
+
   } catch (error) {
     return {
       statusCode: 500,
