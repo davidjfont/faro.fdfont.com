@@ -1,7 +1,7 @@
-exports.handler = async (event) => {
-  const { fetch } = await import('undici');
-  const { Octokit } = await import('@octokit/rest');
+import { fetch } from 'undici';
+import { Octokit } from '@octokit/rest';
 
+export async function handler(event) {
   try {
     const payload = JSON.parse(event.body);
     const { name, email, message } = payload;
@@ -55,4 +55,4 @@ ${message}
       body: JSON.stringify({ error: error.message }),
     };
   }
-};
+}

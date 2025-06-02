@@ -152,7 +152,7 @@ small {
 }
 
 /* ========== Desktop Styles (≥1081px) ========== */
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1081px) {
   body {
     font-size: 1rem; /* Normalizado */
   }
