@@ -4,9 +4,9 @@ import { Octokit } from '@octokit/rest';
 export async function handler(event) {
   try {
     const params = new URLSearchParams(event.body);
-    const name = params.get('nombre');
+    const name = params.get('name');
     const email = params.get('email');
-    const message = params.get('mensaje');
+    const message = params.get('message');
 
     if (!name || !email || !message) {
       return {
