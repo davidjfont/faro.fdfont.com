@@ -3,10 +3,12 @@ import { Octokit } from '@octokit/rest';
 
 export async function handler(event) {
   try {
-    const params = new URLSearchParams(event.body);
-    const name = params.get('name');
-    const email = params.get('email');
-    const message = params.get('message');
+      const params = new URLSearchParams(event.body);
+      const name = params.get('user'); // adaptado
+      const email = 'sin@email.com'; // valor fijo o puedes crear un campo oculto opcional
+      const message = params.get('text'); // adaptado
+      const title = params.get('title') || 'Sin título';
+
 
     if (!name || !email || !message) {
       return {
@@ -16,13 +18,14 @@ export async function handler(event) {
     }
 
     const content = `---
-title: "Comentario de ${name}"
-date: "${new Date().toISOString()}"
-email: "${email}"
----
+    title: "${title}"
+    date: "${new Date().toISOString()}"
+    name: "${name}"
+    email: "${email}"
+    ---
 
-${message}
-`;
+    ${message}
+    `;
 
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
