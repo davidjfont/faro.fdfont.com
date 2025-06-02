@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const { fetch } = require('undici');
 const { Octokit } = require('@octokit/rest');
 
 exports.handler = async (event) => {
