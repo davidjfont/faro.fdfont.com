@@ -3,8 +3,10 @@ import { Octokit } from '@octokit/rest';
 
 export async function handler(event) {
   try {
-    const payload = JSON.parse(event.body);
-    const { name, email, message } = payload;
+    const params = new URLSearchParams(event.body);
+    const name = params.get('name');
+    const email = params.get('email');
+    const message = params.get('message');
 
     if (!name || !email || !message) {
       return {
