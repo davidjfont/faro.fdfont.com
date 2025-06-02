@@ -2,7 +2,7 @@ baseURL = "https://faro.fdfont.com/"
 languageCode = "es"
 title = "Faro | fdfont"
 Content = "Una luz persistente desde Aquí. Una bitácora de conciencia, código y alma."
-theme = "PaperMod"
+
 
 [pagination]
   pagerSize = 10
