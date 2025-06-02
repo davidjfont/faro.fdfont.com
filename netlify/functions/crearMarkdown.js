@@ -22,8 +22,8 @@ ${message}
 
   try {
     await octokit.repos.createOrUpdateFileContents({
-      owner: 'tu-usuario',
-      repo: 'tu-repositorio-hugo',
+      owner: 'davidjfont',
+      repo: 'faro.fdfont.com',
       path: filePath,
       message: `Nuevo comentario de ${name}`,
       content: Buffer.from(content).toString('base64'),
