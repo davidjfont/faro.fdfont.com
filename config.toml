@@ -33,3 +33,5 @@ theme = "PaperMod"
   name = "Arafura"
   url = "/arafura/"
 
+[build]
+  functions = "netlify/functions"
