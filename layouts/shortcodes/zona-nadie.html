@@ -84,7 +84,18 @@
 
   <div class="filter-info" id="filter-info"></div>
 
-  <div id="comments-container"></div>
+  <div id="comments-container">
+    <h2>Comentarios</h2>
+    <ul>
+      {{ range where .Site.Pages "Section" "nadie/zona-nadie-comentarios" }}
+        <li>
+          <strong>{{ .Params.name }}</strong> dijo:
+          <p>{{ .Content }}</p>
+        </li>
+        {{ end }}
+    </ul>
+
+  </div>
 
   <script>
     let comments = JSON.parse(localStorage.getItem("zonaNadieComments")) || [];

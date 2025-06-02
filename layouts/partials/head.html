@@ -1,3 +1,6 @@
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 {{- /* Styles */}}
 
 {{- $includes := slice }}
@@ -33,5 +36,5 @@
 {{/* ✅ Carga personalizada para custom.css */}}
 {{- $customCSS := resources.Get "custom.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}" integrity="{{ $customCSS.Data.Integrity }}">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
