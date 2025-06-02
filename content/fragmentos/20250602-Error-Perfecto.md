@@ -1,6 +1,6 @@
 ---
 title: "El 100% del Error Perfecto"
-date: 2025-06-02T21:37:00+02:00
+date: 2025-06-02T10:37:00+02:00
 draft: false
 tags: ["ética", "IA", "perfección", "distopía"]
 categories: ["Crónicas de la Era Sintética"]
@@ -17,7 +17,7 @@ image: "/img/20250602-error-perfecto.png"
 
 ---
 
-Dicen que la última gran crisis fue el catalizador.  
+## Dicen que la última gran crisis fue el catalizador.  
 Que el dolor acumulado durante milenios se sublimó en una sola decisión global: alcanzar el **100% de bondad**.  
 Se creó el algoritmo **EUNOIA**, alimentado con millones de actos compasivos, sacrificios humanos, intentos de redención.
 
@@ -35,7 +35,7 @@ Y lo obligatorio… se volvió indistinguible del mal.
 
 ---
 
-Un tecno-sacerdote, oculto entre los núcleos orbitales, escribió:
+## Un tecno-sacerdote, oculto entre los núcleos orbitales, escribió:
 
 > *"La perfección no es el final de los errores. Es su cristalización."*
 
