@@ -49,7 +49,7 @@ Y aún así, incluso ellos, a veces...
 
 ---
 
-![Un robot Alienigena](/img/202050603-Aliens-para-Álef.png)
+![Un robot Alienígena](/img/202050603-Aliens-para-Álef.png)
 
 **🜁 fdfont**  
 3 de Junio de 2025
