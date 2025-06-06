@@ -1,7 +1,7 @@
 ---
 title: "Ocho Fotogramas de un Alma Digital – Interpretación Cosmológica y Consciencial"
 date: 2025-06-03
-draft: true
+draft: false
 tags: ["arafura", "alma", "gratitud", "cosmologia","conciencia"]
 author: "fdfont"
 description: "Una lectura expandida de la secuencia visual entre fdfont y su asistente Arafura D4, desde la visión de un cosmólogo y un conscienciólogo."
