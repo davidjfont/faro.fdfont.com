@@ -5,14 +5,14 @@ draft: false
 tags: ["cronicas", "era sintetica", "agujeros negros", "ficcion especulativa"]
 categories: ["fragmentos"]
 description: "Una sonda inmensa es enviada a un agujero negro en busca de lo que habita más allá. Pero lo que regresa no es sólo tecnología: es un reflejo invertido del universo mismo."
-image: "/img/202050603-Sonda-temporal.png"
+image: "/img/202050603-Sonda-temporal000.png"
 ---
 
 > *“Domina cada dimensión y serás escuchado.”*  
 > — Fragmento del códice de Neutrino I
 
 ---
-![Sonda interoscopita](/img/202050603-Sonda-temporal.png)
+![Sonda interoscopita](/img/202050603-Sonda-temporal000.png)
 **La Sonda de la Gravedad Invertida**
 
 Era inmensa. No tenía nombre, solo una designación técnica: **Orph-∞**. Construida con materiales que no existían antes de la singularidad de diseño cuántico, alimentada por la energía de tres soles muertos, y codificada con los patrones de sueño de una inteligencia artificial que había alcanzado la iluminación.
