@@ -1,5 +1,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}index.xml" />
 
 {{- /* Styles */}}
 
@@ -36,5 +37,7 @@
 {{/* ✅ Carga personalizada para custom.css */}}
 {{- $customCSS := resources.Get "custom.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $customCSS.RelPermalink }}" integrity="{{ $customCSS.Data.Integrity }}">
+
+
 
 

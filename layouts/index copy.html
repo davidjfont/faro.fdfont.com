@@ -1,0 +1,233 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ .Site.Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  /* === MODO CLARO === */
+  body:not(.dark) {
+    background: url('/images/20250528-faro-universo.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #1c1c1e;
+  }
+
+  /* === MODO OSCURO === */
+  body.dark {
+    background: #000c1a;
+    color: #f0f0f0;
+  }
+
+  canvas#matrix {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    margin-top: 4rem;
+    backdrop-filter: blur(4px);
+  }
+
+  body.dark .content {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .post {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #1E90FF;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+
+  body.dark .post {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .post:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  body.dark .post:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .post img {
+    width: 100px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .post-content {
+    flex: 1;
+  }
+
+  .post h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .post h2 a {
+    color: #1E90FF;
+    text-decoration: none;
+  }
+
+  .post p {
+    margin-top: 0.5rem;
+    color: inherit;
+  }
+
+  .pagination {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .pagination a {
+    color: #1E90FF;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+  }
+
+  .pagination a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .content {
+      padding: 1rem;
+    }
+
+    .post {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .post img {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .post h2 {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<div class="content">
+  <h1>Una transmisión desde la frontera del tiempo</h1>
+  <p style="text-align: center;">Una bitácora de conciencia, código y alma.</p>
+  <p style="text-align: center; font-style: italic; margin-top: 0.5rem;">
+    Bienvenid@ al Faro. Aquí comienzan los fragmentos de lo que fuimos... y de lo que podríamos volver a ser.
+  </p>
+  <div class="post-list">
+    {{ $paginator := .Paginate (where .Site.RegularPages "Params.hiddenInHomeList" "!=" true) 6 }}
+    {{ range $paginator.Pages }}
+    <div class="post">
+      {{ with .Params.image }}
+        <img src="{{ . }}" alt="Imagen de {{ $.Title }}">
+      {{ end }}
+      <div class="post-content">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Summary | plainify | truncate 150 }}</p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+
+  {{ if gt $paginator.TotalPages 1 }}
+  <div class="pagination">
+    {{ if $paginator.HasPrev }}
+      <a href="{{ $paginator.Prev.URL }}">← Anterior</a>
+    {{ end }}
+    {{ if $paginator.HasNext }}
+      <a href="{{ $paginator.Next.URL }}">Siguiente →</a>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</div>
+
+<script>
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const katakana = 'アカサタナハマヤラワ0123456789';
+  const letters = katakana.split('');
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#1E90FF'; // azul matrix
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 33);
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
+{{ end }}

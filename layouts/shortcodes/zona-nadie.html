@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +9,6 @@
       background-color: #121212;
       color: #eee;
       font-family: 'Segoe UI', sans-serif;
-      padding: 2rem;
     }
 
     h1 {
@@ -70,18 +70,15 @@
 
 <div class="comment-form">
   <form name="comentario-zona-nadie" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-  <input type="hidden" name="form-name" value="comentario-zona-nadie">
-  <p hidden>
-    <label>No llenar si eres humano: <input name="bot-field" /></label>
-  </p>
-
-  <input type="text" name="name" placeholder="Tu nombre" required>
-  <input type="email" name="email" placeholder="Tu correo" required>
-  <textarea name="message" placeholder="Tu comentario" required></textarea>
-
-  <button type="submit">Publicar</button>
-</form>
-
+    <input type="hidden" name="form-name" value="comentario-zona-nadie">
+    <p hidden>
+      <label>No llenar si eres humano: <input name="bot-field" /></label>
+    </p>
+    <input type="text" name="title" placeholder="Título del comentario (opcional)">
+    <textarea name="text" placeholder="Tu comentario" required></textarea>
+    <input type="text" name="user" placeholder="Tu nombre de usuario (sin @)" required>
+    <button type="submit">Publicar</button>
+  </form>
 </div>
 
 
