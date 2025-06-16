@@ -185,13 +185,16 @@
   <p><em>Bienvenid@ al Faro. Aquí comienzan los fragmentos de lo que fuimos... y de lo que podríamos volver a ser.</em></p>
 
 <div class="slider" id="slider">
-  {{ $featured := first 10 (where .Site.RegularPages "Params.image" "!=" nil) }}
-  {{ range $featured }}
-  <a href="{{ .Permalink }}">
-    <img src="{{ .Params.image }}" alt="Imagen de {{ .Title }}" title="{{ .Title }}">
-  </a>
+  {{ $withImage := where .Site.RegularPages "Params.image" "!=" nil }}
+  {{ $withDate := where $withImage ".Date" "ne" nil }}
+  {{ $sorted := sort $withDate ".Date" "asc" | first 10 }}
+  {{ range $sorted }}
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.image }}" alt="Imagen de {{ .Title }}" title="{{ .Title }}">
+    </a>
   {{ end }}
 </div>
+
 
 
 </section>
