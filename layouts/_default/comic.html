@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Cómic | Lectura Japonesa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .comic-container {
+      position: relative;
+      max-width: 100vw;
+      max-height: 100vh;
+      overflow: hidden;
+    }
+
+    .comic-image {
+      max-height: 100vh;
+      max-width: 100vw;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 4rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      padding: 0.5rem;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      right: 0;
+    }
+
+    .nav-button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="comic-container" id="comicContainer">
+    <button class="nav-button left" onclick="prevImage()">&#9654;</button> <!-- flecha japonesa (izquierda visual) -->
+    <img id="comicImage" class="comic-image" src="/img/comic/001.png" alt="Página de cómic">
+    <button class="nav-button right" onclick="nextImage()">&#9664;</button> <!-- flecha japonesa (derecha visual) -->
+  </div>
+
+  <script>
+    const totalImages = 20; // ← ajusta a la cantidad de imágenes reales
+    const imagePath = "/img/comic/";
+    let currentIndex = 1;
+
+    function updateImage() {
+      const img = document.getElementById("comicImage");
+      img.src = `${imagePath}${String(currentIndex).padStart(3, '0')}.png`;
+    }
+
+    function nextImage() {
+      if (currentIndex > 1) {
+        currentIndex--;
+        updateImage();
+      }
+    }
+
+    function prevImage() {
+      if (currentIndex < totalImages) {
+        currentIndex++;
+        updateImage();
+      }
+    }
+
+    // Soporte táctil para móvil
+    let startX = 0;
+    document.getElementById("comicContainer").addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    document.getElementById("comicContainer").addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50) {
+        prevImage(); // deslizamiento a la derecha → retrocede en estilo japonés
+      } else if (startX - endX > 50) {
+        nextImage(); // deslizamiento a la izquierda → avanza en estilo japonés
+      }
+    });
+  </script>
+</body>
+</html>

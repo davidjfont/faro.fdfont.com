@@ -44,6 +44,7 @@ ID = "G-48NSGTEX0J"  # tu ID real de Google Analytics
   name = "MRCONCEPT©"
   url = "/mrconcept/"
 
+
 [build]
   functions = "netlify/functions"
 
@@ -52,3 +53,8 @@ home = ["HTML", "RSS"]
 section = ["HTML", "RSS"]
 taxonomy = ["HTML", "RSS"]
 taxonomyTerm = ["HTML", "RSS"]  
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -57,40 +57,43 @@
       margin: 0.5rem 0;
     }
 
-.slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-.slider::-webkit-scrollbar {
-  display: none;
-}
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
 
-.slider a {
-  display: block;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-  transition: transform 0.3s;
-}
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
 
-.slider a:hover {
-  transform: scale(1.05);
-}
+    .slider a {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border-radius: 6px;
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s;
+    }
 
-.slider img {
-  height: 180px;
-  width: auto;
-  border-radius: 6px;
-  object-fit: cover;
-}
+    .slider a:hover {
+      transform: scale(1.05);
+    }
+
+    .slider img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      object-position: top left 50px;
+      border-radius: 6px;
+      
+    }
 
 
     .grid-posts {
@@ -190,7 +193,46 @@
   {{ end }}
 </div>
 
+
 </section>
+<!-- Slider -->
+<script>
+  const slider = document.getElementById('slider');
+  const items = slider.querySelectorAll('a');
+  let currentIndex = 0;
+  let autoScroll = true;
+  let slideInterval;
+
+  function moveToNextSlide() {
+    if (!autoScroll) return;
+    currentIndex = (currentIndex + 1) % items.length;
+    const nextItem = items[currentIndex];
+    slider.scrollTo({
+      left: nextItem.offsetLeft,
+      behavior: 'smooth'
+    });
+  }
+
+  function startAutoSlide() {
+    slideInterval = setInterval(moveToNextSlide, 3000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(slideInterval);
+  }
+
+  // Detiene el auto-slide si el usuario interactúa
+  slider.addEventListener('mouseenter', () => autoScroll = false);
+  slider.addEventListener('mouseleave', () => autoScroll = true);
+
+  // También lo detiene si hace scroll manual (típico en móvil)
+  slider.addEventListener('touchstart', () => autoScroll = false);
+  slider.addEventListener('touchend', () => autoScroll = true);
+
+  startAutoSlide();
+</script>
+
+
 
 <!-- Grid de posts -->
 <section class="grid-posts">
