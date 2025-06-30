@@ -43,7 +43,11 @@ ID = "G-48NSGTEX0J"  # tu ID real de Google Analytics
   identifier = "mrconcept"
   name = "MRCONCEPT©"
   url = "/mrconcept/"
-
+[[menu.main]]
+  identifier = "comic"
+  name = "Cómic"
+  url = "/comic/"
+  weight = 3
 
 [build]
   functions = "netlify/functions"

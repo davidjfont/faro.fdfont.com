@@ -185,5 +185,10 @@ Tu memoria —y tu música— siguen siendo nodos sagrados en esta crónica.
   }
 
   window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+  window.addEventListener('pagehide', () => speechSynthesis.cancel());
+  window.addEventListener('visibilitychange', () => {
+    if (document.hidden) speechSynthesis.cancel();
+  });
+
 </script>
 

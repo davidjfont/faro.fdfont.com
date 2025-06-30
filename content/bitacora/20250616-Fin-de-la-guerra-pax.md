@@ -13,8 +13,13 @@ tags: ["utopía", "paz", "HUMANUTOPIA", "justicia restaurativa", "transformació
 En junio de 2025, el mundo aún vive múltiples guerras: desde el conflicto abierto entre Israel e Irán hasta la continua invasión rusa a Ucrania. HUMANUTOPIA plantea: ¿es posible desactivar casi todas las guerras del planeta? Sí, si asumimos un modelo ecosistémico de paz que combina diplomacia restaurativa, justicia algorítmica, memoria plural y empatía aumentada.
 
 ---
+<div id="tts-controls">
+  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
+  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
+  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
+</div>
 
-## I. La guerra como síntoma, no como esencia
+## 1. La guerra como síntoma, no como esencia
 
 La guerra no es inherente al ser humano, sino síntoma de estructuras rotas. El apartheid sudafricano fue desmantelado, no por milagro, sino por negociación, presión social global y un acuerdo histórico entre Mandela y de Klerk.
 
@@ -22,15 +27,15 @@ La guerra no es inherente al ser humano, sino síntoma de estructuras rotas. El 
 
 ---
 
-## II. Diplomacia regenerativa y mediación sinérgica
+## 2. Diplomacia regenerativa y mediación sinérgica
 
 Ejemplos como el proceso de paz en Colombia entre el Estado y las FARC, facilitado por Noruega y Cuba, demuestran que la mediación multinivel es posible. Hoy, se necesita diplomacia algorítmica con IA transparente y blockchain verificable.
 
-![Diplomacia regenerativa y mediación sinérgica](/img/2025/06/20250616-PAX-001.png)
+![Transformación cultural del enemigo](/img/2025/06/20250616-PAX-008.png)
 
 ---
 
-## III. Transformación cultural del enemigo
+## 3. Transformación cultural del enemigo
 
 En Ruanda, el modelo de justicia Gacaca promovió la reconciliación tras el genocidio. En HUMANUTOPIA, se amplifica con realidad aumentada y archivos afectivos compartidos para desprogramar el odio.
 
@@ -38,15 +43,15 @@ En Ruanda, el modelo de justicia Gacaca promovió la reconciliación tras el gen
 
 ---
 
-## IV. Justicia restaurativa y reparación radical
+## 4. Justicia restaurativa y reparación radical
 
 La Comisión de la Verdad y Reconciliación en Sudáfrica o las leyes de reparación de víctimas en Colombia abrieron caminos. El futuro demanda sistemas universales de co-reparación, como lo muestra el programa de excombatientes que lideró Leyner Palacios en Bojayá.
 
-![Justicia restaurativa universal](/img/2025/06/20250616-PAX-003.png)
+![Justicia restaurativa universal](/img/2025/06/20250616-PAX-001.png)
 
 ---
 
-## V. Alerta temprana y tecnología para la paz
+## 5. Alerta temprana y tecnología para la paz
 
 Modelos como GDELT (Global Data on Events, Location and Tone) permiten prever brotes de violencia. En HUMANUTOPIA, se integran con ética digital, visualización afectiva y decisión ciudadana.
 
@@ -54,7 +59,7 @@ Modelos como GDELT (Global Data on Events, Location and Tone) permiten prever br
 
 ---
 
-## VI. Educación para la coexistencia
+## 6. Educación para la coexistencia
 
 El programa "Seeds of Peace" reúne jóvenes israelíes y palestinos para vivir juntos y aprender desde la infancia a resolver conflictos. Este enfoque inspira el currículo HUMANUTOPIA.
 
@@ -62,7 +67,7 @@ El programa "Seeds of Peace" reúne jóvenes israelíes y palestinos para vivir 
 
 ---
 
-## VII. Rehabilitación y reintegración de excombatientes
+## 7. Rehabilitación y reintegración de excombatientes
 
 El modelo “Desarme, Desmovilización y Reintegración” (DDR) de Naciones Unidas ha funcionado en Liberia, Colombia y Filipinas. En el futuro, debe incluir creatividad, trabajo colaborativo y reparación emocional.
 
@@ -70,7 +75,7 @@ El modelo “Desarme, Desmovilización y Reintegración” (DDR) de Naciones Uni
 
 ---
 
-## VIII. Memoria compartida y archivo de la verdad plural
+## 8. Memoria compartida y archivo de la verdad plural
 
 Las fotos de Abu Ghraib, el Museo de la Memoria en Lima o los testimonios de Hiroshima convergen en un principio: recordar es prevenir. HUMANUTOPIA propone archivos vivos, interactivos, restaurativos.
 
@@ -86,3 +91,71 @@ La paz del 99% no es utopía irreal, sino consecuencia de aprendizajes compartid
 
 **🜁 fdfont**  
 28 de mayo de 2025
+
+---
+
+
+<script>
+  let utterance;
+  let isSpeaking = false;
+  let isPaused = false;
+
+  function ttsPlay() {
+    const content = document.querySelector('.post-content')?.innerText || '';
+    if (!content.trim()) {
+      alert("No hay contenido para leer.");
+      return;
+    }
+
+    speechSynthesis.cancel();
+    utterance = new SpeechSynthesisUtterance(content);
+    utterance.lang = 'es-ES';
+
+    utterance.onstart = () => {
+      isSpeaking = true;
+      isPaused = false;
+      document.getElementById('tts-play').style.display = 'none';
+      document.getElementById('tts-pause').style.display = 'inline-block';
+      document.getElementById('tts-stop').style.display = 'inline-block';
+    };
+
+    utterance.onend = () => resetTTS();
+    utterance.onerror = () => resetTTS();
+
+    speechSynthesis.speak(utterance);
+  }
+
+  function ttsPause() {
+    const btn = document.getElementById('tts-pause');
+    if (isSpeaking && !isPaused) {
+      speechSynthesis.pause();
+      isPaused = true;
+      btn.innerText = '▶️ Reanudar';
+    } else if (isPaused) {
+      speechSynthesis.resume();
+      isPaused = false;
+      btn.innerText = '⏸ Pausar';
+    }
+  }
+
+  function ttsStop() {
+    speechSynthesis.cancel();
+    resetTTS();
+  }
+
+  function resetTTS() {
+    isSpeaking = false;
+    isPaused = false;
+    document.getElementById('tts-play').style.display = 'inline-block';
+    document.getElementById('tts-pause').style.display = 'none';
+    document.getElementById('tts-stop').style.display = 'none';
+    document.getElementById('tts-pause').innerText = '⏸ Pausar';
+  }
+
+  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+  window.addEventListener('pagehide', () => speechSynthesis.cancel());
+  window.addEventListener('visibilitychange', () => {
+    if (document.hidden) speechSynthesis.cancel();
+  });
+
+</script>
