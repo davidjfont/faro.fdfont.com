@@ -8,22 +8,92 @@
     body {
       margin: 0;
       background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       overflow: hidden;
+      position: relative;
       touch-action: pan-y;
     }
 
-    .comic-container {
-      position: relative;
-      max-width: 100vw;
-      max-height: 100vh;
+    /* Ocupa todo el ancho, por debajo de la imagen */
+    .ticker-container {
+      position:fixed;
+      margin-top: 10%;
+      top: calc(50% - 1.25rem); /* centrado vertical */
+      left: 75%;
+      width: 20%;
+      height: 30rem;
       overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .comic-image {
+    @media (max-width: 768px) {
+  .ticker-container {
+    position:absolute;         /* ya no flota */
+    margin: 1rem;        /* separaciones estándar */
+    top: auto;
+    left: 50%;
+    width: 40%;              /* full width */
+    height: auto;             /* se adapta al contenido */
+    overflow: visible;        /* para que se vea todo el texto */
+    pointer-events: none;
+    z-index: 100000;
+  }
+}
+
+    .ticker-text {
+      position: absolute;
+     /* white-space: normal;**/
+      white-space: normal;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      color: white;
+      word-break: break-word;   /* si una palabra es muy larga, rota sílabas */
+      overflow-wrap: anywhere;
+      white-space: pre-line;
+      padding-top: 150px;
+      padding-bottom: 100px;
+      /* word-break: break-word;*/
+      /*overflow-wrap: anywhere;*/
+      /*animation: marquee 8s linear infinite;*/
+      /*animation: marquee 8s linear 3s infinite;*/
+      animation: marquee 7s linear infinite;
+    }
+
+    /* Cada span lleva un padding para separar las repeticiones */
+    .ticker-text span {
+      /* display: inline-block;*/ 
+    /*animation: ease-in linear;*/
+      
+    }
+
+     @keyframes marquee {
+      from { transform: translateX(0);
+             transform: translateY(0); }
+      to   { transform: translateX(-100%);
+             transform: translateY(-100%); }
+    }
+
+  /* @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }*/
+   /*@keyframes marquee {
+        0%   { opacity: 1; background-color: hsl(0, 77%, 17%); }
+      50%  { opacity: 0.2; background-color: #f00; }
+      100% { opacity: 1; background-color: hsl(0, 85%, 15%); }
+    }*/
+
+    .comic-container {
+      position: relative;
+      z-index: 2; /* por encima del ticker */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .comic-media {
       max-height: 100vh;
       max-width: 100vw;
       object-fit: contain;
@@ -40,67 +110,113 @@
       background: rgba(0, 0, 0, 0.3);
       border: none;
       cursor: pointer;
-      z-index: 10;
+      z-index: 3;
       padding: 0.5rem;
     }
-
-    .left {
-      left: 0;
-    }
-
-    .right {
-      right: 0;
-    }
-
-    .nav-button:focus {
-      outline: none;
-    }
+    .left  { left: 0; }
+    .right { right: 0; }
+    .nav-button:focus { outline: none; }
   </style>
 </head>
 <body>
+
+  <div class="ticker-container">
+    <div id="tickerText" class="ticker-text"><span></span></div>
+  </div>
+
   <div class="comic-container" id="comicContainer">
-    <button class="nav-button left" onclick="prevImage()">&#9654;</button> <!-- flecha japonesa (izquierda visual) -->
-    <img id="comicImage" class="comic-image" src="/img/comic/001.png" alt="Página de cómic">
-    <button class="nav-button right" onclick="nextImage()">&#9664;</button> <!-- flecha japonesa (derecha visual) -->
+    <button class="nav-button left"  onclick="prevItem()">&#9654;</button>
+    <div id="mediaContainer"></div>
+    <button class="nav-button right" onclick="nextItem()">&#9664;</button>
   </div>
 
   <script>
-    const totalImages = 20; // ← ajusta a la cantidad de imágenes reales
-    const imagePath = "/img/comic/";
+    const totalItems   = 20;
+    const mediaPath    = "/img/comic/";
+    const captionsPath = "/img/comic/captions.json";
+    const extensions   = ['png','gif','mp4'];
+
     let currentIndex = 1;
+    let captions     = {};
 
-    function updateImage() {
-      const img = document.getElementById("comicImage");
-      img.src = `${imagePath}${String(currentIndex).padStart(3, '0')}.png`;
+    // 1) Cargo el JSON
+    fetch(captionsPath)
+      .then(r => r.json())
+      .then(data => { captions = data; initAll(); })
+      .catch(err => { console.error(err); initAll(); });
+
+    // 2) Inicializo media + ticker
+    function initAll() {
+      updateAll();
+    }
+    function updateAll() {
+      updateTicker();
+      updateMedia();
     }
 
-    function nextImage() {
-      if (currentIndex > 1) {
-        currentIndex--;
-        updateImage();
+    // 3) Marquee continuo con 2 spans idénticos
+    function updateTicker() {
+      const div   = document.getElementById("tickerText");
+      const id    = String(currentIndex).padStart(3, '0');
+      const text  = captions[id] || "";
+      const nbsp  = "\u00A0\u00A0\u00A0";
+      const content = text + nbsp;
+
+      // Inyectamos dos spans idénticos
+      div.innerHTML = `<span>${content}</span>`;
+
+      // Reiniciamos la animación
+      div.style.animation = "none";
+      requestAnimationFrame(() => {
+        div.style.animation = "";
+        div.style.animation = "marquee 8s linear infinite";
+      });
+    }
+
+    // 4) Cargar imagen/video
+    function updateMedia() {
+      const cont = document.getElementById("mediaContainer");
+      cont.innerHTML = "";
+      const id = String(currentIndex).padStart(3, '0');
+
+      function tryExt(i) {
+        if (i >= extensions.length) return console.error(`No media ${id}`);
+        const ext = extensions[i],
+              url = `${mediaPath}${id}.${ext}`,
+              el  = document.createElement(ext === "mp4" ? "video" : "img");
+
+        el.className = "comic-media";
+        if (ext === "mp4") {
+          el.autoplay = el.loop = el.muted = el.playsInline = true;
+          el.playbackRate    = 2;
+          el.oncanplaythrough = () => cont.appendChild(el);
+          el.onerror          = () => tryExt(i+1);
+        } else {
+          el.alt     = `Página ${id}`;
+          el.onload  = () => cont.appendChild(el);
+          el.onerror = () => tryExt(i+1);
+        }
+        el.src = url;
       }
+
+      tryExt(0);
     }
 
-    function prevImage() {
-      if (currentIndex < totalImages) {
-        currentIndex++;
-        updateImage();
-      }
+    // 5) Navegación y táctil
+    function nextItem() {
+      if (currentIndex > 1) { currentIndex--; initAll(); }
+    }
+    function prevItem() {
+      if (currentIndex < totalItems) { currentIndex++; initAll(); }
     }
 
-    // Soporte táctil para móvil
     let startX = 0;
-    document.getElementById("comicContainer").addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    document.getElementById("comicContainer").addEventListener("touchend", (e) => {
+    const wrap = document.getElementById("comicContainer");
+    wrap.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    wrap.addEventListener("touchend", e => {
       const endX = e.changedTouches[0].clientX;
-      if (endX - startX > 50) {
-        prevImage(); // deslizamiento a la derecha → retrocede en estilo japonés
-      } else if (startX - endX > 50) {
-        nextImage(); // deslizamiento a la izquierda → avanza en estilo japonés
-      }
+      if (endX - startX > 50)      prevItem();
+      else if (startX - endX > 50) nextItem();
     });
   </script>
 </body>

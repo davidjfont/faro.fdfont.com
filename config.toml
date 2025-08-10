@@ -6,7 +6,9 @@ theme = "PaperMod"
 
 [pagination]
   pagerSize = 10
-
+  
+[server]
+  disableFastRender = true
 
 [params]
   defaultTheme = "dark"
