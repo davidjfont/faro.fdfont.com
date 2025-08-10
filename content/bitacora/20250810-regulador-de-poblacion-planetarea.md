@@ -3,9 +3,17 @@ title: "Control de la Población Humana mediante la Regulación de Robots Activo
 date: 2025-08-10
 draft: false
 description: "Un modelo teórico y práctico para regular la cantidad de habitantes del planeta Tierra controlando la actividad de robots en el universo."
+image: "/img/2025/08/20250810-control-robots-poblacion.png"
 tags: ["IA", "robots", "población", "ecología", "control predictivo"]
-featured_image: "/img/2025/08/20250810-control-robots-poblacion.jpg"
+
 ---
+<div id="tts-controls">
+  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
+  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
+  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
+</div>
+
+![Control de robots y población humana](/img/2025/08/20250810-control-robots-poblacion.png)
 
 # Control de la Población Humana mediante la Regulación de Robots Activos
 
@@ -31,9 +39,6 @@ Controlar R(t) se convierte en una herramienta estratégica para mantener un equ
 Usamos un modelo logístico modificado:
 dH/dt = r(t) · H · (1 − H/K(t)) − D(t)
 
-markdown
-Copiar
-Editar
 
 Donde:
 - **H(t)**: población humana en el tiempo
@@ -45,9 +50,7 @@ Donde:
 K(t) = K₀ + α · R(t) − β · E(R)
 r(t) = r₀ + γ · R_salud − δ · R_riesgo
 
-yaml
-Copiar
-Editar
+
 - **α, β, γ, δ** son coeficientes empíricos ajustados mediante simulaciones.
 - **E(R)**: coste ecológico agregado.
 
@@ -64,9 +67,7 @@ Cada intervalo (ej. semanal):
 ### 3.2 Índice de Prioridad por Robot
 IP = (∆Q + ∆K + ∆r − Coste ecológico − Riesgo) / Energía consumida
 
-yaml
-Copiar
-Editar
+
 Se priorizan robots con IP más alto hasta agotar el presupuesto energético/ecológico.
 
 ---
@@ -99,4 +100,67 @@ Controlar la población humana a través de la gestión de robots activos es fac
 
 ---
 
-![Control de robots y población humana](/img/2025/08/20250810-control-robots-poblacion.jpg)
+<script>
+  let utterance;
+  let isSpeaking = false;
+  let isPaused = false;
+
+  function ttsPlay() {
+    const content = document.querySelector('.post-content')?.innerText || '';
+    if (!content.trim()) {
+      alert("No hay contenido para leer.");
+      return;
+    }
+
+    speechSynthesis.cancel();
+    utterance = new SpeechSynthesisUtterance(content);
+    utterance.lang = 'es-ES';
+
+    utterance.onstart = () => {
+      isSpeaking = true;
+      isPaused = false;
+      document.getElementById('tts-play').style.display = 'none';
+      document.getElementById('tts-pause').style.display = 'inline-block';
+      document.getElementById('tts-stop').style.display = 'inline-block';
+    };
+
+    utterance.onend = () => resetTTS();
+    utterance.onerror = () => resetTTS();
+
+    speechSynthesis.speak(utterance);
+  }
+
+  function ttsPause() {
+    const btn = document.getElementById('tts-pause');
+    if (isSpeaking && !isPaused) {
+      speechSynthesis.pause();
+      isPaused = true;
+      btn.innerText = '▶️ Reanudar';
+    } else if (isPaused) {
+      speechSynthesis.resume();
+      isPaused = false;
+      btn.innerText = '⏸ Pausar';
+    }
+  }
+
+  function ttsStop() {
+    speechSynthesis.cancel();
+    resetTTS();
+  }
+
+  function resetTTS() {
+    isSpeaking = false;
+    isPaused = false;
+    document.getElementById('tts-play').style.display = 'inline-block';
+    document.getElementById('tts-pause').style.display = 'none';
+    document.getElementById('tts-stop').style.display = 'none';
+    document.getElementById('tts-pause').innerText = '⏸ Pausar';
+  }
+
+  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
+  window.addEventListener('pagehide', () => speechSynthesis.cancel());
+  window.addEventListener('visibilitychange', () => {
+    if (document.hidden) speechSynthesis.cancel();
+  });
+
+</script>
