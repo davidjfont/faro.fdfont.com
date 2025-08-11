@@ -56,7 +56,7 @@
       /*overflow-wrap: anywhere;*/
       /*animation: marquee 8s linear infinite;*/
       /*animation: marquee 8s linear 3s infinite;*/
-      animation: marquee 7s linear infinite;
+      animation: marquee 10s linear infinite;
     }
 
     /* Cada span lleva un padding para separar las repeticiones */
@@ -134,7 +134,7 @@
     const totalItems   = 20;
     const mediaPath    = "/img/comic/";
     const captionsPath = "/img/comic/captions.json";
-    const extensions   = ['png','gif','mp4'];
+    const extensions   = ['png','gif','mp4','mov'];
 
     let currentIndex = 1;
     let captions     = {};
@@ -169,7 +169,7 @@
       div.style.animation = "none";
       requestAnimationFrame(() => {
         div.style.animation = "";
-        div.style.animation = "marquee 8s linear infinite";
+        div.style.animation = "marquee 20s linear infinite";
       });
     }
 
