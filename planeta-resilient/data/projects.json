@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "nom": "La castañera resilient de Riudellots",
+    "pais": "Espanya",
+    "lat": 41.906,
+    "lng": 2.8,
+    "imatge": "projects/castanyera.jpg",
+    "likes": 54,
+    "estat": "incomplet",
+    "objectiu": 800,
+    "diners_recollits": 320,
+    "descripcio": "Adaptació de la castañera per fer productes freds amb la calor d'octubre."
+  },
+  {
+    "id": 2,
+    "nom": "Escola amb dipòsit d’aigua a Kenya",
+    "pais": "Kenya",
+    "lat": -1.286,
+    "lng": 36.817,
+    "imatge": "projects/kenya.jpg",
+    "likes": 130,
+    "estat": "incomplet",
+    "objectiu": 2000,
+    "diners_recollits": 1200,
+    "descripcio": "Construcció d’un dipòsit d’aigua per a 80 nens d’una escola rural."
+  }
+]

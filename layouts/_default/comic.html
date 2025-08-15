@@ -86,6 +86,19 @@
 
     .jump-btn::before { content: "⤒ "; }
 
+    /* Botones icono */
+    .icon-btn{
+      width: 2.1rem;
+      height: 2.1rem;
+      display: grid;
+      place-items: center;
+      font-size: 1.05rem;
+      padding: 0;
+      border-radius: 9px;
+      line-height: 1;
+    }
+    .icon-btn span{ transform: translateY(-1px); }
+
     /* Ticker lateral (mantingut) */
     .ticker-container {
       position:fixed;
@@ -129,8 +142,7 @@
     }
     @keyframes marquee {
       from { transform: translateX(0) translateY(0); }
-      to   { /*transform: translateX(-100%) translateY(-100%); }*/
-             transform: translateX(-0%) translateY(-100%); }  
+      to   { transform: translateX(-0%) translateY(-100%); }
     }
 
     .comic-container {
@@ -171,10 +183,20 @@
   <!-- HUD nou -->
   <div class="hud" role="toolbar" aria-label="Lector de còmic">
     <div id="pageBadge" class="page-badge" title="Pàgina actual">1 / 20</div>
+
     <button id="bookmarkBtn" class="bookmark-btn" type="button" title="Marcar aquesta pàgina">
       <span class="star">☆</span><span class="label">Marca</span>
     </button>
+
     <button id="jumpMaxBtn" class="jump-btn" type="button" title="Anar a l'últim punt llegit">Últim punt</button>
+
+    <!-- NUEVOS ICONOS -->
+    <button id="goStartBtn" class="icon-btn" type="button" title="Tornar a l'inici del còmic" aria-label="Inici còmic">
+      <span>⏮</span>
+    </button>
+    <button id="goFaroBtn" class="icon-btn" type="button" title="Tornar a faro.fdfont.com" aria-label="Faro">
+      <span>🏠</span>
+    </button>
   </div>
 
   <div class="ticker-container">
@@ -210,6 +232,8 @@
     const pageBadge   = document.getElementById("pageBadge");
     const bookmarkBtn = document.getElementById("bookmarkBtn");
     const jumpMaxBtn  = document.getElementById("jumpMaxBtn");
+    const goStartBtn  = document.getElementById("goStartBtn");
+    const goFaroBtn   = document.getElementById("goFaroBtn");
 
     // ====== Persistència ======
     function loadProgress() {
@@ -282,6 +306,10 @@
     jumpMaxBtn.addEventListener('click', () => {
       goTo(progress.maxRead || 1);
     });
+
+    // NUEVOS ICONOS: acciones
+    goStartBtn.addEventListener('click', () => goTo(1));
+    goFaroBtn.addEventListener('click', () => { window.location.href = 'https://faro.fdfont.com/'; });
 
     // ====== Ticker ======
     function updateTicker() {
@@ -356,6 +384,8 @@
       if (e.key === 'ArrowRight') nextItem(); // dreta = retrocedir
       if (e.key.toLowerCase() === 'b') bookmarkBtn.click(); // ràpid marcar
       if (e.key.toLowerCase() === 'u') jumpMaxBtn.click();  // ràpid últim punt
+      if (e.key === 'Home') goStartBtn.click();             // anar a l'inici
+      if (e.key.toLowerCase() === 'h') goFaroBtn.click();   // anar a Faro
     });
   </script>
 </body>

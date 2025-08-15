@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planeta Resilient</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- CesiumJS CDN per al globus 3D -->
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.110/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.110/Build/Cesium/Cesium.js"></script>
+</head>
+<body>
+  <div id="container">
+    <!-- Globus 3D -->
+    <div id="globe"></div>
+
+    <!-- Barra lateral -->
+    <div id="sidebar">
+      <h1>PLANETA <span>RESILIENT</span></h1>
+      <div class="tabs">
+        <button class="tab active" data-filter="nous">Nous projectes</button>
+        <button class="tab" data-filter="likes">Més likes</button>
+        <button class="tab" data-filter="incomplets">Incomplets</button>
+      </div>
+      <div id="projects-list"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

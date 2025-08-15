@@ -1,0 +1,76 @@
+<!-- JAESTAVA ØS – Modal global -->
+<button id="jaestava-launcher"
+        aria-label="Abrir JAESTAVA ØS"
+        title="Abrir JAESTAVA ØS"
+        class="jaestava-btn"
+        type="button">
+  <span class="glyph">&gt;_</span>
+</button>
+
+<div id="jaestava-overlay" class="jaestava-overlay" aria-hidden="true">
+  <div class="jaestava-modal" role="dialog" aria-modal="true" aria-labelledby="jaestava-title">
+    <div class="jaestava-bar">
+      <div class="left">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <strong id="jaestava-title">JAESTAVA ØS</strong>
+      </div>
+      <div class="right">
+        <button id="jaestava-open-new" class="bar-btn" type="button" aria-label="Abrir en pestaña nueva">↗</button>
+        <button id="jaestava-close" class="bar-btn" type="button" aria-label="Cerrar">✕</button>
+      </div>
+    </div>
+
+    <div class="jaestava-frame-wrap">
+      <!-- El iframe se inserta en caliente al abrir para no cargar recursos si no se usa -->
+      <div id="jaestava-loader" class="loader">Cargando JAESTAVA ØS…</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const LAUNCHER = document.getElementById('jaestava-launcher');
+  const OVERLAY  = document.getElementById('jaestava-overlay');
+  const CLOSE    = document.getElementById('jaestava-close');
+  const OPENNEW  = document.getElementById('jaestava-open-new');
+  const WRAP     = document.querySelector('.jaestava-frame-wrap');
+  const LOADER   = document.getElementById('jaestava-loader');
+  const URL      = 'https://fdfont.pythonanywhere.com/';
+
+  let iframeLoaded = false;
+
+  function openModal(){
+    OVERLAY.setAttribute('aria-hidden','false');
+    document.documentElement.classList.add('no-scroll');
+
+    if(!iframeLoaded){
+      const ifr = document.createElement('iframe');
+      ifr.setAttribute('title','JAESTAVA ØS');
+      ifr.setAttribute('loading','eager');
+      ifr.setAttribute('allow','clipboard-read; clipboard-write; fullscreen');
+      ifr.setAttribute('referrerpolicy','no-referrer');
+      ifr.setAttribute('sandbox','allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox');
+      ifr.src = URL;
+      ifr.className = 'jaestava-iframe';
+      ifr.addEventListener('load', ()=> LOADER.style.display = 'none');
+      WRAP.appendChild(ifr);
+      iframeLoaded = true;
+    }
+  }
+
+  function closeModal(){
+    OVERLAY.setAttribute('aria-hidden','true');
+    document.documentElement.classList.remove('no-scroll');
+  }
+
+  LAUNCHER.addEventListener('click', openModal);
+  CLOSE.addEventListener('click', closeModal);
+  OPENNEW.addEventListener('click', () => window.open(URL, '_blank', 'noopener,noreferrer'));
+
+  // Cerrar con fondo o tecla ESC
+  OVERLAY.addEventListener('click', (e)=> { if(e.target === OVERLAY) closeModal(); });
+  document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeModal(); });
+
+  // Reposicionar modal al cambiar tamaño de ventana (ya es responsive vía CSS)
+})();
+</script>
