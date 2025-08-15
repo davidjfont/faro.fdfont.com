@@ -62,24 +62,37 @@
       margin-bottom: 1rem;
       color: #999;
     }
+
+    .status {
+      margin-top: .5rem;
+      font-size: .9rem;
+      color: #9bd39b;
+    }
+    .status.error { color: #ffb3b3; }
   </style>
 </head>
 <body>
   <h1>Zona Nadie</h1>
 
-<div class="comment-form">
-  <form name="comentario-zona-nadie" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="netlifyCommentForm">
-    <input type="hidden" name="form-name" value="comentario-zona-nadie">
-    <p hidden>
-      <label>No llenar si eres humano: <input name="bot-field" /></label>
-    </p>
-    <input type="text" name="title" id="title" placeholder="Título del comentario (opcional)">
-    <textarea name="text" id="text" placeholder="Tu comentario" required></textarea>
-    <input type="text" name="user" id="user" placeholder="Tu nombre de usuario (sin @)" required>
-    <button type="submit">Publicar</button>
-  </form>
-</div>
-
+  <div class="comment-form">
+    <!-- IMPORTANT: el formulari ha d’existir al HTML generat perquè Netlify el detecti -->
+    <form name="comentario-zona-nadie"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          id="netlifyCommentForm"
+          action="/">
+      <input type="hidden" name="form-name" value="comentario-zona-nadie">
+      <p hidden>
+        <label>No llenar si eres humano: <input name="bot-field" /></label>
+      </p>
+      <input type="text" name="title" id="title" placeholder="Título del comentario (opcional)">
+      <textarea name="text" id="text" placeholder="Tu comentario" required></textarea>
+      <input type="text" name="user" id="user" placeholder="Tu nombre de usuario (sin @)" required>
+      <button type="submit">Publicar</button>
+      <div id="formStatus" class="status" aria-live="polite"></div>
+    </form>
+  </div>
 
   <div class="filter-info" id="filter-info"></div>
 
@@ -91,9 +104,8 @@
           <strong>{{ .Params.name }}</strong> dijo:
           <p>{{ .Content }}</p>
         </li>
-        {{ end }}
+      {{ end }}
     </ul>
-
   </div>
 
   <script>
@@ -104,7 +116,7 @@
       localStorage.setItem("zonaNadieComments", JSON.stringify(comments));
     }
 
-    // ---- NUEVO: envío al log (Netlify Function) ----
+    // ---- Enviament a log (Netlify Function o proxy) ----
     async function sendToLog(payload){
       try{
         await fetch('/.netlify/functions/logComment', {
@@ -120,11 +132,9 @@
           })
         });
       }catch(e){
-        // No rompemos la UX si falla el log; solo informativo a consola
         console.warn('No se pudo registrar en el log:', e);
       }
     }
-    // -----------------------------------------------
 
     function renderComments(container, list, parentId = null, level = 0) {
       container.innerHTML = '';
@@ -135,7 +145,7 @@
             box.innerHTML = `
               <strong>${comment.title || 'Sin título'}</strong><br>
               <p>${comment.text}</p>
-              <span class="user-tag" onclick="filterByUser('${comment.user}')">@${comment.user}</span> — 
+              <span class="user-tag" onclick="filterByUser('${comment.user}')">@${comment.user}</span> —
               <button onclick="showReplyForm(${comment.id})">Responder</button>
               <div id="reply-${comment.id}"></div>
             `;
@@ -148,8 +158,8 @@
 
     function addComment(parentId = null, titleInputId = 'title', textInputId = 'text', userInputId = 'user') {
       const title = document.getElementById(titleInputId).value;
-      const text = document.getElementById(textInputId).value;
-      const user = document.getElementById(userInputId).value.trim();
+      const text  = document.getElementById(textInputId).value;
+      const user  = document.getElementById(userInputId).value.trim();
 
       if (!text || !user) {
         alert("Faltan campos obligatorios.");
@@ -165,14 +175,10 @@
       };
 
       comments.push(newComment);
-
-      // Guardado local (como ya tenías)
-      saveComments();
-
-      // ---- NUEVO: enviar también al log en servidor (no interrumpe flujo) ----
-      sendToLog(newComment);
-
+      saveComments();          // localStorage (com abans)
+      sendToLog(newComment);   // log servidor
       renderComments(document.getElementById('comments-container'), comments);
+
       if (!parentId) {
         document.getElementById(titleInputId).value = '';
         document.getElementById(textInputId).value = '';
@@ -206,24 +212,58 @@
       renderComments(document.getElementById('comments-container'), comments);
     }
 
-    // ---- NUEVO: también mandamos al log cuando el formulario Netlify se envía ----
-    (function attachNetlifyLog(){
-      const form = document.getElementById('netlifyCommentForm');
+    // ---- SUBMINISTRAR A NETLIFY FORMS VIA AJAX (fiable en prod) ----
+    function encode(data) {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    }
+
+    (function attachNetlifySubmit(){
+      const form   = document.getElementById('netlifyCommentForm');
+      const status = document.getElementById('formStatus');
       if(!form) return;
-      form.addEventListener('submit', () => {
-        const payload = {
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // evitem recàrrega i fem POST compatible amb Netlify
+        status.classList.remove('error');
+        status.textContent = 'Enviando…';
+
+        const formData = {
+          "form-name": form.getAttribute('name'),
           title: (document.getElementById('title')||{}).value || '',
           text:  (document.getElementById('text')||{}).value  || '',
           user:  (document.getElementById('user')||{}).value  || '',
-          parentId: null
+          "bot-field": ''
         };
-        // No hacemos preventDefault para no romper Netlify Forms
-        sendToLog(payload);
+
+        try{
+          // Enviament a Netlify (IMPORTANT: url "/" perquè el bot processi el formulari)
+          const resp = await fetch(form.getAttribute('action') || '/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode(formData)
+          });
+
+          // També enviem al log (no bloquejant)
+          sendToLog({ title: formData.title, text: formData.text, user: formData.user, parentId: null });
+
+          if(resp.ok){
+            status.textContent = '¡Comentario enviado!';
+            form.reset();
+          } else {
+            status.classList.add('error');
+            status.textContent = 'Error enviando a Netlify.';
+          }
+        }catch(err){
+          status.classList.add('error');
+          status.textContent = 'Error de red al enviar.';
+          console.error(err);
+        }
       });
     })();
-    // ---------------------------------------------------------------------------
 
-    // Inicializa
+    // Inicializa render
     renderComments(document.getElementById('comments-container'), comments);
   </script>
 </body>

@@ -6,53 +6,43 @@ import path from 'path';
 // En Netlify Functions, la única ruta con escritura garantizada es /tmp
 const LOG_PATH = '/tmp/zona_nadie.log';
 
+// Proxy: rep el POST del client i el reenvia al backend persistent (PythonAnywhere)
 export async function handler(event) {
-  // Permitir solo POST
   if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      headers: corsHeaders(),
-      body: 'Method Not Allowed'
-    };
+    return { statusCode: 405, body: 'Method Not Allowed' };
   }
 
   try {
-    const data = JSON.parse(event.body || '{}');
+    const secret = process.env.LOG_FORWARD_SECRET || '';
+    const target = process.env.LOG_BACKEND_URL || 'https://fdfont.pythonanywhere.com/api/log';
 
-    // Saneado básico (evitar saltos de línea peligrosos, etc.)
-    const clean = (v) =>
-      String(v ?? '')
-        .replace(/\r?\n/g, ' ')
-        .replace(/\u0000/g, '')
-        .trim();
+    const resp = await fetch(target, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Secret': secret,
+      },
+      body: event.body, // passem el mateix payload que envia el client
+    });
 
-    const entry = {
-      ts: new Date().toISOString(),
-      user: clean(data.user),
-      title: clean(data.title),
-      text: clean(data.text),
-      parentId: data.parentId ?? null,
-      path: clean(data.path || ''),
-      ua: clean(data.ua || '')
-    };
-
-    const line = JSON.stringify(entry) + '\n';
-
-    await appendFileSafe(LOG_PATH, line);
+    if (!resp.ok) {
+      const txt = await resp.text().catch(() => '');
+      return { statusCode: 500, body: `Upstream error: ${txt}` };
+    }
 
     return {
       statusCode: 200,
-      headers: corsHeaders(),
-      body: 'OK'
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'text/plain; charset=utf-8',
+      },
+      body: 'OK',
     };
-  } catch (err) {
-    return {
-      statusCode: 500,
-      headers: corsHeaders(),
-      body: 'ERROR: ' + (err?.message || String(err))
-    };
+  } catch (e) {
+    return { statusCode: 500, body: 'ERROR ' + (e?.message || String(e)) };
   }
 }
+
 
 function corsHeaders(){
   return {
