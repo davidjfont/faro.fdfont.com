@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -69,14 +68,14 @@
   <h1>Zona Nadie</h1>
 
 <div class="comment-form">
-  <form name="comentario-zona-nadie" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+  <form name="comentario-zona-nadie" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="netlifyCommentForm">
     <input type="hidden" name="form-name" value="comentario-zona-nadie">
     <p hidden>
       <label>No llenar si eres humano: <input name="bot-field" /></label>
     </p>
-    <input type="text" name="title" placeholder="Título del comentario (opcional)">
-    <textarea name="text" placeholder="Tu comentario" required></textarea>
-    <input type="text" name="user" placeholder="Tu nombre de usuario (sin @)" required>
+    <input type="text" name="title" id="title" placeholder="Título del comentario (opcional)">
+    <textarea name="text" id="text" placeholder="Tu comentario" required></textarea>
+    <input type="text" name="user" id="user" placeholder="Tu nombre de usuario (sin @)" required>
     <button type="submit">Publicar</button>
   </form>
 </div>
@@ -104,6 +103,28 @@
     function saveComments() {
       localStorage.setItem("zonaNadieComments", JSON.stringify(comments));
     }
+
+    // ---- NUEVO: envío al log (Netlify Function) ----
+    async function sendToLog(payload){
+      try{
+        await fetch('/.netlify/functions/logComment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: payload.title || '',
+            text:  payload.text  || '',
+            user:  payload.user  || '',
+            parentId: payload.parentId ?? null,
+            ua: navigator.userAgent,
+            path: location.pathname
+          })
+        });
+      }catch(e){
+        // No rompemos la UX si falla el log; solo informativo a consola
+        console.warn('No se pudo registrar en el log:', e);
+      }
+    }
+    // -----------------------------------------------
 
     function renderComments(container, list, parentId = null, level = 0) {
       container.innerHTML = '';
@@ -135,15 +156,22 @@
         return;
       }
 
-      comments.push({
+      const newComment = {
         id: Date.now(),
         title,
         text,
         user,
         parentId
-      });
+      };
 
+      comments.push(newComment);
+
+      // Guardado local (como ya tenías)
       saveComments();
+
+      // ---- NUEVO: enviar también al log en servidor (no interrumpe flujo) ----
+      sendToLog(newComment);
+
       renderComments(document.getElementById('comments-container'), comments);
       if (!parentId) {
         document.getElementById(titleInputId).value = '';
@@ -177,6 +205,23 @@
       document.getElementById('filter-info').innerHTML = '';
       renderComments(document.getElementById('comments-container'), comments);
     }
+
+    // ---- NUEVO: también mandamos al log cuando el formulario Netlify se envía ----
+    (function attachNetlifyLog(){
+      const form = document.getElementById('netlifyCommentForm');
+      if(!form) return;
+      form.addEventListener('submit', () => {
+        const payload = {
+          title: (document.getElementById('title')||{}).value || '',
+          text:  (document.getElementById('text')||{}).value  || '',
+          user:  (document.getElementById('user')||{}).value  || '',
+          parentId: null
+        };
+        // No hacemos preventDefault para no romper Netlify Forms
+        sendToLog(payload);
+      });
+    })();
+    // ---------------------------------------------------------------------------
 
     // Inicializa
     renderComments(document.getElementById('comments-container'), comments);
