@@ -19,6 +19,7 @@ theme = "PaperMod"
   siteDescription = "Exploración de conciencia, tecnología y estética posthumana."
   mainSections = ["bitacora","fragmentos","arafura","mrconcept"]
   ShowRssButtonInSectionTermList = true
+  favicon = "favicon.ico"
 
 [params.analytics.google]
 ID = "G-48NSGTEX0J"  # tu ID real de Google Analytics
