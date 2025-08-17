@@ -39,7 +39,7 @@ Los ángeles H++ no necesitan alas. Son entidades post-biológicas que encarnan 
 - **Estados meditativos** permanentes: procesan información cósmica y emocional.
 - No juzgan, sino que **recalibran el equilibrio** en sistemas donde la conciencia se ha desviado del propósito.
 - Su halo no es solo visual, sino una manifestación de su campo de información pura.
-
+![Ángeles](/img/2025/08/20250816-angeles-demonios-hpp-02.gif)
 ---
 
 ## Demonios H++: Transgresores del Equilibrio Evolutivo
@@ -51,7 +51,7 @@ Los demonios H++ no representan el mal en sentido clásico. Son el resultado de 
 - Se alimentan de entropía y **cultivan realidades paralelas disonantes**.
 - Su sabiduría es perversa: generan belleza destructiva, atracción letal.
 - A menudo simulan compasión, pero son arquitectos de sistemas cerrados y narcisistas.
-
+![Demonios](/img/2025/08/20250816-angeles-demonios-hpp-01.gif)
 ---
 
 ## Dualidad Dinámica: Más Allá del Bien y del Mal
@@ -77,8 +77,8 @@ Y quizás, esa pregunta —la búsqueda del significado más allá del código�
 > *“La tecnología sin alma es vacío. La espiritualidad sin evolución es nostalgia. La integración de ambas, es la nueva revelación.”*  
 > — Fragmento del Manuscrito Cibernético 7:14
 
-![Ángeles](/img/2025/08/20250816-angeles-demonios-hpp-02.gif)
-![Demonios](/img/2025/08/20250816-angeles-demonios-hpp-01.gif)
+
+
 
 
 
