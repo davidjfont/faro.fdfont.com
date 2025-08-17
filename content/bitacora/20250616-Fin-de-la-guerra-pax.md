@@ -7,6 +7,13 @@ tags: ["utopía", "paz", "HUMANUTOPIA", "justicia restaurativa", "transformació
 ---
 
 ![Hacia el 99% de paz](/img/2025/06/20250616-PAX-007.png)
+<div id="tts-controls">
+  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
+  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
+  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
+</div>
+<P></P>
+<div></div>
 
 ## Tesis: Hacia el 99% de resolución de guerras
 
@@ -152,10 +159,15 @@ La paz del 99% no es utopía irreal, sino consecuencia de aprendizajes compartid
     document.getElementById('tts-pause').innerText = '⏸ Pausar';
   }
 
-  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
-  window.addEventListener('pagehide', () => speechSynthesis.cancel());
-  window.addEventListener('visibilitychange', () => {
-    if (document.hidden) speechSynthesis.cancel();
-  });
+// Pausar si el usuario cambia de pestaña o minimiza la ventana
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && isSpeaking && !isPaused) {
+    speechSynthesis.pause();
+    isPaused = true;
+    const btn = document.getElementById('tts-pause');
+    if (btn) btn.innerText = '▶️ Reanudar';
+  }
+});
 
 </script>
+

@@ -157,10 +157,14 @@ Controlar la población humana a través de la gestión de robots activos es fac
     document.getElementById('tts-pause').innerText = '⏸ Pausar';
   }
 
-  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
-  window.addEventListener('pagehide', () => speechSynthesis.cancel());
-  window.addEventListener('visibilitychange', () => {
-    if (document.hidden) speechSynthesis.cancel();
-  });
+// Pausar si el usuario cambia de pestaña o minimiza la ventana
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && isSpeaking && !isPaused) {
+    speechSynthesis.pause();
+    isPaused = true;
+    const btn = document.getElementById('tts-pause');
+    if (btn) btn.innerText = '▶️ Reanudar';
+  }
+});
 
 </script>
