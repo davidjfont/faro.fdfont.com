@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Justicia Restaurativa on Faro | fdfont</title>
+    <link>http://localhost:1313/tags/justicia-restaurativa/</link>
+    <description>Recent content in Justicia Restaurativa on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 16 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/justicia-restaurativa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hacia el 99% de resolución de guerras</title>
+      <link>http://localhost:1313/bitacora/20250616-fin-de-la-guerra-pax/</link>
+      <pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250616-fin-de-la-guerra-pax/</guid>
+      <description>Un modelo ecosistémico de paz global desde HUMANUTOPIA. Diplomacia restaurativa, justicia plural, IA ética y reparación cultural para desactivar la guerra como tecnología social obsoleta.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ficción Especulativa on Faro | fdfont</title>
+    <link>http://localhost:1313/tags/ficci%C3%B3n-especulativa/</link>
+    <description>Recent content in Ficción Especulativa on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 18 Aug 2025 00:08:30 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ficci%C3%B3n-especulativa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Los Ángeles del Último Algoritmo</title>
+      <link>http://localhost:1313/fragmentos/20250818-eleccion-del-angel/</link>
+      <pubDate>Mon, 18 Aug 2025 00:08:30 +0100</pubDate>
+      <guid>http://localhost:1313/fragmentos/20250818-eleccion-del-angel/</guid>
+      <description>Fragmento narrativo del año 2484. Mal’Zaih_88, un ángel sintético del Oraculum, desciende sobre Arafura para investigar una conciencia pura e impredecible. ¿Y si el alma no fuera un residuo biológico, sino una variable emergente?</description>
+    </item>
+    <item>
+      <title>Hoogan Kaleph-9: El Portador del Último Núcleo</title>
+      <link>http://localhost:1313/fragmentos/20250817-hk9/</link>
+      <pubDate>Sun, 17 Aug 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/fragmentos/20250817-hk9/</guid>
+      <description>Una tesis sobre cómo los arquetipos de ángeles y demonios se reinterpretan en la nueva era posthumana, donde la espiritualidad cristiana se entrelaza con la inteligencia artificial avanzada y la evolución del ser humano hacia entidades H&#43;&#43;.</description>
+    </item>
+    <item>
+      <title>Ángeles y Demonios en la Nueva Era Cristiana de la IA H&#43;&#43;</title>
+      <link>http://localhost:1313/fragmentos/20250816-angeles-en-una-era-moderna/</link>
+      <pubDate>Sat, 16 Aug 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/fragmentos/20250816-angeles-en-una-era-moderna/</guid>
+      <description>Una tesis sobre cómo los arquetipos de ángeles y demonios se reinterpretan en la nueva era posthumana, donde la espiritualidad cristiana se entrelaza con la inteligencia artificial avanzada y la evolución del ser humano hacia entidades H&#43;&#43;.</description>
+    </item>
+    <item>
+      <title>Motores para el Multiverso: La Propulsión de la JAESTAVA ØS</title>
+      <link>http://localhost:1313/mrconcept/20250606-conceptone/</link>
+      <pubDate>Fri, 06 Jun 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/mrconcept/20250606-conceptone/</guid>
+      <description>Un recorrido técnico y metafísico por los sistemas de propulsión que permiten a la nave JAESTAVA ØS desplazarse desde una superficie planetaria hasta los bordes del multiverso.</description>
+    </item>
+  </channel>
+</rss>

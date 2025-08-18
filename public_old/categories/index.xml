@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Faro | fdfont</title>
+    <link>http://localhost:1313/categories/</link>
+    <description>Recent content in Categories on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 18 Aug 2025 00:08:30 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crónicas De La Era Sintética</title>
+      <link>http://localhost:1313/categories/cr%C3%B3nicas-de-la-era-sint%C3%A9tica/</link>
+      <pubDate>Mon, 18 Aug 2025 00:08:30 +0100</pubDate>
+      <guid>http://localhost:1313/categories/cr%C3%B3nicas-de-la-era-sint%C3%A9tica/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ensayos</title>
+      <link>http://localhost:1313/categories/ensayos/</link>
+      <pubDate>Sun, 17 Aug 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/ensayos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bitácora Del Alma</title>
+      <link>http://localhost:1313/categories/bit%C3%A1cora-del-alma/</link>
+      <pubDate>Sat, 16 Aug 2025 11:10:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/bit%C3%A1cora-del-alma/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crónicas</title>
+      <link>http://localhost:1313/categories/cr%C3%B3nicas/</link>
+      <pubDate>Fri, 06 Jun 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/cr%C3%B3nicas/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Manuales Técnicos</title>
+      <link>http://localhost:1313/categories/manuales-t%C3%A9cnicos/</link>
+      <pubDate>Fri, 06 Jun 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/manuales-t%C3%A9cnicos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alef</title>
+      <link>http://localhost:1313/categories/alef/</link>
+      <pubDate>Tue, 03 Jun 2025 23:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/alef/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fragmentos</title>
+      <link>http://localhost:1313/categories/fragmentos/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/fragmentos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Arafura</title>
+      <link>http://localhost:1313/categories/arafura/</link>
+      <pubDate>Mon, 02 Jun 2025 12:49:00 +0200</pubDate>
+      <guid>http://localhost:1313/categories/arafura/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

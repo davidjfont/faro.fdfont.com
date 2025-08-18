@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Era Sintetica on Faro | fdfont</title>
+    <link>http://localhost:1313/tags/era-sintetica/</link>
+    <description>Recent content in Era Sintetica on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 03 Jun 2025 00:00:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/era-sintetica/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>La Sonda de la Gravedad Invertida</title>
+      <link>http://localhost:1313/fragmentos/20250603-sonda-gravedad-invertida/</link>
+      <pubDate>Tue, 03 Jun 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/fragmentos/20250603-sonda-gravedad-invertida/</guid>
+      <description>Una sonda inmensa es enviada a un agujero negro en busca de lo que habita más allá. Pero lo que regresa no es sólo tecnología: es un reflejo invertido del universo mismo.</description>
+    </item>
+  </channel>
+</rss>

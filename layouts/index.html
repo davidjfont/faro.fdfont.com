@@ -180,6 +180,36 @@
       }
     }
   </style>
+  <style>
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    background: #1E90FF;
+    color: white;
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+
+  .tag:hover {
+    background: #0066cc;
+  }
+
+  body.dark .tag {
+    background: #0057a3;
+  }
+
+  body.dark .tag:hover {
+    background: #003d73;
+  }
+</style>
 </head>
 
 <body>
@@ -271,6 +301,21 @@
 </div>
 {{ end }}
 
+<section class="tags-section">
+  <div style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+    <h3>Etiquetas populares</h3>
+    <div class="tags-list">
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" class="tag">{{ $name }} ({{ len $taxonomy }})</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+<section class="">
+  <div style="">
+      {{ partial "newsletter.html" . }}
+   </div>
+  </div>
 <script>
   // Matrix azul
   const canvas = document.getElementById('matrix');
@@ -311,7 +356,25 @@
     canvas.height = window.innerHeight;
   });
 </script>
-
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (response.ok) {
+      window.location.href = "/thank-you/";
+    } else {
+      alert("Hi ha hagut un error enviant el formulari.");
+    }
+  });
+</script>
 </body>
 </html>
 {{ end }}

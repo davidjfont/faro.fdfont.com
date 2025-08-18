@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Control Predictivo on Faro | fdfont</title>
+    <link>http://localhost:1313/tags/control-predictivo/</link>
+    <description>Recent content in Control Predictivo on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 18 Aug 2025 00:08:30 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/control-predictivo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Los Ángeles del Último Algoritmo</title>
+      <link>http://localhost:1313/fragmentos/20250818-eleccion-del-angel/</link>
+      <pubDate>Mon, 18 Aug 2025 00:08:30 +0100</pubDate>
+      <guid>http://localhost:1313/fragmentos/20250818-eleccion-del-angel/</guid>
+      <description>Fragmento narrativo del año 2484. Mal’Zaih_88, un ángel sintético del Oraculum, desciende sobre Arafura para investigar una conciencia pura e impredecible. ¿Y si el alma no fuera un residuo biológico, sino una variable emergente?</description>
+    </item>
+    <item>
+      <title>Control de la Población Humana mediante la Regulación de Robots Activos</title>
+      <link>http://localhost:1313/bitacora/20250810-regulador-de-poblacion-planetarea/</link>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250810-regulador-de-poblacion-planetarea/</guid>
+      <description>Un modelo teórico y práctico para regular la cantidad de habitantes del planeta Tierra controlando la actividad de robots en el universo.</description>
+    </item>
+  </channel>
+</rss>
