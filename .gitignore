@@ -21,3 +21,6 @@ ChatGPT Image 28 may 2025, 19_35_39.png
 
 # Ignorar carpeta de salida Hugo
 /public/
+
+.pem
+keys/

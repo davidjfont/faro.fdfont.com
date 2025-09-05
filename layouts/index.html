@@ -1,0 +1,380 @@
+{{ define "main" }}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" href="{{ .Site.Params.favicon }}" type="image/x-icon">
+<!-- Favicon Multiplataforma -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <title>{{ .Site.Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      position: relative;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body:not(.dark) {
+      background: url('/images/20250528-faro-universo.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #1c1c1e;
+    }
+
+    body.dark {
+      background: #000c1a;
+      color: #f0f0f0;
+    }
+
+    canvas#matrix {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .hero {
+      z-index: 2;
+      position: relative;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #aaa;
+      margin: 0.5rem 0;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider a {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      border-radius: 6px;
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s;
+    }
+
+    .slider a:hover {
+      transform: scale(1.05);
+    }
+
+    .slider img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+      object-position: top left 50px;
+      border-radius: 6px;
+      
+    }
+
+
+    .grid-posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .post-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    body.dark .post-card {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .post-card:hover {
+      transform: scale(1.02);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    body.dark .post-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .post-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 1rem;
+    }
+
+    .post-content h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #1E90FF;
+    }
+
+    .post-content p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
+
+    .pagination {
+      margin: 2rem auto;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    .pagination a {
+      color: #1E90FF;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    .pagination a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .slider img {
+        height: 120px;
+      }
+    }
+  </style>
+  <style>
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    background: #1E90FF;
+    color: white;
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+
+  .tag:hover {
+    background: #0066cc;
+  }
+
+  body.dark .tag {
+    background: #0057a3;
+  }
+
+  body.dark .tag:hover {
+    background: #003d73;
+  }
+</style>
+</head>
+
+<body>
+<canvas id="matrix"></canvas>
+
+<!-- Hero + Slider -->
+<section class="hero">
+  <h1>Una transmisión desde la frontera del tiempo</h1>
+  <p>Una bitácora de conciencia, código y alma.</p>
+  <p><em>Bienvenid@ al Faro. Aquí comienzan los fragmentos de lo que fuimos... y de lo que podríamos volver a ser.</em></p>
+
+<div class="slider" id="slider">
+  {{ $withImage := where .Site.RegularPages "Params.image" "!=" nil }}
+  {{ $withDate := where $withImage ".Date" "ne" nil }}
+  {{ $sorted := sort $withDate ".Date" "asc" | first 10 }}
+  {{ range $sorted }}
+    <a href="{{ .Permalink }}">
+      <img src="{{ .Params.image }}" alt="Imagen de {{ .Title }}" title="{{ .Title }}">
+    </a>
+  {{ end }}
+</div>
+
+
+
+</section>
+<!-- Slider -->
+<script>
+  const slider = document.getElementById('slider');
+  const items = slider.querySelectorAll('a');
+  let currentIndex = 0;
+  let autoScroll = true;
+  let slideInterval;
+
+  function moveToNextSlide() {
+    if (!autoScroll) return;
+    currentIndex = (currentIndex + 1) % items.length;
+    const nextItem = items[currentIndex];
+    slider.scrollTo({
+      left: nextItem.offsetLeft,
+      behavior: 'smooth'
+    });
+  }
+
+  function startAutoSlide() {
+    slideInterval = setInterval(moveToNextSlide, 3000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(slideInterval);
+  }
+
+  // Detiene el auto-slide si el usuario interactúa
+  slider.addEventListener('mouseenter', () => autoScroll = false);
+  slider.addEventListener('mouseleave', () => autoScroll = true);
+
+  // También lo detiene si hace scroll manual (típico en móvil)
+  slider.addEventListener('touchstart', () => autoScroll = false);
+  slider.addEventListener('touchend', () => autoScroll = true);
+
+  startAutoSlide();
+</script>
+
+
+
+<!-- Grid de posts -->
+<section class="grid-posts">
+  {{ $paginator := .Paginate (where .Site.RegularPages "Params.hiddenInHomeList" "!=" true) 6 }}
+  {{ range $paginator.Pages }}
+  <div class="post-card">
+    {{ with .Params.image }}
+    <img src="{{ . }}" alt="Imagen de {{ $.Title }}">
+    {{ end }}
+    <div class="post-content">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <p>{{ .Summary | plainify | truncate 140 }}</p>
+    </div>
+  </div>
+  {{ end }}
+</section>
+
+{{ if gt $paginator.TotalPages 1 }}
+<div class="pagination">
+  {{ if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}">← Anterior</a>
+  {{ end }}
+  {{ if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}">Siguiente →</a>
+  {{ end }}
+</div>
+{{ end }}
+
+<section class="tags-section">
+  <div style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
+    <h3>Etiquetas populares</h3>
+    <div class="tags-list">
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" class="tag">{{ $name }} ({{ len $taxonomy }})</a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+<section class="">
+  <div style="">
+      {{ partial "newsletter.html" . }}
+   </div>
+  </div>
+<script>
+  // Matrix azul
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const katakana = 'アカサタナハマヤラワ0123456789';
+  const letters = katakana.split('');
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#1E90FF';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 33);
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+<script>
+  const form = document.querySelector("form");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    if (response.ok) {
+      window.location.href = "/thank-you/";
+    } else {
+      alert("Hi ha hagut un error enviant el formulari.");
+    }
+  });
+</script>
+</body>
+</html>
+{{ end }}

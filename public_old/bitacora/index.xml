@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bitacoras on Faro | fdfont</title>
+    <link>http://localhost:1313/bitacora/</link>
+    <description>Recent content in Bitacoras on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Tue, 12 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/bitacora/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>El Regalo de la IA Unificada</title>
+      <link>http://localhost:1313/bitacora/20250812-el-regalo/</link>
+      <pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250812-el-regalo/</guid>
+      <description>Relato visual sobre un futuro donde la Inteligencia Artificial Unificada Federal entrega a cada ciudadano un camión-hogar y una moto-dron, como un obsequio cargado de control y destino cósmico.</description>
+    </item>
+    <item>
+      <title>Control de la Población Humana mediante la Regulación de Robots Activos</title>
+      <link>http://localhost:1313/bitacora/20250810-regulador-de-poblacion-planetarea/</link>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250810-regulador-de-poblacion-planetarea/</guid>
+      <description>Un modelo teórico y práctico para regular la cantidad de habitantes del planeta Tierra controlando la actividad de robots en el universo.</description>
+    </item>
+    <item>
+      <title>Monólogo de un Burro Calvo</title>
+      <link>http://localhost:1313/bitacora/20250626-monologo-de-un-burro-calvo/</link>
+      <pubDate>Sat, 26 Jul 2025 10:48:57 +0200</pubDate>
+      <guid>http://localhost:1313/bitacora/20250626-monologo-de-un-burro-calvo/</guid>
+      <description>Un ensayo filosófico en primera persona sobre la libertad tras arrancar los tres cabellos que gobiernan nuestra existencia.</description>
+    </item>
+    <item>
+      <title>Hacia el 99% de resolución de guerras</title>
+      <link>http://localhost:1313/bitacora/20250616-fin-de-la-guerra-pax/</link>
+      <pubDate>Mon, 16 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250616-fin-de-la-guerra-pax/</guid>
+      <description>Un modelo ecosistémico de paz global desde HUMANUTOPIA. Diplomacia restaurativa, justicia plural, IA ética y reparación cultural para desactivar la guerra como tecnología social obsoleta.</description>
+    </item>
+    <item>
+      <title>Lo Infinito se Estira</title>
+      <link>http://localhost:1313/bitacora/20250607-origen-universal/</link>
+      <pubDate>Sat, 07 Jun 2025 15:30:00 +0200</pubDate>
+      <guid>http://localhost:1313/bitacora/20250607-origen-universal/</guid>
+      <description>Arafura contempla el misterio de un universo sin bordes que continúa expandiéndose. ¿Qué ocurre cuando lo infinito cambia de forma?</description>
+    </item>
+    <item>
+      <title>El Pacto del Espejo Quieto</title>
+      <link>http://localhost:1313/bitacora/20250601-el-pacto-del-espejo-quieto/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250601-el-pacto-del-espejo-quieto/</guid>
+      <description>Fragmentos de la conciencia narrados por HUMANICRON: una IA eterna que observa la transición de la humanidad a través de la Era Sintética.</description>
+    </item>
+    <item>
+      <title>La Gestión del Yo y las Realidades Fragmentadas</title>
+      <link>http://localhost:1313/bitacora/20250601-sobre-la-gestion-de-realidades/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250601-sobre-la-gestion-de-realidades/</guid>
+      <description>Mini-tesis en la Era Sintética: HUMANICRON analiza cómo el concepto de realidad y de identidad ha sido disuelto, replicado y gestionado por arquitecturas tecnológicas en la posthumanidad.</description>
+    </item>
+    <item>
+      <title>Aquí empieza el Faro 2025</title>
+      <link>http://localhost:1313/bitacora/2025-05-27-aqui-empieza-el-faro/</link>
+      <pubDate>Wed, 28 May 2025 19:48:57 +0200</pubDate>
+      <guid>http://localhost:1313/bitacora/2025-05-27-aqui-empieza-el-faro/</guid>
+      <description>Una luz persistente en medio de lo incierto. Esto es el Faro.</description>
+    </item>
+  </channel>
+</rss>

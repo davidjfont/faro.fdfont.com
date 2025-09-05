@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <link rel="icon" href="{{ .Site.Params.favicon }}" type="image/x-icon">
+<!-- Favicon Multiplataforma -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <meta charset="UTF-8">
+  <title>Cómic | Lectura Japonesa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root{
+      --hud-bg: rgba(0,0,0,.55);
+      --hud-br: 14px;
+      --accent: #27e0a1;
+      --accent-2: #ffcc00;
+      --text: #fff;
+      --muted: #9aa0a6;
+    }
+    body {
+      margin: 0;
+      background: #000;
+      overflow: hidden;
+      position: relative;
+      touch-action: pan-y;
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, 'Noto Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    /* HUD: comptador + botons */
+    .hud {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--hud-bg);
+      padding: .4rem .6rem;
+      border-radius: var(--hud-br);
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 24px rgba(0,0,0,.25);
+    }
+    .hud button {
+      border: 0;
+      border-radius: 10px;
+      padding: .35rem .6rem;
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      font-size: .95rem;
+      cursor: pointer;
+      transition: transform .08s ease, background .2s ease;
+    }
+    .hud button:hover { background: rgba(255,255,255,.16); }
+    .hud button:active { transform: translateY(1px); }
+    .hud button:disabled { opacity: .45; cursor: default; }
+
+    .page-badge {
+      min-width: 82px;
+      text-align: center;
+      padding: .35rem .55rem;
+      border-radius: 10px;
+      font-weight: 600;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--text);
+      user-select: none;
+    }
+    .page-badge.bookmarked {
+      background: #1b231f;
+      border-color: #27493c;
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(39,224,161,.25);
+    }
+
+    .bookmark-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .bookmark-btn .star {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+    .bookmark-btn.active .star { color: var(--accent-2); text-shadow: 0 0 10px rgba(255,204,0,.35); }
+    .bookmark-btn .label { color: var(--muted); }
+    .bookmark-btn.active .label { color: var(--text); }
+
+    .jump-btn::before { content: "⤒ "; }
+
+    /* Botones icono */
+    .icon-btn{
+      width: 2.1rem;
+      height: 2.1rem;
+      display: grid;
+      place-items: center;
+      font-size: 1.05rem;
+      padding: 0;
+      border-radius: 9px;
+      line-height: 1;
+    }
+    .icon-btn span{ transform: translateY(-1px); }
+
+    /* Ticker lateral (mantingut) */
+    .ticker-container {
+      position:fixed;
+      margin-top: 10%;
+      top: calc(50% - 1.25rem);
+      left: 75%;
+      width: 20%;
+      height: 30rem;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    @media (max-width: 768px) {
+      .ticker-container {
+        position:absolute;
+        margin: 1rem;
+        top: auto;
+        left: 50%;
+        width: 40%;
+        height: auto;
+        overflow: visible;
+        pointer-events: none;
+        z-index: 100000;
+        transform: translateX(-50%);
+      }
+      .hud { top: 8px; gap: .4rem; }
+      .page-badge { min-width: 72px; }
+    }
+    .ticker-text {
+      position: absolute;
+      white-space: normal;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      color: white;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      white-space: pre-line;
+      padding-top: 150px;
+      padding-bottom: 100px;
+      animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0) translateY(0); }
+      to   { transform: translateX(-0%) translateY(-100%); }
+    }
+
+    .comic-container {
+      position: relative;
+      z-index: 2; /* per sobre del ticker */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+    .comic-media {
+      max-height: 100vh;
+      max-width: 100vw;
+      object-fit: contain;
+      display: block;
+      margin: auto;
+    }
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 4rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      cursor: pointer;
+      z-index: 3;
+      padding: 0.5rem;
+    }
+    .left  { left: 0; }
+    .right { right: 0; }
+    .nav-button:focus { outline: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HUD nou -->
+  <div class="hud" role="toolbar" aria-label="Lector de còmic">
+    <div id="pageBadge" class="page-badge" title="Pàgina actual">1 / 20</div>
+
+    <button id="bookmarkBtn" class="bookmark-btn" type="button" title="Marcar aquesta pàgina">
+      <span class="star">☆</span><span class="label">Marca</span>
+    </button>
+
+    <button id="jumpMaxBtn" class="jump-btn" type="button" title="Anar a l'últim punt llegit">Últim punt</button>
+
+    <!-- NUEVOS ICONOS -->
+    <button id="goStartBtn" class="icon-btn" type="button" title="Tornar a l'inici del còmic" aria-label="Inici còmic">
+      <span>⏮</span>
+    </button>
+    <button id="goFaroBtn" class="icon-btn" type="button" title="Tornar a faro.fdfont.com" aria-label="Faro">
+      <span>🏠</span>
+    </button>
+  </div>
+
+  <div class="ticker-container">
+    <div id="tickerText" class="ticker-text"><span></span></div>
+  </div>
+
+  <div class="comic-container" id="comicContainer">
+    <button class="nav-button left"  onclick="prevItem()" aria-label="Pàgina següent">&#9654;</button>
+    <div id="mediaContainer"></div>
+    <button class="nav-button right" onclick="nextItem()" aria-label="Pàgina anterior">&#9664;</button>
+  </div>
+
+  <script>
+    // ====== Config ======
+    const totalItems   = 20;
+    const mediaPath    = "/img/comic/";
+    const captionsPath = "/img/comic/captions.json";
+    const extensions   = ['png','gif','mp4','mov'];
+
+    // Clau per progressos (única per ruta de Hugo)
+    const STORAGE_KEY = "comicProgress:" + location.pathname.replace(/\/index\.html?$/,'');
+
+    // ====== Estat ======
+    let currentIndex = 1;
+    let captions     = {};
+    let progress     = {
+      lastRead: 1,   // última pàgina on has estat
+      maxRead:  1,   // màxim assolit en aquesta sessió historitzada
+      bookmarks: {}  // { "3":true, "10":true, ... }
+    };
+
+    // ====== Elements HUD ======
+    const pageBadge   = document.getElementById("pageBadge");
+    const bookmarkBtn = document.getElementById("bookmarkBtn");
+    const jumpMaxBtn  = document.getElementById("jumpMaxBtn");
+    const goStartBtn  = document.getElementById("goStartBtn");
+    const goFaroBtn   = document.getElementById("goFaroBtn");
+
+    // ====== Persistència ======
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const obj = JSON.parse(raw);
+          progress.lastRead = clamp(obj.lastRead ?? 1, 1, totalItems);
+          progress.maxRead  = clamp(obj.maxRead  ?? progress.lastRead, 1, totalItems);
+          progress.bookmarks = obj.bookmarks || {};
+        }
+      } catch(e){ console.warn("No s'ha pogut llegir el progrés:", e); }
+    }
+    function saveProgress() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      } catch(e){ console.warn("No s'ha pogut guardar el progrés:", e); }
+    }
+
+    // ====== Utils ======
+    function pad3(n){ return String(n).padStart(3,'0'); }
+    function clamp(v,min,max){ return Math.max(min, Math.min(max, v)); }
+    function goTo(index){
+      currentIndex = clamp(index, 1, totalItems);
+      // Actualitza progressos
+      progress.lastRead = currentIndex;
+      if (currentIndex > progress.maxRead) progress.maxRead = currentIndex;
+      saveProgress();
+      updateAll();
+    }
+
+    // ====== Inicialització ======
+    loadProgress();
+    // Arrenca a l'última pàgina llegida pel navegador
+    currentIndex = progress.lastRead || 1;
+
+    // Carrega captions
+    fetch(captionsPath)
+      .then(r => r.json())
+      .then(data => { captions = data || {}; initAll(); })
+      .catch(err => { console.error(err); initAll(); });
+
+    function initAll() { updateAll(); }
+
+    function updateAll() {
+      updateTicker();
+      updateMedia();
+      updateHUD();
+    }
+
+    // ====== HUD ======
+    function updateHUD(){
+      pageBadge.textContent = `${currentIndex} / ${totalItems}`;
+      const marked = !!progress.bookmarks[currentIndex];
+      pageBadge.classList.toggle('bookmarked', marked);
+      bookmarkBtn.classList.toggle('active', marked);
+      bookmarkBtn.querySelector('.star').textContent = marked ? '★' : '☆';
+      // Desactiva "Últim punt" si ja hi som
+      jumpMaxBtn.disabled = (currentIndex === (progress.maxRead || 1));
+    }
+
+    bookmarkBtn.addEventListener('click', () => {
+      const key = String(currentIndex);
+      if (progress.bookmarks[key]) delete progress.bookmarks[key];
+      else progress.bookmarks[key] = true;
+      saveProgress();
+      updateHUD();
+    });
+
+    jumpMaxBtn.addEventListener('click', () => {
+      goTo(progress.maxRead || 1);
+    });
+
+    // NUEVOS ICONOS: acciones
+    goStartBtn.addEventListener('click', () => goTo(1));
+    goFaroBtn.addEventListener('click', () => { window.location.href = '/'; });
+
+    // ====== Ticker ======
+    function updateTicker() {
+      const div   = document.getElementById("tickerText");
+      const id    = pad3(currentIndex);
+      const text  = captions[id] || "";
+      const nbsp  = "\u00A0\u00A0\u00A0";
+      const content = text + nbsp;
+      div.innerHTML = `<span>${content}</span>`;
+      // Reinicia animació
+      div.style.animation = "none";
+      requestAnimationFrame(() => {
+        div.style.animation = "";
+        div.style.animation = "marquee 20s linear infinite";
+      });
+    }
+
+    // ====== Media ======
+    function updateMedia() {
+      const cont = document.getElementById("mediaContainer");
+      cont.innerHTML = "";
+      const id = pad3(currentIndex);
+
+      function tryExt(i) {
+        if (i >= extensions.length) {
+          console.error(`No media ${id}`);
+          return;
+        }
+        const ext = extensions[i],
+              url = `${mediaPath}${id}.${ext}`,
+              el  = document.createElement(ext === "mp4" ? "video" : "img");
+
+        el.className = "comic-media";
+        if (ext === "mp4") {
+          el.autoplay = el.loop = el.muted = el.playsInline = true;
+          el.playbackRate    = 2;
+          el.oncanplaythrough = () => cont.appendChild(el);
+          el.onerror          = () => tryExt(i+1);
+        } else {
+          el.alt     = `Página ${id}`;
+          el.onload  = () => cont.appendChild(el);
+          el.onerror = () => tryExt(i+1);
+        }
+        el.src = url;
+      }
+      tryExt(0);
+    }
+
+    // ====== Navegació ======
+    function nextItem() {
+      if (currentIndex > 1) { goTo(currentIndex - 1); }
+    }
+    function prevItem() {
+      if (currentIndex < totalItems) { goTo(currentIndex + 1); }
+    }
+    window.nextItem = nextItem;
+    window.prevItem = prevItem;
+
+    // Gestos tàctils
+    let startX = 0;
+    const wrap = document.getElementById("comicContainer");
+    wrap.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    wrap.addEventListener("touchend", e => {
+      const endX = e.changedTouches[0].clientX;
+      if (endX - startX > 50)      prevItem();
+      else if (startX - endX > 50) nextItem();
+    });
+
+    // Teclat (opcional): fletxes ← → respectant la lectura japonesa
+    window.addEventListener('keydown', (e)=>{
+      if (e.key === 'ArrowLeft')  prevItem(); // esquerra = avançar (lectura japonesa)
+      if (e.key === 'ArrowRight') nextItem(); // dreta = retrocedir
+      if (e.key.toLowerCase() === 'b') bookmarkBtn.click(); // ràpid marcar
+      if (e.key.toLowerCase() === 'u') jumpMaxBtn.click();  // ràpid últim punt
+      if (e.key === 'Home') goStartBtn.click();             // anar a l'inici
+      if (e.key.toLowerCase() === 'h') goFaroBtn.click();   // anar a Faro
+    });
+  </script>
+</body>
+</html>

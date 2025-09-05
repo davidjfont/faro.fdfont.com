@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Población on Faro | fdfont</title>
+    <link>http://localhost:1313/tags/poblaci%C3%B3n/</link>
+    <description>Recent content in Población on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Sun, 10 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/poblaci%C3%B3n/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Control de la Población Humana mediante la Regulación de Robots Activos</title>
+      <link>http://localhost:1313/bitacora/20250810-regulador-de-poblacion-planetarea/</link>
+      <pubDate>Sun, 10 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bitacora/20250810-regulador-de-poblacion-planetarea/</guid>
+      <description>Un modelo teórico y práctico para regular la cantidad de habitantes del planeta Tierra controlando la actividad de robots en el universo.</description>
+    </item>
+  </channel>
+</rss>

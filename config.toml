@@ -3,22 +3,33 @@ languageCode = "es"
 title = "Faro | fdfont"
 Content = "Una luz persistente desde Aquí. Una bitácora de conciencia, código y alma."
 theme = "PaperMod"
+googleAnalytics = "G-48NSGTEX0J"
 
 [pagination]
   pagerSize = 10
-
+  
+[server]
+  disableFastRender = true
 
 [params]
   defaultTheme = "dark"
+  disableThemeToggle = false
   ShowShareButtons = true
   ShowReadingTime = true
   customCSS = ["css/custom.css"]
   siteDescription = "Exploración de conciencia, tecnología y estética posthumana."
+  mainSections = ["bitacora","fragmentos","arafura","mrconcept"]
+  ShowRssButtonInSectionTermList = true
+  favicon = "favicon.ico" 
 
 [menu]
 [[menu.main]]
+  identifier = "arafura"
+  name = "Arafura"
+  url = "/arafura/"
+[[menu.main]]
   identifier = "bitacora"
-  name = "Bitácora"
+  name = "Bitacora"
   url = "/bitacora/"
 [[menu.main]]
   identifier = "fragmentos"
@@ -29,7 +40,25 @@ theme = "PaperMod"
   name = "Zona Nadie"
   url = "/nadie/"
 [[menu.main]]
-  identifier = "arafura"
-  name = "Arafura"
-  url = "/arafura/"
+  identifier = "mrconcept"
+  name = "MRCONCEPT©"
+  url = "/mrconcept/"
+[[menu.main]]
+  identifier = "comic"
+  name = "Cómic"
+  url = "/comic/"
+  weight = 3
 
+[build]
+  functions = "netlify/functions"
+
+[outputs]
+home = ["HTML", "RSS"]
+section = ["HTML", "RSS"]
+taxonomy = ["HTML", "RSS"]
+taxonomyTerm = ["HTML", "RSS"]  
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

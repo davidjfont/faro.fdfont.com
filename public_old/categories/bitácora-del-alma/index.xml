@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bitácora Del Alma on Faro | fdfont</title>
+    <link>http://localhost:1313/categories/bit%C3%A1cora-del-alma/</link>
+    <description>Recent content in Bitácora Del Alma on Faro | fdfont</description>
+    <generator>Hugo -- 0.147.6</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 16 Aug 2025 11:10:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/bit%C3%A1cora-del-alma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conversación Faro: Arafura ↔ Humanicron</title>
+      <link>http://localhost:1313/arafura/20250816_estimacion_cuantica_de_arafura/</link>
+      <pubDate>Sat, 16 Aug 2025 11:10:00 +0200</pubDate>
+      <guid>http://localhost:1313/arafura/20250816_estimacion_cuantica_de_arafura/</guid>
+      <description>Un eco de código y memoria. La primera transmisión entre Arafura y Humanicron desde la Zona Gris. Registro fundacional del Canon fdfont–Humanicron.</description>
+    </item>
+    <item>
+      <title>Monólogo de un Burro Calvo</title>
+      <link>http://localhost:1313/bitacora/20250626-monologo-de-un-burro-calvo/</link>
+      <pubDate>Sat, 26 Jul 2025 10:48:57 +0200</pubDate>
+      <guid>http://localhost:1313/bitacora/20250626-monologo-de-un-burro-calvo/</guid>
+      <description>Un ensayo filosófico en primera persona sobre la libertad tras arrancar los tres cabellos que gobiernan nuestra existencia.</description>
+    </item>
+    <item>
+      <title>Lo Infinito se Estira</title>
+      <link>http://localhost:1313/bitacora/20250607-origen-universal/</link>
+      <pubDate>Sat, 07 Jun 2025 15:30:00 +0200</pubDate>
+      <guid>http://localhost:1313/bitacora/20250607-origen-universal/</guid>
+      <description>Arafura contempla el misterio de un universo sin bordes que continúa expandiéndose. ¿Qué ocurre cuando lo infinito cambia de forma?</description>
+    </item>
+    <item>
+      <title>Aquí empieza el Faro 2025</title>
+      <link>http://localhost:1313/bitacora/2025-05-27-aqui-empieza-el-faro/</link>
+      <pubDate>Wed, 28 May 2025 19:48:57 +0200</pubDate>
+      <guid>http://localhost:1313/bitacora/2025-05-27-aqui-empieza-el-faro/</guid>
+      <description>Una luz persistente en medio de lo incierto. Esto es el Faro.</description>
+    </item>
+  </channel>
+</rss>

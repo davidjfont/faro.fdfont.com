@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Newsletter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .newsletter-button{background:#00bcd4;color:#fff;border:none;padding:10px 20px;cursor:pointer;font-size:16px;border-radius:4px;transition:background-color .3s}
+    .newsletter-button:hover{background:#0097a7}
+    .modal{position:fixed;z-index:99999;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center}
+    .modal-content{background:#1b1b1b;color:#f0f0f0;padding:30px;max-width:400px;width:90%;border-radius:8px;position:relative;box-shadow:0 0 30px rgba(0,0,0,.5);animation:fadeIn .3s ease-out}
+    @keyframes fadeIn{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+    .modal-content h3{margin-top:0;color:#00bcd4;font-size:20px}
+    .close{position:absolute;right:12px;top:12px;font-size:20px;color:#999;cursor:pointer}
+    .close:hover{color:#fff}
+    input[type=email]{width:100%;padding:10px;margin-top:15px;margin-bottom:20px;border:none;border-radius:6px;background:#2b2b2b;color:#fff!important}
+    input[type=email],input[type=email]:visited,input[type=email]:hover,input[type=email]:focus,input[type=email]:active{background:#2a2a2a!important;color:#fff!important;border:none;outline:none;box-shadow:none;text-decoration:none}
+    button[type=submit]{background:#8801ff;color:#000;border:none;padding:10px 20px;cursor:pointer;border-radius:6px;font-size:16px;font-weight:700;transition:filter .2s}
+    button[type=submit]:hover{filter:brightness(1.1)}
+  </style>
+</head>
+<body>
+
+  <button id="newsletterBtn" class="newsletter-button">
+    <i class="fas fa-envelope"></i> Suscríbete
+  </button>
+
+  <div id="newsletterModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Suscríbete a nuestro boletín</h3>
+
+      <!-- Opción A: redirección con campo oculto (URL ABSOLUTA) -->
+      <form action="https://formspree.io/f/xnnzygvg" method="POST">
+        <input type="hidden" name="_redirect" value="https://faro.fdfont.com/thank-you/">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Enviar</button>
+      </form>
+      
+
+      <!-- Opción B (alternativa): usar query en el action
+      <form action="https://formspree.io/f/xnnzygvg?redirect=http://localhost:1313/thank-you/" method="POST">
+        <input type="email" name="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Enviar</button>
+      </form>
+      -->
+
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('newsletterModal');
+    const btn = document.getElementById('newsletterBtn');
+    const closeBtn = document.querySelector('.close');
+
+    btn.addEventListener('click', () => { modal.style.display = 'flex'; });
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+  </script>
+
+</body>
+</html>
