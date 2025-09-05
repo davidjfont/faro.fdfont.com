@@ -1,5 +1,5 @@
 ---
-title: "Aquí empieza el Faro 2025"
+title: "Aquí empieza el Faro 2026"
 date: 2025-05-28T19:48:57+02:00
 draft: false
 tags: ["inicio", "visión", "bitácora"]
