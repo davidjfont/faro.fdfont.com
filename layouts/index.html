@@ -3,16 +3,34 @@
 <html lang="es">
 <head>
   <link rel="icon" href="{{ .Site.Params.favicon }}" type="image/x-icon">
-<!-- Favicon Multiplataforma -->
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!-- Favicon Multiplataforma -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <meta charset="UTF-8">
   <title>{{ .Site.Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <style>
+    /* Botón centrado inferior */
+    .pveu-cta-wrap{
+      max-width:1200px;margin:3rem auto 4rem auto;padding:0 1rem;display:flex;justify-content:center
+    }
+    .pveu-cta{
+      background:#1E90FF;color:#fff;border:0;border-radius:999px;
+      padding:14px 22px;font-weight:700;letter-spacing:.4px;cursor:pointer;
+      box-shadow:0 10px 25px rgba(30,144,255,.35);transition:transform .2s,box-shadow .2s
+    }
+    .pveu-  :hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(30,144,255,.45)}
+    /* Modal (igual que antes) */
+    #pveu-modal{position:fixed;inset:0;z-index:10000;display:none;background:rgba(0,0,0,.65);backdrop-filter:blur(2px);align-items:center;justify-content:center}
+    #pveu-modal[open]{display:flex}
+    .pveu-modal-card{width:min(1000px,94vw);height:min(720px,90vh);background:#0b1220;border-radius:10px;overflow:hidden;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08)}
+    .pveu-modal-header{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;background:rgba(255,255,255,.06);color:#fff;font-weight:600}
+    .pveu-close{appearance:none;border:0;background:transparent;color:#fff;font-size:24px;line-height:1;cursor:pointer;padding:4px 8px}
+    .pveu-iframe{width:100%;height:calc(100% - 44px);border:0;background:#fff}
+  </style>
   <style>
     body {
       margin: 0;
@@ -76,9 +94,7 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    .slider::-webkit-scrollbar {
-      display: none;
-    }
+    .slider::-webkit-scrollbar { display: none; }
 
     .slider a {
       flex-shrink: 0;
@@ -89,9 +105,7 @@
       transition: transform 0.3s;
     }
 
-    .slider a:hover {
-      transform: scale(1.05);
-    }
+    .slider a:hover { transform: scale(1.05); }
 
     .slider img {
       height: 180px;
@@ -99,9 +113,7 @@
       object-fit: cover;
       object-position: top left 50px;
       border-radius: 6px;
-      
     }
-
 
     .grid-posts {
       display: grid;
@@ -121,40 +133,22 @@
       transition: transform 0.3s, background 0.3s;
     }
 
-    body.dark .post-card {
-      background: rgba(255, 255, 255, 0.05);
-    }
+    body.dark .post-card { background: rgba(255, 255, 255, 0.05); }
 
     .post-card:hover {
       transform: scale(1.02);
       background: rgba(255, 255, 255, 0.2);
     }
 
-    body.dark .post-card:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
+    body.dark .post-card:hover { background: rgba(255, 255, 255, 0.1); }
 
-    .post-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
+    .post-card img { width: 100%; height: 160px; object-fit: cover; }
 
-    .post-content {
-      padding: 1rem;
-    }
+    .post-content { padding: 1rem; }
 
-    .post-content h2 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #1E90FF;
-    }
+    .post-content h2 { margin: 0; font-size: 1.2rem; color: #1E90FF; }
 
-    .post-content p {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 0.5rem;
-    }
+    .post-content p { font-size: 0.9rem; color: #ccc; margin-top: 0.5rem; }
 
     .pagination {
       margin: 2rem auto;
@@ -170,46 +164,70 @@
       font-weight: bold;
     }
 
-    .pagination a:hover {
-      text-decoration: underline;
-    }
+    .pagination a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
-      .slider img {
-        height: 120px;
-      }
+      .slider img { height: 120px; }
     }
   </style>
+
   <style>
-  .tags-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
+    .tags-list {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;
+    }
+    .tag {
+      background: #1E90FF; color: white; padding: 0.4em 0.8em; border-radius: 20px;
+      text-decoration: none; font-size: 0.9rem; transition: background 0.3s;
+    }
+    .tag:hover { background: #0066cc; }
+    body.dark .tag { background: #0057a3; }
+    body.dark .tag:hover { background: #003d73; }
 
-  .tag {
-    background: #1E90FF;
-    color: white;
-    padding: 0.4em 0.8em;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.3s;
-  }
+    /* ===== FAB PVEU + MODAL ===== */
+    .pveu-fab {
+      position: fixed;
+      right: 18px; bottom: 18px;
+      z-index: 9999;
+      background: #1E90FF;
+      color: #fff;
+      border: 0;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      box-shadow: 0 10px 25px rgba(30,144,255,.35);
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .pveu-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(30,144,255,.45); }
+    .pveu-fab:active { transform: translateY(0); }
+    .pveu-fab small { opacity: .9; font-weight: 600; }
+    @media (max-width:640px){ .pveu-fab { padding: 10px 14px; } }
 
-  .tag:hover {
-    background: #0066cc;
-  }
-
-  body.dark .tag {
-    background: #0057a3;
-  }
-
-  body.dark .tag:hover {
-    background: #003d73;
-  }
-</style>
+    #pveu-modal {
+      position: fixed; inset: 0; z-index: 10000; display: none;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(2px);
+      align-items: center; justify-content: center;
+    }
+    #pveu-modal[open] { display: flex; }
+    .pveu-modal-card {
+      width: min(1000px, 94vw); height: min(720px, 90vh);
+      background: #0b1220; border-radius: 10px; overflow: hidden; position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,.6);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .pveu-modal-header {
+      height: 44px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 12px; background: rgba(255,255,255,.06);
+      color: #fff; font-weight: 600;
+    }
+    .pveu-close {
+      appearance: none; border: 0; background: transparent; color: #fff;
+      font-size: 24px; line-height: 1; cursor: pointer; padding: 4px 8px;
+    }
+    .pveu-iframe { width: 100%; height: calc(100% - 44px); border: 0; background: #fff; }
+  </style>
 </head>
 
 <body>
@@ -221,20 +239,18 @@
   <p>Una bitácora de conciencia, código y alma.</p>
   <p><em>Bienvenid@ al Faro. Aquí comienzan los fragmentos de lo que fuimos... y de lo que podríamos volver a ser.</em></p>
 
-<div class="slider" id="slider">
-  {{ $withImage := where .Site.RegularPages "Params.image" "!=" nil }}
-  {{ $withDate := where $withImage ".Date" "ne" nil }}
-  {{ $sorted := sort $withDate ".Date" "asc" | first 10 }}
-  {{ range $sorted }}
-    <a href="{{ .Permalink }}">
-      <img src="{{ .Params.image }}" alt="Imagen de {{ .Title }}" title="{{ .Title }}">
-    </a>
-  {{ end }}
-</div>
-
-
-
+  <div class="slider" id="slider">
+    {{ $withImage := where .Site.RegularPages "Params.image" "!=" nil }}
+    {{ $withDate := where $withImage ".Date" "ne" nil }}
+    {{ $sorted := sort $withDate ".Date" "asc" | first 10 }}
+    {{ range $sorted }}
+      <a href="{{ .Permalink }}">
+        <img src="{{ .Params.image }}" alt="Imagen de {{ .Title }}" title="{{ .Title }}">
+      </a>
+    {{ end }}
+  </div>
 </section>
+
 <!-- Slider -->
 <script>
   const slider = document.getElementById('slider');
@@ -244,35 +260,20 @@
   let slideInterval;
 
   function moveToNextSlide() {
-    if (!autoScroll) return;
+    if (!autoScroll || items.length === 0) return;
     currentIndex = (currentIndex + 1) % items.length;
     const nextItem = items[currentIndex];
-    slider.scrollTo({
-      left: nextItem.offsetLeft,
-      behavior: 'smooth'
-    });
+    slider.scrollTo({ left: nextItem.offsetLeft, behavior: 'smooth' });
   }
+  function startAutoSlide() { slideInterval = setInterval(moveToNextSlide, 3000); }
+  function stopAutoSlide() { clearInterval(slideInterval); }
 
-  function startAutoSlide() {
-    slideInterval = setInterval(moveToNextSlide, 3000);
-  }
-
-  function stopAutoSlide() {
-    clearInterval(slideInterval);
-  }
-
-  // Detiene el auto-slide si el usuario interactúa
   slider.addEventListener('mouseenter', () => autoScroll = false);
   slider.addEventListener('mouseleave', () => autoScroll = true);
-
-  // También lo detiene si hace scroll manual (típico en móvil)
   slider.addEventListener('touchstart', () => autoScroll = false);
   slider.addEventListener('touchend', () => autoScroll = true);
-
   startAutoSlide();
 </script>
-
-
 
 <!-- Grid de posts -->
 <section class="grid-posts">
@@ -292,12 +293,8 @@
 
 {{ if gt $paginator.TotalPages 1 }}
 <div class="pagination">
-  {{ if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}">← Anterior</a>
-  {{ end }}
-  {{ if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}">Siguiente →</a>
-  {{ end }}
+  {{ if $paginator.HasPrev }} <a href="{{ $paginator.Prev.URL }}">← Anterior</a> {{ end }}
+  {{ if $paginator.HasNext }} <a href="{{ $paginator.Next.URL }}">Siguiente →</a> {{ end }}
 </div>
 {{ end }}
 
@@ -311,70 +308,160 @@
     </div>
   </div>
 </section>
+
 <section class="">
   <div style="">
       {{ partial "newsletter.html" . }}
    </div>
+</section>
+
+<!-- Llamada a la acción centrada -->
+<div class="pveu-cta-wrap">
+  <button class="pveu-cta" id="pveu-open" aria-haspopup="dialog" aria-controls="pveu-modal" title="Abrir PVEU">
+    ⚡ PVEU – Votar / Probar ahora
+  </button>
+</div>
+
+<!-- Modal con iframe -->
+<div id="pveu-modal" role="dialog" aria-modal="true" aria-labelledby="pveu-modal-title">
+  <div class="pveu-modal-card">
+    <div class="pveu-modal-header">
+      <div id="pveu-modal-title">Parlament Virtual Espanyol Universal</div>
+      <button class="pveu-close" id="pveu-close" aria-label="Cerrar">✕</button>
+    </div>
+    <iframe
+      id="pveu-frame"
+      class="pveu-iframe"
+      src="https://pveu-fdfont.pythonanywhere.com/"
+      title="PVEU"
+      loading="lazy"
+      referrerpolicy="no-referrer"
+    ></iframe>
   </div>
+</div>
+
 <script>
   // Matrix azul
   const canvas = document.getElementById('matrix');
   const ctx = canvas.getContext('2d');
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  function sizeCanvas(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  sizeCanvas();
 
   const katakana = 'アカサタナハマヤラワ0123456789';
   const letters = katakana.split('');
   const fontSize = 14;
-  const columns = canvas.width / fontSize;
-  const drops = Array(Math.floor(columns)).fill(1);
+  let columns = Math.floor(canvas.width / fontSize);
+  let drops = Array(columns).fill(1);
 
   function draw() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-
     ctx.fillStyle = '#1E90FF';
     ctx.font = fontSize + 'px monospace';
-
     for (let i = 0; i < drops.length; i++) {
       const text = letters[Math.floor(Math.random() * letters.length)];
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i]++;
     }
   }
-
   setInterval(draw, 33);
 
   window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    sizeCanvas();
+    columns = Math.floor(canvas.width / fontSize);
+    drops = Array(columns).fill(1);
   });
 </script>
+
 <script>
+  // Newsletter (si existe un <form> en el partial)
   const form = document.querySelector("form");
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        window.location.href = "/thank-you/";
+      } else {
+        alert("Hi ha hagut un error enviant el formulari.");
       }
     });
-    if (response.ok) {
-      window.location.href = "/thank-you/";
-    } else {
-      alert("Hi ha hagut un error enviant el formulari.");
+  }
+
+  // ===== Lógica del modal PVEU =====
+  const pveuOpen  = document.getElementById('pveu-open');
+  const pveuModal = document.getElementById('pveu-modal');
+  const pveuClose = document.getElementById('pveu-close');
+  const pveuFrame = document.getElementById('pveu-frame');
+
+  function openPVEU() {
+    // Si el iframe fuese bloqueado por CSP, abrimos en pestaña nueva
+    try {
+      pveuModal.setAttribute('open', '');
+      pveuModal.style.display = 'flex';
+      pveuOpen.setAttribute('aria-expanded', 'true');
+      // Forzamos recarga del iframe la primera vez para asegurar contenido
+      if (!pveuFrame.src) pveuFrame.src = 'https://pveu-fdfont.pythonanywhere.com/';
+    } catch (e) {
+      window.open('https://pveu-fdfont.pythonanywhere.com/', '_blank', 'noopener,noreferrer');
+    }
+  }
+  function closePVEU() {
+    pveuModal.removeAttribute('open');
+    pveuModal.style.display = 'none';
+    pveuOpen.setAttribute('aria-expanded', 'false');
+  }
+
+  pveuOpen.addEventListener('click', openPVEU);
+  pveuClose.addEventListener('click', closePVEU);
+  pveuModal.addEventListener('click', (ev) => {
+    if (ev.target === pveuModal) closePVEU(); // Clic fuera cierra
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') closePVEU();
+  });
+
+  // Atajo de teclado opcional (V para "Votar")
+  document.addEventListener('keydown', (ev) => {
+    if ((ev.key === 'v' || ev.key === 'V') && !pveuModal.hasAttribute('open')) {
+      openPVEU();
     }
   });
 </script>
+<script>
+  const pveuOpen  = document.getElementById('pveu-open');
+  const pveuModal = document.getElementById('pveu-modal');
+  const pveuClose = document.getElementById('pveu-close');
+  const pveuFrame = document.getElementById('pveu-frame');
+
+  function openPVEU(){
+    try{
+      pveuModal.setAttribute('open','');
+      pveuModal.style.display='flex';
+      pveuOpen?.setAttribute('aria-expanded','true');
+      if(!pveuFrame.src) pveuFrame.src='https://pveu-fdfont.pythonanywhere.com/';
+    }catch(e){
+      window.open('https://pveu-fdfont.pythonanywhere.com/','_blank','noopener,noreferrer');
+    }
+  }
+  function closePVEU(){
+    pveuModal.removeAttribute('open');
+    pveuModal.style.display='none';
+    pveuOpen?.setAttribute('aria-expanded','false');
+  }
+  pveuOpen.addEventListener('click', openPVEU);
+  pveuClose.addEventListener('click', closePVEU);
+  pveuModal.addEventListener('click', (ev)=>{ if(ev.target===pveuModal) closePVEU(); });
+  document.addEventListener('keydown', (ev)=>{ if(ev.key==='Escape') closePVEU(); });
+</script>
+
+
 </body>
 </html>
 {{ end }}
