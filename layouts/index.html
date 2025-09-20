@@ -261,6 +261,51 @@
       font-size: 24px; line-height: 1; cursor: pointer; padding: 4px 8px;
     }
     .pveu-iframe { width: 100%; height: calc(100% - 44px); border: 0; background: #fff; }
+    <style>
+  /* ===== Banner PVEU ===== */
+  .pveu-banner{
+    background: linear-gradient(135deg,#165DFF 0%,#0F48C9 100%); /* azul del escudo */
+    color:#fff;
+    border-radius:12px;
+    box-shadow:0 14px 40px rgba(15,72,201,.25);
+    margin:22px auto 28px;
+    max-width:1200px;
+  }
+  .pveu-banner__inner{
+    display:flex; align-items:center; gap:20px;
+    padding:18px 22px;
+  }
+  .pveu-banner__logo{
+    width:96px; height:auto; flex:0 0 auto;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,.25));
+  }
+  .pveu-banner__copy h3{
+    margin:0 0 6px 0; font-size:1.25rem; line-height:1.2; font-weight:800;
+  }
+  .pveu-banner__copy p{
+    margin:0 0 10px 0; opacity:.9;
+  }
+  .pveu-banner__btn{
+    display:inline-block; background:#ffffff; color:#0F48C9;
+    font-weight:800; padding:10px 14px; border-radius:10px;
+    text-decoration:none; box-shadow:0 8px 22px rgba(0,0,0,.18);
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .pveu-banner__btn:hover{ transform:translateY(-1px); box-shadow:0 12px 28px rgba(0,0,0,.22); }
+  .pveu-banner__btn:active{ transform:translateY(0); }
+
+  /* Responsive */
+  @media (max-width:720px){
+    .pveu-banner__inner{ flex-direction:row; align-items:center; }
+    .pveu-banner__logo{ width:78px; }
+    .pveu-banner__copy h3{ font-size:1.05rem; }
+  }
+  @media (max-width:480px){
+    .pveu-banner__inner{ flex-direction:column; text-align:center; }
+    .pveu-banner__logo{ width:84px; }
+  }
+</style>
+
   </style>
 </head>
 
@@ -268,6 +313,35 @@
 <canvas id="matrix"></canvas>
 
 <!-- Hero + Slider -->
+  <section class="pveu-banner" role="region" aria-label="Acceso al Parlamento Virtual">
+  <div class="pveu-banner__inner">
+    <!-- Logo a la izquierda -->
+    <img
+      class="pveu-banner__logo"
+      src="/img/logo-parlamento-virtual-español-universal.png"
+      srcset="/img/logo-parlamento-virtual-español-universal.png"
+      width="96" height="96"
+      alt="Emblema del Parlamento Virtual Español Universal (PVEU)"
+      loading="lazy" decoding="async">
+
+    <!-- Texto + CTA a la derecha -->
+    <div class="pveu-banner__copy">
+      <h3>Acceso al <strong>Parlamento Virtual Español Universal</strong></h3>
+      <p>Regístrate, debate y vota con auditoría pública y trazabilidad.</p>
+      <a href="#" id="pveu-open-banner" class="pveu-banner__btn" aria-haspopup="dialog" aria-controls="pveu-modal">
+        Acceder ahora
+      </a>
+    </div>
+  </div>
+</section>
+<script>
+  document.getElementById('pveu-open-banner')?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    if (typeof openPVEU === 'function') { openPVEU(); }
+    else { window.open('https://pveu-fdfont.pythonanywhere.com/','_blank','noopener,noreferrer'); }
+  });
+</script>
+
 <section class="hero">
   <h1>Una transmisión desde la frontera del tiempo</h1>
   <p>Una bitácora de conciencia, código y alma.</p>
