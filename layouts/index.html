@@ -13,10 +13,44 @@
   <title>{{ .Site.Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* Botón centrado inferior */
-    .pveu-cta-wrap{
-      max-width:1200px;margin:3rem auto 4rem auto;padding:0 1rem;display:flex;justify-content:center
-    }
+  /* Estilos CTA + logo */
+  .pveu-cta-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;           /* separación logo-botón */
+    margin:24px 0;
+    text-align:center;
+  }
+
+  .pveu-logo{
+    max-width:320px;    /* tamaño tope desktop */
+    width:80%;
+    height:auto;
+    /* opcional: sutil relieve */
+    opacity: 0.75;   /* 75% */;
+    
+  }
+
+  /* Ajuste móvil */
+  @media (max-width:480px){
+    .pveu-logo{ max-width:220px; }
+  }
+
+  /* Botón (por si no lo tienes ya) */
+  .pveu-cta{
+    background:#1E90FF;           /* azul botón PVEU */
+    color:#fff;
+    font-weight:700;
+    padding:.9rem 1.2rem;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow:0 6px 18px rgba(30,144,255,.25);
+  }
+  .pveu-cta:hover{ background:#1876d1; box-shadow:0 8px 22px rgba(30,144,255,.33); }
+  .pveu-cta:active{ transform:scale(.98); }
     .pveu-cta{
       background:#1E90FF;color:#fff;border:0;border-radius:999px;
       padding:14px 22px;font-weight:700;letter-spacing:.4px;cursor:pointer;
@@ -277,7 +311,7 @@
 
 <!-- Grid de posts -->
 <section class="grid-posts">
-  {{ $paginator := .Paginate (where .Site.RegularPages "Params.hiddenInHomeList" "!=" true) 6 }}
+  {{ $paginator := .Paginate (where .Site.RegularPages "Params.hiddenInHomeList" "!=" true) 12 }}
   {{ range $paginator.Pages }}
   <div class="post-card">
     {{ with .Params.image }}
@@ -316,7 +350,16 @@
 </section>
 
 <!-- Llamada a la acción centrada -->
+<!-- CTA PVEU -->
 <div class="pveu-cta-wrap">
+  <img
+    class="pveu-logo"
+    src="/img/logo-parlamento-virtual-español-universal.png"
+    srcset="/img/logo-parlamento-virtual-español-universal.png"
+    width="320" height="96"
+    alt="PVEU — Parlament Virtual Espanyol Universal"
+    loading="lazy" decoding="async">
+  
   <button class="pveu-cta" id="pveu-open" aria-haspopup="dialog" aria-controls="pveu-modal" title="Abrir PVEU">
     ⚡ PVEU – Votar / Probar ahora
   </button>
@@ -400,46 +443,6 @@
   const pveuClose = document.getElementById('pveu-close');
   const pveuFrame = document.getElementById('pveu-frame');
 
-  function openPVEU() {
-    // Si el iframe fuese bloqueado por CSP, abrimos en pestaña nueva
-    try {
-      pveuModal.setAttribute('open', '');
-      pveuModal.style.display = 'flex';
-      pveuOpen.setAttribute('aria-expanded', 'true');
-      // Forzamos recarga del iframe la primera vez para asegurar contenido
-      if (!pveuFrame.src) pveuFrame.src = 'https://pveu-fdfont.pythonanywhere.com/';
-    } catch (e) {
-      window.open('https://pveu-fdfont.pythonanywhere.com/', '_blank', 'noopener,noreferrer');
-    }
-  }
-  function closePVEU() {
-    pveuModal.removeAttribute('open');
-    pveuModal.style.display = 'none';
-    pveuOpen.setAttribute('aria-expanded', 'false');
-  }
-
-  pveuOpen.addEventListener('click', openPVEU);
-  pveuClose.addEventListener('click', closePVEU);
-  pveuModal.addEventListener('click', (ev) => {
-    if (ev.target === pveuModal) closePVEU(); // Clic fuera cierra
-  });
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape') closePVEU();
-  });
-
-  // Atajo de teclado opcional (V para "Votar")
-  document.addEventListener('keydown', (ev) => {
-    if ((ev.key === 'v' || ev.key === 'V') && !pveuModal.hasAttribute('open')) {
-      openPVEU();
-    }
-  });
-</script>
-<script>
-  const pveuOpen  = document.getElementById('pveu-open');
-  const pveuModal = document.getElementById('pveu-modal');
-  const pveuClose = document.getElementById('pveu-close');
-  const pveuFrame = document.getElementById('pveu-frame');
-
   function openPVEU(){
     try{
       pveuModal.setAttribute('open','');
@@ -459,7 +462,24 @@
   pveuClose.addEventListener('click', closePVEU);
   pveuModal.addEventListener('click', (ev)=>{ if(ev.target===pveuModal) closePVEU(); });
   document.addEventListener('keydown', (ev)=>{ if(ev.key==='Escape') closePVEU(); });
+
+  pveuOpen.addEventListener('click', openPVEU);
+  pveuClose.addEventListener('click', closePVEU);
+  pveuModal.addEventListener('click', (ev) => {
+    if (ev.target === pveuModal) closePVEU(); // Clic fuera cierra
+  });
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape') closePVEU();
+  });
+
+  // Atajo de teclado opcional (V para "Votar")
+  document.addEventListener('keydown', (ev) => {
+    if ((ev.key === 'v' || ev.key === 'V') && !pveuModal.hasAttribute('open')) {
+      openPVEU();
+    }
+  });
 </script>
+
 
 
 </body>

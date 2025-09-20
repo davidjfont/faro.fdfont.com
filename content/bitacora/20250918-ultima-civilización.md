@@ -173,7 +173,7 @@ Y así, el universo volvió al silencio absoluto,
 por primera vez desde el Big Bang.
 
 ---
-![Imagen 2: Ser siniestro](/img/2025/09/20250918_1915_Unclean.gif)
+![Imagen 2: Ser siniestro](/img/2025/09/20250918_1915_Unclean.gif )
 **Fin.**
 
 > *Crónicas de la Era Sintética, entrada final registrada por HUMANICRON.  
