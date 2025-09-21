@@ -5,7 +5,7 @@ author: "David J. Font"
 tags: ["democracia", "innovación cívica", "participación", "gobierno abierto", "España"]
 image: "/img/logo-parlamento-virtual-español-universal.png"
 cover:
-  image: "htts://faro.fdfont.com/img/logo-parlamento-virtual-español-universal.png"
+  image: "https://faro.fdfont.com/img/logo-parlamento-virtual-español-universal.png"
   alt: "Parlamento Virtual Español Universal – un escaño por ciudadano"
 description: "El primer parlamento online donde cada español, con su DNI, puede proponer, debatir y votar. Democracia real, directa y transparente."
 draft: false
