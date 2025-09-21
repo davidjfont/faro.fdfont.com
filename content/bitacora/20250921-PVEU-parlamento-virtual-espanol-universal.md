@@ -4,10 +4,13 @@ date: 2025-09-21
 author: "David J. Font"
 tags: ["democracia", "innovación cívica", "participación", "gobierno abierto", "España"]
 image: "/img/logo-parlamento-virtual-español-universal.png"
+cover:
+  image: "/img/logo-parlamento-virtual-español-universal.png"
+  alt: "Parlamento Virtual Español Universal – un escaño por ciudadano"
 description: "El primer parlamento online donde cada español, con su DNI, puede proponer, debatir y votar. Democracia real, directa y transparente."
 draft: false
 ---
-![Imagen 1: PVEU-Palamento-virtual-espanyol-universal](/img/logo-parlamento-virtual-español-universal.png)
+
 <div id="tts-controls">
   <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
   <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
