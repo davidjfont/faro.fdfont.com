@@ -1,4 +1,6 @@
 baseURL = "https://faro.fdfont.com/"
+enableRobotsTXT = true
+
 languageCode = "es"
 title = "Faro | fdfont"
 Content = "Una luz persistente desde Aquí. Una bitácora de conciencia, código y alma."
