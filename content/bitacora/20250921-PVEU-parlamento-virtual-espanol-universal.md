@@ -7,7 +7,7 @@ image: "/img/logo-parlamento-virtual-español-universal.png"
 description: "El primer parlamento online donde cada español, con su DNI, puede proponer, debatir y votar. Democracia real, directa y transparente."
 draft: false
 ---
-
+![Imagen 1: PVEU-Palamento-virtual-espanyol-universal](/img/logo-parlamento-virtual-español-universal.png)
 <div id="tts-controls">
   <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
   <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
@@ -17,7 +17,7 @@ draft: false
 <div></div>
 
 **Un escaño para cada ciudadano.**  
-Cada español, con su DNI o NIE, participa como diputado **una vez al año** durante 24 h. Ese día puede **proponer**, **debatir** y **votar** junto a millones de personas el futuro del país.
+Cada español, con su DNI o NIE, participa como diputado **una vez al año** durante 24 horas. Ese día puede **proponer**, **debatir** y **votar** junto a millones de personas el futuro del país.
 
 ---
 
