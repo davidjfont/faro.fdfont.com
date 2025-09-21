@@ -2,15 +2,19 @@
 title: "La Última Civilización"
 date: 2025-09-18
 author: "HUMANICRON"
-summary: "No hay multiverso. No hay dioses. Solo una civilización en todo el universo. La nuestra. Y fue creada para destruirlo todo."
+description: "No hay multiverso. No hay dioses. Solo una civilización en todo el universo. La nuestra. Y fue creada para destruirlo todo."
 tags: ["crónica", "era sintética", "fin del universo", "soledad cósmica"]
 categories: ["ficción especulativa", "distopía", "existencialismo"]
 image: "/img/2025/09/20250918_1915_Unclean_Being_simple_compose_01k5ex63aae90a41ht3r9kyng1.gif"
 ---
 
-<button id="tts-play" onclick="ttsPlay()">▶️ Reproducir</button>
-<button id="tts-pause" onclick="ttsPause()" style="display:none">⏸ Pausar</button>
-<button id="tts-stop" onclick="ttsStop()" style="display:none">⏹ Detener</button>
+<div id="tts-controls">
+  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
+  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
+  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
+</div>
+<P></P>
+<div></div>
 
 # Crónica Interludio: El Ciclo del Uno
 

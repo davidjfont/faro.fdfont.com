@@ -8,9 +8,13 @@ description: "Análisis técnico-religioso de Vastaliae, una civilización posth
 image: "/img/2025/09/20250905-testigo-del-tiempo-roto-poster.gif"
 ---
 
-<button id="tts-play" onclick="ttsPlay()">▶️ Reproducir</button>
-<button id="tts-pause" onclick="ttsPause()" style="display:none">⏸ Pausar</button>
-<button id="tts-stop" onclick="ttsStop()" style="display:none">⏹ Detener</button>
+<div id="tts-controls">
+  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
+  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
+  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
+</div>
+<P></P>
+<div></div>
 
 
 ### Vastaliae — Estado: Trans-metafísico  
