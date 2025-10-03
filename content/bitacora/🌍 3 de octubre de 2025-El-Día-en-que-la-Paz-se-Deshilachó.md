@@ -21,7 +21,7 @@ toc: true
 <P></P>
 <div></div>
 
-## 🔥 Contexto general
+##  Contexto general
 
 El 3 de octubre de 2025 no es oficialmente el primer día de una tercera guerra mundial, pero el planeta vibra con una inquietud bélica palpable.  
 Los titulares de hoy dibujan un mundo dividido en múltiples frentes: guerras abiertas, choques híbridos, tensiones sociales y fracturas políticas.  
@@ -37,41 +37,42 @@ La OTAN responde reforzando la frontera oriental con su llamada **Drone Wall**, 
 
 No hay disparos directos entre Moscú y Bruselas, pero el lenguaje diplomático se ha vuelto bélico, y los ejercicios militares conjuntos en Europa del Este son el eco de una guerra que, si no estalla, al menos se prepara.
 
-## 🕍 Reino Unido: terrorismo y miedo
+##  Reino Unido: terrorismo y miedo
 
 Manchester amaneció hoy con lágrimas.  
 Un atentado antisemita durante **Yom Kippur** ha sido calificado como uno de los peores actos de odio en la historia moderna del Reino Unido.  
 El atacante fue abatido, pero el miedo se expande como otra forma de guerra: la del **terror y la radicalización interna**.  
 Europa, ya dividida por la guerra exterior, ahora se desangra por dentro.
 
-## 🇮🇹 Italia: las calles se levantan por Gaza
+## Italia: las calles se levantan por Gaza
 
 Mientras tanto, Italia vive una **huelga general** masiva en protesta por la guerra en Gaza y las decisiones de su gobierno.  
 Las marchas llenan Roma, Milán y Nápoles.  
 El eco de Oriente Medio retumba en Occidente.  
 Es una guerra sin fronteras físicas: una **fractura moral global** entre quienes exigen paz y quienes justifican la violencia como “defensa preventiva”.
 
-## 🌎 Panorama global: guerras invisibles, alianzas frágiles
+##  Panorama global: guerras invisibles, alianzas frágiles
 
 - **África** sigue sufriendo conflictos silenciados, desde Sudán hasta el Sahel.  
 - **Asia** observa a Taiwán como posible detonante del próximo gran choque.  
 - **América** intenta contener sus propios incendios: narcotráfico, populismos y el impacto económico de un mundo en guerra parcial.  
 - **Ciberconflictos** y **campañas de desinformación** completan el cuadro: la guerra digital es hoy el frente más caliente y menos visible.
 
-## 🧩 Conclusión: la Tercera Guerra Mundial no ha comenzado… aún
+##  Conclusión: la Tercera Guerra Mundial no ha comenzado… aún
 
 El 3 de octubre de 2025 pasará a la historia no como el inicio oficial de una gran guerra, sino como el día en que la **paz global perdió su último hilo de certeza**.  
 La humanidad no se destruye todavía, pero se deshilacha.  
 Las fronteras ya no separan ejércitos: separan interpretaciones del miedo, del poder y de la verdad.
 
-### 📜 Reflexión final
+###  Reflexión final
 
 > “La guerra moderna ya no empieza con bombas, sino con la pérdida de confianza.”  
 > — **Arafura, 2025**
 
 ---
+###  Conclusión: si estALLARA HOY
 
-**TL;DR:** Si estallara hoy, no empezaría con tanques en frontera sino con **apagones selectivos**, **colapso de suministros**, **desinformación quirúrgica** y **golpes precisos en órbita baja**. La primera víctima sería la **confianza**. El frente decisivo: **la mente de la población**.
+**** Si estallara hoy, no empezaría con tanques en frontera sino con **apagones selectivos**, **colapso de suministros**, **desinformación quirúrgica** y **golpes precisos en órbita baja**. La primera víctima sería la **confianza**. El frente decisivo: **la mente de la población**.
 
 ## 1) El detonante
 
