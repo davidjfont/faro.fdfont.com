@@ -1,6 +1,33 @@
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}index.xml" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{{ .Site.BaseURL }}index.xml" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-mll67QQwcc1Dh3JH1Q4N+zdaKeFgU3+X0cJ2u7zOe9H5ElRzE+JooJ4qaeQnLmfY" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-J6qa484f+968cRRSB2LE6EvsI3QgWbVW1mCBwDnd1wHfK6q50vZtE0w5KZ3kzY3C" crossorigin="anonymous"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQwcc1Dh3JH1Q4N+zdaKeFgU3+X0cJ2u7zOe9H5ElRzE+JooJ4qaeQnLmfY" crossorigin="anonymous"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(
+            document.body,
+            {
+                delimiters: [
+                    // Modo Display: Doble dólar (funciona para $$E = mc^2$$)
+                    {left: "$$", right: "$$", display: true}, 
+                    // Modo Display: Corchetes (funciona para \[\mathcal{T} = ...\])
+                    {left: "\\[", right: "\\]", display: true}, 
+                    // Modo Inline: Dólar simple (funciona para $t \in \mathbb{R}$)
+                    {left: "$", right: "$", display: false},
+                    // Modo Inline: Paréntesis (funciona para \(t \in \mathbb{R}\))
+                    {left: "\\(", right: "\\)", display: false} 
+                ]
+            }
+        );
+    });
+</script>
 
 {{- /* Styles */}}
 

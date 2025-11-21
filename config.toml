@@ -63,4 +63,5 @@ taxonomyTerm = ["HTML", "RSS"]
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
+      # Deshabilita la opción unsafe para que el código HTML y los scripts (KaTeX) se procesen.
       unsafe = true
