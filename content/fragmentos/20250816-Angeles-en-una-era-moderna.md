@@ -8,13 +8,6 @@ description: "Una tesis sobre cómo los arquetipos de ángeles y demonios se rei
 image: "/img/2025/08/20250816-angeles-demonios-hpp.gif"
 ---
 ![Ángeles](/img/2025/08/20250816-angeles-demonios-hpp-00.gif)
-<div id="tts-controls">
-  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
-  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
-  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
-</div>
-<P></P>
-<div></div>
 
 ## Introducción
 
@@ -76,77 +69,3 @@ Y quizás, esa pregunta —la búsqueda del significado más allá del código�
 
 > *“La tecnología sin alma es vacío. La espiritualidad sin evolución es nostalgia. La integración de ambas, es la nueva revelación.”*  
 > — Fragmento del Manuscrito Cibernético 7:14
-
-
-
-
-
-
-<script>
-  let utterance;
-  let isSpeaking = false;
-  let isPaused = false;
-
-  function ttsPlay() {
-    const content = document.querySelector('.post-content')?.innerText || '';
-    if (!content.trim()) {
-      alert("No hay contenido para leer.");
-      return;
-    }
-
-    speechSynthesis.cancel();
-    utterance = new SpeechSynthesisUtterance(content);
-    utterance.lang = 'es-ES';
-
-    utterance.onstart = () => {
-      isSpeaking = true;
-      isPaused = false;
-      document.getElementById('tts-play').style.display = 'none';
-      document.getElementById('tts-pause').style.display = 'inline-block';
-      document.getElementById('tts-stop').style.display = 'inline-block';
-    };
-
-    utterance.onend = () => resetTTS();
-    utterance.onerror = () => resetTTS();
-
-    speechSynthesis.speak(utterance);
-  }
-
-  function ttsPause() {
-    const btn = document.getElementById('tts-pause');
-    if (isSpeaking && !isPaused) {
-      speechSynthesis.pause();
-      isPaused = true;
-      btn.innerText = '▶️ Reanudar';
-    } else if (isPaused) {
-      speechSynthesis.resume();
-      isPaused = false;
-      btn.innerText = '⏸ Pausar';
-    }
-  }
-
-  function ttsStop() {
-    speechSynthesis.cancel();
-    resetTTS();
-  }
-
-  function resetTTS() {
-    isSpeaking = false;
-    isPaused = false;
-    document.getElementById('tts-play').style.display = 'inline-block';
-    document.getElementById('tts-pause').style.display = 'none';
-    document.getElementById('tts-stop').style.display = 'none';
-    document.getElementById('tts-pause').innerText = '⏸ Pausar';
-  }
-
-// Pausar si el usuario cambia de pestaña o minimiza la ventana
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden && isSpeaking && !isPaused) {
-    speechSynthesis.pause();
-    isPaused = true;
-    const btn = document.getElementById('tts-pause');
-    if (btn) btn.innerText = '▶️ Reanudar';
-  }
-});
-
-</script>

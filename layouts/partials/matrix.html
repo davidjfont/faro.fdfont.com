@@ -1,0 +1,53 @@
+<style>
+  canvas#matrix {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -1; /* Envía el canvas al fondo de todo */
+    opacity: 0.15;
+    pointer-events: none;
+    display: block;
+  }
+</style>
+
+<canvas id="matrix"></canvas>
+
+<script>
+  (function() {
+    const canvas = document.getElementById('matrix');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    
+    function sizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    sizeCanvas();
+
+    const katakana = 'アカサタナハマヤラワ0123456789';
+    const letters = katakana.split('');
+    const fontSize = 14;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = Array(columns).fill(1);
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#1E90FF';
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    }
+    const interval = setInterval(draw, 33);
+
+    window.addEventListener('resize', () => {
+      sizeCanvas();
+      columns = Math.floor(canvas.width / fontSize);
+      drops = Array(columns).fill(1);
+    });
+  })();
+</script>

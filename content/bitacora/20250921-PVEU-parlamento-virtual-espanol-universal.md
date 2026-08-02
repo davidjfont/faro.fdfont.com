@@ -8,13 +8,6 @@ description: "El primer parlamento online donde cada español, con su DNI, puede
 draft: false
 ---
 ![Imagen 1: PVEU-Palamento-virtual-espanyol-universal](/img/logo-parlamento-virtual-español-universal.png)
-<div id="tts-controls">
-  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
-  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
-  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
-</div>
-<P></P>
-<div></div>
 
 **Un escaño para cada ciudadano.**  
 Cada español, con su DNI o NIE, participa como diputado **una vez al año** durante 24 horas. Ese día puede **proponer**, **debatir** y **votar** junto a millones de personas el futuro del país.
@@ -67,7 +60,6 @@ Cada español, con su DNI o NIE, participa como diputado **una vez al año** dur
 - **Rate limiting** y medidas antifraude de base.  
 - **Ledger público** (lectura) + **tablas de auditoría** para trazabilidad sin exponer datos sensibles.
 
-
 ---
 
 ## ❓ Preguntas frecuentes
@@ -89,118 +81,7 @@ Sí. Filtrado básico (IA + reglas) contra spam/abusos y un registro público au
 
 **Democracia real, directa y transparente.** Empieza hoy.
 
-
 <div>
   <label for="voice-select">Elegir voz:</label>
   <select id="voice-select"></select>
 </div>
-
-<script>
-  let utterance;
-  let isSpeaking = false;
-  let isPaused = false;
-
-function ttsPlay() {
-  const content = document.querySelector('.post-content')?.innerText || '';
-  if (!content.trim()) {
-    alert("No hay contenido para leer.");
-    return;
-  }
-
-  // 👉 Buscar la palabra "Detener" y recortar el texto desde ahí
-  const startIndex = content.indexOf("Detener");
-  let textToRead = content;
-  if (startIndex !== -1) {
-    textToRead = content.substring(startIndex);
-  }
-
-  speechSynthesis.cancel();
-  utterance = new SpeechSynthesisUtterance(textToRead);
-
-  utterance.lang = 'es-ES';
-
-  const selectedIndex = document.getElementById('voice-select')?.value;
-  if (voices[selectedIndex]) {
-    utterance.voice = voices[selectedIndex];
-  }
-
-  utterance.onstart = () => {
-    isSpeaking = true;
-    isPaused = false;
-    document.getElementById('tts-play').style.display = 'none';
-    document.getElementById('tts-pause').style.display = 'inline-block';
-    document.getElementById('tts-stop').style.display = 'inline-block';
-  };
-
-  utterance.onend = () => resetTTS();
-  utterance.onerror = () => resetTTS();
-
-  speechSynthesis.speak(utterance);
-}
-
-  function ttsPause() {
-    const btn = document.getElementById('tts-pause');
-    if (isSpeaking && !isPaused) {
-      speechSynthesis.pause();
-      isPaused = true;
-      btn.innerText = '▶️ Reanudar';
-    } else if (isPaused) {
-      speechSynthesis.resume();
-      isPaused = false;
-      btn.innerText = '⏸ Pausar';
-    }
-  }
-
-  function ttsStop() {
-    speechSynthesis.cancel();
-    resetTTS();
-  }
-
-  function resetTTS() {
-    isSpeaking = false;
-    isPaused = false;
-    document.getElementById('tts-play').style.display = 'inline-block';
-    document.getElementById('tts-pause').style.display = 'none';
-    document.getElementById('tts-stop').style.display = 'none';
-    document.getElementById('tts-pause').innerText = '⏸ Pausar';
-  }
-
-// Pausar si el usuario cambia de pestaña o minimiza la ventana
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden && isSpeaking && !isPaused) {
-    speechSynthesis.pause();
-    isPaused = true;
-    const btn = document.getElementById('tts-pause');
-    if (btn) btn.innerText = '▶️ Reanudar';
-  }
-});
-let voices = [];
-
-function loadVoices() {
-  voices = speechSynthesis.getVoices();
-  const voiceSelect = document.getElementById('voice-select');
-
-  voiceSelect.innerHTML = ''; // limpiar
-  voices.forEach((voice, i) => {
-    const option = document.createElement('option');
-    option.value = i;
-    option.textContent = `${voice.name} (${voice.lang})`;
-    voiceSelect.appendChild(option);
-  });
-}
-
-// Algunos navegadores tardan en cargar voces
-speechSynthesis.onvoiceschanged = loadVoices;
-function loadVoices() {
-  voices = speechSynthesis.getVoices().filter(v => v.lang.startsWith("es-"));
-  const voiceSelect = document.getElementById('voice-select');
-
-  voiceSelect.innerHTML = '';
-  voices.forEach((voice, i) => {
-    const option = document.createElement('option');
-    option.value = i;
-    option.textContent = `${voice.name} (${voice.lang})`;
-    voiceSelect.appendChild(option);
-  });
-}
-</script>
