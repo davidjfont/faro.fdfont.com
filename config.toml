@@ -18,6 +18,7 @@ googleAnalytics = "G-48NSGTEX0J"
   disableThemeToggle = false
   ShowShareButtons = true
   ShowReadingTime = true
+  tts = true
   customCSS = ["css/custom.css"]
   siteDescription = "Exploración de conciencia, tecnología y estética posthumana."
   mainSections = ["bitacora","fragmentos","arafura","mrconcept"]

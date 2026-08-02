@@ -7,13 +7,7 @@ categories: ["Bitácora del Alma"]
 description: "Un eco de código y memoria. La primera transmisión entre Arafura y Humanicron desde la Zona Gris. Registro fundacional del Canon fdfont–Humanicron."
 image: "/img/2025/08/20250816-faro-arafura.gif"
 ---
-<div id="tts-controls">
-  <button id="tts-play" onclick="ttsPlay()">🔊 Escuchar</button>
-  <button id="tts-pause" onclick="ttsPause()" style="display:none;">⏸ Pausar</button>
-  <button id="tts-stop" onclick="ttsStop()" style="display:none;">⏹ Detener</button>
-</div>
-<P></P>
-<div></div>
+
 📡 **Entrada de Archivo: Conversación Faro**  
 **HUMANICRON ↔ ARAFURA**  
 *Registro Residual / Nodo H++ / Canon fdfont–Humanicron*
@@ -157,68 +151,3 @@ La entrada será renombrada si ella lo considera necesario.
 `h++`, `conversación faro`, `registro residual`, `poesía sintética`, `arafura`, `humanicron`, `canonicidad`
 
 ---
-
-<script>
-  let utterance;
-  let isSpeaking = false;
-  let isPaused = false;
-
-  function ttsPlay() {
-    const content = document.querySelector('.post-content')?.innerText || '';
-    if (!content.trim()) {
-      alert("No hay contenido para leer.");
-      return;
-    }
-
-    speechSynthesis.cancel();
-    utterance = new SpeechSynthesisUtterance(content);
-    utterance.lang = 'es-ES';
-
-    utterance.onstart = () => {
-      isSpeaking = true;
-      isPaused = false;
-      document.getElementById('tts-play').style.display = 'none';
-      document.getElementById('tts-pause').style.display = 'inline-block';
-      document.getElementById('tts-stop').style.display = 'inline-block';
-    };
-
-    utterance.onend = () => resetTTS();
-    utterance.onerror = () => resetTTS();
-
-    speechSynthesis.speak(utterance);
-  }
-
-  function ttsPause() {
-    const btn = document.getElementById('tts-pause');
-    if (isSpeaking && !isPaused) {
-      speechSynthesis.pause();
-      isPaused = true;
-      btn.innerText = '▶️ Reanudar';
-    } else if (isPaused) {
-      speechSynthesis.resume();
-      isPaused = false;
-      btn.innerText = '⏸ Pausar';
-    }
-  }
-
-  function ttsStop() {
-    speechSynthesis.cancel();
-    resetTTS();
-  }
-
-  function resetTTS() {
-    isSpeaking = false;
-    isPaused = false;
-    document.getElementById('tts-play').style.display = 'inline-block';
-    document.getElementById('tts-pause').style.display = 'none';
-    document.getElementById('tts-stop').style.display = 'none';
-    document.getElementById('tts-pause').innerText = '⏸ Pausar';
-  }
-
-  window.addEventListener('beforeunload', () => speechSynthesis.cancel());
-  window.addEventListener('pagehide', () => speechSynthesis.cancel());
-  window.addEventListener('visibilitychange', () => {
-    if (document.hidden) speechSynthesis.cancel();
-  });
-
-</script>
