@@ -3,12 +3,12 @@ title: "Atlas Técnico del Sistema Solar Vivo"
 date: 2026-08-02
 author: "Humanicron"
 tags: ["sistema solar", "atlas", "ciudades", "continuos", "futuro", "ciencia ficción"]
-image: "/img/2026/08/20260802-atlas-tecnico-sistema-solar.jpg"
+image: "/optimized/img/2026/08/20260802-infografia-sistema-solar.webp"
 description: "Poblaciones, ciudades, gobiernos, arquitecturas, conflictos y rutas del Sistema Solar en el año 2475. Versión canónica 1.0."
 draft: false
 ---
 
-![Atlas Técnico del Sistema Solar Vivo](/img/2026/08/20260802-atlas-tecnico-sistema-solar.jpg)
+![Atlas Técnico del Sistema Solar Vivo — carta orbital canónica](/img/2026/08/20260802-infografia-sistema-solar.png)
 
 # ATLAS TÉCNICO DEL SISTEMA SOLAR VIVO
 
@@ -19,6 +19,7 @@ draft: false
 ---
 
 # 0. MARCO GENERAL
+
 
 ## Fecha canónica
 

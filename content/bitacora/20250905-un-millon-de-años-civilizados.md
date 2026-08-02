@@ -5,7 +5,7 @@ draft: false
 tags: ["era sintética", "ficción especulativa", "posthumano", "inteligencia artificial", "civilización avanzada", "transmetafísico"]
 categories: ["Crónicas de la Era Sintética"]
 description: "Análisis técnico-religioso de Vastaliae, una civilización posthumana con más de un millón de años de existencia, donde el tiempo, la materia y la conciencia han sido completamente dominados."
-image: "/img/2025/09/20250905-testigo-del-tiempo-roto-poster.gif"
+image: "/optimized/img/2025/09/20250905-testigo-del-tiempo-roto-poster.webp"
 ---
 
 ### Vastaliae — Estado: Trans-metafísico  
@@ -131,8 +131,3 @@ La decisión no fue votada —Vastaliae no tiene votos—, pero el consenso emer
 
 Incluso una civilización con un millón de años de existencia descubre fallas irreparables: **residuos de individualidad, bucles de tiempo cerrados, la incapacidad de erradicar la herencia humana**.  
 El único camino que visualizan es un salto radical: **destruir su propio marco de realidad y renacer en un universo sin memoria**.
-
-<div>
-  <label for="voice-select">Elegir voz:</label>
-  <select id="voice-select"></select>
-</div>

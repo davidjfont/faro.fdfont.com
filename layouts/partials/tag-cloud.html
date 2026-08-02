@@ -1,0 +1,14 @@
+{{- with site.Taxonomies.tags.ByCount }}
+<section class="tag-cloud" aria-labelledby="tag-cloud-title">
+  <div class="faro-section__heading">
+    <div><p class="faro-kicker">Frecuencias compartidas</p><h2 id="tag-cloud-title">Etiquetas populares</h2></div>
+  </div>
+  <div class="tag-cloud__items">
+    {{- range first 40 . }}
+    <a href="{{ .Page.RelPermalink }}" style="--tag-weight: {{ add 0.84 (mul (math.Log (add .Count 1)) 0.13) }}rem">
+      {{ .Page.LinkTitle }} <span>{{ .Count }}</span>
+    </a>
+    {{- end }}
+  </div>
+</section>
+{{- end }}

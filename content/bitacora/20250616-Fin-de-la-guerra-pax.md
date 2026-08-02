@@ -1,7 +1,7 @@
 ---
 title: "Hacia el 99% de resolución de guerras"
 description: "Un modelo ecosistémico de paz global desde HUMANUTOPIA. Diplomacia restaurativa, justicia plural, IA ética y reparación cultural para desactivar la guerra como tecnología social obsoleta."
-image: "/img/2025/06/20250616-PAX-007.png"
+image: "/optimized/img/2025/06/20250616-PAX-007.webp"
 date: 2025-06-16
 tags: ["utopía", "paz", "HUMANUTOPIA", "justicia restaurativa", "transformación", "IA para la paz"]
 ---

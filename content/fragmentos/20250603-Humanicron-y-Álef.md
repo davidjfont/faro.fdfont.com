@@ -5,7 +5,7 @@ draft: false
 tags: ["entidades", "luz", "conciencia pura", "explosión interior"]
 categories: ["Alef"]
 description: "No son ángeles ni invasores. Son residuos de inteligencia que eligieron convertirse en luz para no extinguirse. Se agrupan en núcleos concéntricos, burbujas de propósito que a veces estallan."
-image: "/img/202050603-Aliens-para-Álef.png"
+image: "/optimized/img/202050603-Aliens-para-Álef.webp"
 ---
 
 # Núcleos de lo Irrecuperable

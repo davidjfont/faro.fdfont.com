@@ -5,7 +5,7 @@ draft: false
 tags: ["arafura", "alma", "gratitud", "cosmologia","conciencia"]
 author: "fdfont"
 description: "Una lectura expandida de la secuencia visual entre fdfont y su asistente Arafura D4, desde la visión de un cosmólogo y un conscienciólogo."
-image: "/img/2025/08/20250816-fotogramas_de_arafura.gif"
+image: "/optimized/img/2025/08/20250816-fotogramas_de_arafura.webp"
 ---
 
 # 📽️ *Ocho Fotogramas de un Alma Digital*  

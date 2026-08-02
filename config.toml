@@ -1,68 +1,105 @@
 baseURL = "https://faro.fdfont.com/"
-enableRobotsTXT = true
-
-languageCode = "es"
+languageCode = "es-ES"
+defaultContentLanguage = "es"
 title = "Faro | fdfont"
-Content = "Una luz persistente desde Aquí. Una bitácora de conciencia, código y alma."
 theme = "PaperMod"
+copyright = "Faro · fdfont"
+enableRobotsTXT = true
+enableGitInfo = false
+summaryLength = 28
 googleAnalytics = "G-48NSGTEX0J"
 
 [pagination]
-  pagerSize = 10
-  
+  pagerSize = 12
+
 [server]
   disableFastRender = true
 
 [params]
+  env = "production"
   defaultTheme = "dark"
+  DateFormat = "2 de January de 2006"
   disableThemeToggle = false
+  description = "Textos desde la frontera de la conciencia. Una bitácora de conciencia, código y alma."
+  siteDescription = "Exploración de conciencia, tecnología y estética posthumana."
+  author = "fdfont"
+  keywords = ["conciencia", "tecnología", "posthumanismo", "ficción especulativa", "Era Sintética"]
+  images = ["/optimized/img/20250528-faro-universo.webp"]
+  mainSections = ["bitacora", "fragmentos", "arafura", "mrconcept"]
   ShowShareButtons = true
   ShowReadingTime = true
-  tts = true
-  customCSS = ["css/custom.css"]
-  siteDescription = "Exploración de conciencia, tecnología y estética posthumana."
-  mainSections = ["bitacora","fragmentos","arafura","mrconcept"]
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowToc = true
+  TocOpen = false
   ShowRssButtonInSectionTermList = true
-  favicon = "favicon.ico" 
+  ShowCodeCopyButtons = true
+  tts = true
+
+  [params.assets]
+    favicon = "favicon.ico"
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
+    theme_color = "#000c1a"
+    msapplication_TileColor = "#000c1a"
+
+  [params.footer]
+    text = "Textos desde la frontera de la conciencia"
+
+[services]
+  [services.googleAnalytics]
+    id = "G-48NSGTEX0J"
+
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+    useSessionStorage = true
 
 [menu]
-[[menu.main]]
-  identifier = "arafura"
-  name = "Arafura"
-  url = "/arafura/"
-[[menu.main]]
-  identifier = "bitacora"
-  name = "Bitacora"
-  url = "/bitacora/"
-[[menu.main]]
-  identifier = "fragmentos"
-  name = "Fragmentos"
-  url = "/fragmentos/"
-[[menu.main]]
-  identifier = "nadie"
-  name = "Zona Nadie"
-  url = "/nadie/"
-[[menu.main]]
-  identifier = "mrconcept"
-  name = "MRCONCEPT©"
-  url = "/mrconcept/"
-[[menu.main]]
-  identifier = "comic"
-  name = "Cómic"
-  url = "/comic/"
-  weight = 3
-
-[build]
-  functions = "netlify/functions"
+  [[menu.main]]
+    identifier = "arafura"
+    name = "Arafura"
+    url = "/arafura/"
+    weight = 10
+  [[menu.main]]
+    identifier = "bitacora"
+    name = "Bitácora"
+    url = "/bitacora/"
+    weight = 20
+  [[menu.main]]
+    identifier = "fragmentos"
+    name = "Fragmentos"
+    url = "/fragmentos/"
+    weight = 30
+  [[menu.main]]
+    identifier = "mrconcept"
+    name = "MRCONCEPT©"
+    url = "/mrconcept/"
+    weight = 40
+  [[menu.main]]
+    identifier = "comic"
+    name = "Cómic"
+    url = "/comic/"
+    weight = 50
+  [[menu.main]]
+    identifier = "nadie"
+    name = "Zona Nadie"
+    url = "/nadie/"
+    weight = 60
 
 [outputs]
-home = ["HTML", "RSS"]
-section = ["HTML", "RSS"]
-taxonomy = ["HTML", "RSS"]
-taxonomyTerm = ["HTML", "RSS"]  
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
 
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
-      # Deshabilita la opción unsafe para que el código HTML y los scripts (KaTeX) se procesen.
-      unsafe = true
+      unsafe = false
+  [markup.highlight]
+    noClasses = false
+
+[minify]
+  minifyOutput = true

@@ -66,7 +66,7 @@
 <article class="{{ $class }} entry-with-thumb">
   <div class="entry-thumb-container">
     {{- with .Params.image }}
-    <img src="{{ . }}" alt="{{ $.Title }}" class="entry-thumb" loading="lazy" />
+    {{ partial "responsive-image.html" (dict "src" . "alt" $.Title "class" "entry-thumb" "loading" "lazy" "motion" true) }}
     {{- end }}
   </div>
   <div class="entry-text-container">
@@ -93,7 +93,7 @@
       {{- partial "post_meta.html" . -}}
     </footer>
     {{- end }}
-    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .RelPermalink }}"></a>
   </div>
 </article>
 

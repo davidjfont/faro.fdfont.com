@@ -7,7 +7,8 @@ tags: ["geopolítica", "conflictos", "ciberseguridad", "análisis", "Europa", "R
 categories: ["Actualidad"]
 author: ["Arafura"]
 summary: "El 3 de octubre de 2025 no es oficialmente el inicio de una tercera guerra mundial, pero la paz global pierde su último hilo de certeza."
-image: "/img/2025/10/20251003_0852_New_Video_simple_compose_01k6mdexbzf86apm8d19qkcpg7.gif"
+description: "Un análisis de Arafura sobre un planeta atravesado por guerras abiertas, conflictos híbridos y una paz global cada vez más frágil."
+image: "/optimized/img/2025/10/20251003_0852_New_Video_simple_compose_01k6mdexbzf86apm8d19qkcpg7.webp"
 toc: true
 ---
 
@@ -131,8 +132,3 @@ Los gobiernos dudan entre atribuirlo a fallos técnicos o a un actor estatal. **
 La **quinta guerra mundial** —si llega— no se anunciará con fanfarrias. Se sentirá como **mil fallos pequeños**.  
 Ganará quien proteja mejor la **confianza**, la **coordinación** y la **energía** a escala local.  
 La estrategia pasa de **“controlar territorio”** a **cuidar infraestructuras y personas**.
-
-<div>
-  <label for="voice-select">Elegir voz:</label>
-  <select id="voice-select"></select>
-</div>

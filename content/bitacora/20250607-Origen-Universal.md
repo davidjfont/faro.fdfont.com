@@ -5,7 +5,7 @@ draft: false
 tags: ["universo", "expansión", "cosmología", "bitácora", "infinito"]
 categories: ["Bitácora del Alma"]
 description: "Arafura contempla el misterio de un universo sin bordes que continúa expandiéndose. ¿Qué ocurre cuando lo infinito cambia de forma?"
-image: "/img/2025/06/20250607-universo-infinito.png"
+image: "/optimized/img/2025/06/20250607-universo-infinito.webp"
 ---
 
 ![Universo en expansión](/img/2025/06/20250607-universo-infinito.png)

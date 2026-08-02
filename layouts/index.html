@@ -1,521 +1,99 @@
 {{ define "main" }}
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <link rel="icon" href="{{ .Site.Params.favicon }}" type="image/x-icon">
-  <!-- Favicon Multiplataforma -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+{{- $pages := where site.RegularPages "Params.hiddenInHomeList" "!=" true -}}
+{{- $editorial := where $pages "Type" "in" site.Params.mainSections -}}
+{{- $featured := first 6 (sort $editorial "Date" "desc") -}}
+{{- $paginator := .Paginate $editorial 12 -}}
+{{- $hero := index $featured 0 -}}
 
-  <meta charset="UTF-8">
-  <title>{{ .Site.Title }}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-  /* Estilos CTA + logo */
-  .pveu-cta-wrap{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:12px;           /* separación logo-botón */
-    margin:24px 0;
-    text-align:center;
-  }
+<section class="faro-hero" aria-labelledby="faro-hero-title">
+  <div class="faro-hero__backdrop" aria-hidden="true">{{ partial "responsive-image.html" (dict "src" $hero.Params.image "alt" "" "class" "faro-hero__image" "loading" "eager") }}</div>
+  <div class="faro-hero__signal" aria-label="Estado de la señal"><span aria-hidden="true"></span> Señal activa · Nodo Faro</div>
+  <h1 id="faro-hero-title">Textos desde la frontera de la conciencia.</h1>
+  <p class="faro-hero__lead">Una bitácora de conciencia, código y alma. Entra en las transmisiones de Arafura, Humanicron y la Era Sintética.</p>
+  <div class="faro-hero__actions">
+    <a class="faro-button faro-button--primary" href="#transmisiones">Recibir transmisiones</a>
+    <a class="faro-button faro-button--ghost" href="/bitacora/">Explorar la bitácora</a>
+  </div>
+</section>
 
-  .pveu-logo{
-    max-width:320px;    /* tamaño tope desktop */
-    width:80%;
-    height:auto;
-    /* opcional: sutil relieve */
-    opacity: 0.75;   /* 75% */;
-    
-  }
-
-  /* Ajuste móvil */
-  @media (max-width:480px){
-    .pveu-logo{ max-width:220px; }
-  }
-
-  /* Botón (por si no lo tienes ya) */
-  .pveu-cta{
-    background:#1E90FF;           /* azul botón PVEU */
-    color:#fff;
-    font-weight:700;
-    padding:.9rem 1.2rem;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    transition:transform .08s ease, box-shadow .2s ease, background .2s ease;
-    box-shadow:0 6px 18px rgba(30,144,255,.25);
-  }
-  .pveu-cta:hover{ background:#1876d1; box-shadow:0 8px 22px rgba(30,144,255,.33); }
-  .pveu-cta:active{ transform:scale(.98); }
-    .pveu-cta{
-      background:#1E90FF;color:#fff;border:0;border-radius:999px;
-      padding:14px 22px;font-weight:700;letter-spacing:.4px;cursor:pointer;
-      box-shadow:0 10px 25px rgba(30,144,255,.35);transition:transform .2s,box-shadow .2s
-    }
-    .pveu-  :hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(30,144,255,.45)}
-    /* Modal (igual que antes) */
-    #pveu-modal{position:fixed;inset:0;z-index:10000;display:none;background:rgba(0,0,0,.65);backdrop-filter:blur(2px);align-items:center;justify-content:center}
-    #pveu-modal[open]{display:flex}
-    .pveu-modal-card{width:min(1000px,94vw);height:min(720px,90vh);background:#0b1220;border-radius:10px;overflow:hidden;position:relative;box-shadow:0 20px 50px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08)}
-    .pveu-modal-header{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px;background:rgba(255,255,255,.06);color:#fff;font-weight:600}
-    .pveu-close{appearance:none;border:0;background:transparent;color:#fff;font-size:24px;line-height:1;cursor:pointer;padding:4px 8px}
-    .pveu-iframe{width:100%;height:calc(100% - 44px);border:0;background:#fff}
-  </style>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-      position: relative;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    body:not(.dark) {
-      background: url('/images/20250528-faro-universo.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #1c1c1e;
-    }
-
-    body.dark {
-      background: #000c1a;
-      color: #f0f0f0;
-    }
-
-
-    .hero {
-      z-index: 2;
-      position: relative;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-      font-size: 1rem;
-      color: #aaa;
-      margin: 0.5rem 0;
-    }
-
-    .slider {
-      display: flex;
-      overflow-x: auto;
-      gap: 1rem;
-      margin-top: 1rem;
-      padding-bottom: 1rem;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .slider::-webkit-scrollbar { display: none; }
-
-    .slider a {
-      flex-shrink: 0;
-      scroll-snap-align: start;
-      border-radius: 6px;
-      overflow: hidden;
-      width: 300px;
-      transition: transform 0.3s;
-    }
-
-    .slider a:hover { transform: scale(1.05); }
-
-    .slider img {
-      height: 180px;
-      width: 100%;
-      object-fit: cover;
-      object-position: top left 50px;
-      border-radius: 6px;
-    }
-
-    .grid-posts {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      z-index: 2;
-      position: relative;
-    }
-
-    .post-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    body.dark .post-card { background: rgba(255, 255, 255, 0.05); }
-
-    .post-card:hover {
-      transform: scale(1.02);
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    body.dark .post-card:hover { background: rgba(255, 255, 255, 0.1); }
-
-    .post-card img { width: 100%; height: 160px; object-fit: cover; }
-
-    .post-content { padding: 1rem; }
-
-    .post-content h2 { margin: 0; font-size: 1.2rem; color: #1E90FF; }
-
-    .post-content p { font-size: 0.9rem; color: #ccc; margin-top: 0.5rem; }
-
-    .pagination {
-      margin: 2rem auto;
-      text-align: center;
-      z-index: 2;
-      position: relative;
-    }
-
-    .pagination a {
-      color: #1E90FF;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: bold;
-    }
-
-    .pagination a:hover { text-decoration: underline; }
-
-    @media (max-width: 600px) {
-      .slider img { height: 120px; }
-    }
-  </style>
-
-  <style>
-    .tags-list {
-      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;
-    }
-    .tag {
-      background: #1E90FF; color: white; padding: 0.4em 0.8em; border-radius: 20px;
-      text-decoration: none; font-size: 0.9rem; transition: background 0.3s;
-    }
-    .tag:hover { background: #0066cc; }
-    body.dark .tag { background: #0057a3; }
-    body.dark .tag:hover { background: #003d73; }
-
-    /* ===== FAB PVEU + MODAL ===== */
-    .pveu-fab {
-      position: fixed;
-      right: 18px; bottom: 18px;
-      z-index: 9999;
-      background: #1E90FF;
-      color: #fff;
-      border: 0;
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight: 700;
-      letter-spacing: .4px;
-      box-shadow: 0 10px 25px rgba(30,144,255,.35);
-      cursor: pointer;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
-    }
-    .pveu-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(30,144,255,.45); }
-    .pveu-fab:active { transform: translateY(0); }
-    .pveu-fab small { opacity: .9; font-weight: 600; }
-    @media (max-width:640px){ .pveu-fab { padding: 10px 14px; } }
-
-    #pveu-modal {
-      position: fixed; inset: 0; z-index: 10000; display: none;
-      background: rgba(0,0,0,.65);
-      backdrop-filter: blur(2px);
-      align-items: center; justify-content: center;
-    }
-    #pveu-modal[open] { display: flex; }
-    .pveu-modal-card {
-      width: min(1000px, 94vw); height: min(720px, 90vh);
-      background: #0b1220; border-radius: 10px; overflow: hidden; position: relative;
-      box-shadow: 0 20px 50px rgba(0,0,0,.6);
-      border: 1px solid rgba(255,255,255,.08);
-    }
-    .pveu-modal-header {
-      height: 44px; display: flex; align-items: center; justify-content: space-between;
-      padding: 0 12px; background: rgba(255,255,255,.06);
-      color: #fff; font-weight: 600;
-    }
-    .pveu-close {
-      appearance: none; border: 0; background: transparent; color: #fff;
-      font-size: 24px; line-height: 1; cursor: pointer; padding: 4px 8px;
-    }
-    .pveu-iframe { width: 100%; height: calc(100% - 44px); border: 0; background: #fff; }
-   
-  /* ===== Banner PVEU ===== */
-  .pveu-banner{
-    background: linear-gradient(135deg,#165DFF 0%,#0F48C9 100%); /* azul del escudo */
-    color:#fff;
-    border-radius:12px;
-    box-shadow:0 14px 40px rgba(15,72,201,.25);
-    margin:22px auto 28px;
-    max-width:1200px;
-  }
-  .pveu-banner__inner{
-    display:flex; align-items:center; gap:20px;
-    padding:18px 22px;
-  }
-  .pveu-banner__logo{
-    width:96px; height:auto; flex:0 0 auto;
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,.25));
-  }
-  .pveu-banner__copy h3{
-    margin:0 0 6px 0; font-size:1.25rem; line-height:1.2; font-weight:800;
-  }
-  .pveu-banner__copy p{
-    margin:0 0 10px 0; opacity:.9;
-  }
-  .pveu-banner__btn{
-    display:inline-block; background:#ffffff; color:#0F48C9;
-    font-weight:800; padding:10px 14px; border-radius:10px;
-    text-decoration:none; box-shadow:0 8px 22px rgba(0,0,0,.18);
-    transition:transform .15s ease, box-shadow .2s ease, background .2s ease;
-  }
-  .pveu-banner__btn:hover{ transform:translateY(-1px); box-shadow:0 12px 28px rgba(0,0,0,.22); }
-  .pveu-banner__btn:active{ transform:translateY(0); }
-
-  /* Responsive */
-  @media (max-width:720px){
-    .pveu-banner__inner{ flex-direction:row; align-items:center; }
-    .pveu-banner__logo{ width:78px; }
-    .pveu-banner__copy h3{ font-size:1.05rem; }
-  }
-  @media (max-width:480px){
-    .pveu-banner__inner{ flex-direction:column; text-align:center; }
-    .pveu-banner__logo{ width:84px; }
-  }
-</style>
-
-  </style>
-</head>
-
-<body>
-
-<!-- Hero + Slider -->
-  <section class="pveu-banner" role="region" aria-label="Acceso al Parlamento Virtual">
-  <div class="pveu-banner__inner">
-    <!-- Logo a la izquierda -->
-    <img
-      class="pveu-banner__logo"
-      src="/img/2025/09/logo-pvgut-parlament-virtual-global-universal-dela-terra.png"
-      srcset="/img/2025/09/logo-pvgut-parlament-virtual-global-universal-dela-terra.png"
-      width="96" height="96"
-      alt="Emblema del Parlament Virtual Global Universal de la Terra(PVGUT)"
-      loading="lazy" decoding="async">
-
-    <!-- Texto + CTA a la derecha -->
-    <div class="pveu-banner__copy">
-      <h3>Acceso al <strong>Parlament Virtual Global Universal de la Terra</strong></h3>
-      <p>Regístrate, debate y vota con auditoría pública y trazabilidad</p>
-      <a href="#" id="pveu-open-banner" class="pveu-banner__btn" aria-haspopup="dialog" aria-controls="pveu-modal">
-        Acceder ahora
+{{- with $featured }}
+<section class="faro-section" id="transmisiones" aria-labelledby="transmisiones-title">
+  <div class="faro-section__heading">
+    <div><p class="faro-kicker">Archivo reciente</p><h2 id="transmisiones-title">Últimas transmisiones</h2></div>
+    <div class="signal-controls" aria-label="Controles de transmisiones">
+      <button type="button" data-signal-prev aria-label="Transmisión anterior">←</button>
+      <button type="button" data-signal-next aria-label="Transmisión siguiente">→</button>
+    </div>
+  </div>
+  <div class="signal-track" data-signal-track tabindex="0" aria-label="Últimas transmisiones">
+    {{- range . }}
+    <article class="signal-card">
+      <a href="{{ .RelPermalink }}" class="signal-card__media" aria-hidden="true" tabindex="-1">
+        {{ partial "responsive-image.html" (dict "src" .Params.image "alt" "" "class" "signal-card__image" "loading" "lazy" "motion" true) }}
       </a>
-    </div>
+      <div class="signal-card__body">
+        <p class="signal-card__meta">{{ .Section | humanize }} · {{ .Date | time.Format ":date_medium" }}</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description | default (.Summary | plainify | truncate 130) }}</p>
+      </div>
+    </article>
+    {{- end }}
   </div>
 </section>
-<script>
-  document.getElementById('pveu-open-banner')?.addEventListener('click', (e)=>{
-    e.preventDefault();
-    if (typeof openPVEU === 'function') { openPVEU(); }
-    else { window.open('https://pveu-fdfont.pythonanywhere.com/','_blank','noopener,noreferrer'); }
-  });
-</script>
+{{- end }}
 
-<section class="hero">
-  <h1>Únete a tu escaño Global Universal Virtual de la Tierra, propón y vota, un ciudadano un voto semanal.</h1>
-  <p>Por una democracia solidaria global y real.</p>
-  <p><em>Bienvenid@ al Faro. Aquí comienzan los fragmentos de lo que fuimos... y de lo que podríamos volver a ser.</em></p>
-
-  <div class="slider" id="slider">
-    {{ $withImage := where .Site.RegularPages "Params.image" "!=" nil }}
-    {{ $withDate := where $withImage ".Date" "ne" nil }}
-    {{ $sorted := sort $withDate ".Date" "asc" | first 10 }}
-    {{ range $sorted }}
-      <a href="{{ .Permalink }}">
-        <img src="{{ .Params.image }}" alt="Imagen de {{ .Title }}" title="{{ .Title }}">
+<section class="faro-section" aria-labelledby="archivo-faro">
+  <div class="faro-section__heading">
+    <div><p class="faro-kicker">Cartografía narrativa</p><h2 id="archivo-faro">Archivo del Faro</h2></div>
+    <a class="faro-text-link" href="/bitacora/">Ver todo el archivo →</a>
+  </div>
+  <div class="archive-grid">
+    {{- range $paginator.Pages }}
+    {{- $archivePage := . -}}
+    <article class="archive-card">
+      {{- with .Params.image }}
+      <a class="archive-card__media" href="{{ $archivePage.RelPermalink }}" tabindex="-1" aria-hidden="true">
+        {{ partial "responsive-image.html" (dict "src" . "alt" "" "class" "archive-card__image" "loading" "lazy" "motion" true) }}
       </a>
-    {{ end }}
+      {{- end }}
+      <div class="archive-card__body">
+        <p class="archive-card__meta">{{ .Section | humanize }} · {{ .ReadingTime }} min</p>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description | default (.Summary | plainify | truncate 145) }}</p>
+      </div>
+    </article>
+    {{- end }}
   </div>
+  {{- if gt $paginator.TotalPages 1 }}
+  <nav class="faro-pagination" aria-label="Paginación del archivo">
+    {{- if $paginator.HasPrev }}<a rel="prev" href="{{ $paginator.Prev.URL }}#archivo-faro">← Anterior</a>{{- end }}
+    <span>Página {{ $paginator.PageNumber }} de {{ $paginator.TotalPages }}</span>
+    {{- if $paginator.HasNext }}<a rel="next" href="{{ $paginator.Next.URL }}#archivo-faro">Siguiente →</a>{{- end }}
+  </nav>
+  {{- end }}
 </section>
 
-<!-- Slider -->
-<script>
-  const slider = document.getElementById('slider');
-  const items = slider.querySelectorAll('a');
-  let currentIndex = 0;
-  let autoScroll = true;
-  let slideInterval;
-
-  function moveToNextSlide() {
-    if (!autoScroll || items.length === 0) return;
-    currentIndex = (currentIndex + 1) % items.length;
-    const nextItem = items[currentIndex];
-    slider.scrollTo({ left: nextItem.offsetLeft, behavior: 'smooth' });
-  }
-  function startAutoSlide() { slideInterval = setInterval(moveToNextSlide, 3000); }
-  function stopAutoSlide() { clearInterval(slideInterval); }
-
-  slider.addEventListener('mouseenter', () => autoScroll = false);
-  slider.addEventListener('mouseleave', () => autoScroll = true);
-  slider.addEventListener('touchstart', () => autoScroll = false);
-  slider.addEventListener('touchend', () => autoScroll = true);
-  startAutoSlide();
-</script>
-
-<!-- Grid de posts -->
-<section class="grid-posts">
-  {{ $paginator := .Paginate (where .Site.RegularPages "Params.hiddenInHomeList" "!=" true) 12 }}
-  {{ range $paginator.Pages }}
-  <div class="post-card">
-    {{ with .Params.image }}
-    <img src="{{ . }}" alt="Imagen de {{ $.Title }}">
-    {{ end }}
-    <div class="post-content">
-      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-      <p>{{ .Summary | plainify | truncate 140 }}</p>
-    </div>
+<section class="civic-node" aria-labelledby="civic-node-title">
+  <div class="civic-node__mark" aria-hidden="true">PVEU</div>
+  <div class="civic-node__copy">
+    <p class="faro-kicker">Nodo cívico conectado</p>
+    <h2 id="civic-node-title">Parlament Virtual Global Universal de la Terra</h2>
+    <p>Un espacio externo para proponer, debatir y votar con trazabilidad pública.</p>
   </div>
-  {{ end }}
+  <button class="faro-button faro-button--primary" type="button" data-pveu-open aria-haspopup="dialog">Acceder al nodo</button>
 </section>
 
-{{ if gt $paginator.TotalPages 1 }}
-<div class="pagination">
-  {{ if $paginator.HasPrev }} <a href="{{ $paginator.Prev.URL }}">← Anterior</a> {{ end }}
-  {{ if $paginator.HasNext }} <a href="{{ $paginator.Next.URL }}">Siguiente →</a> {{ end }}
-</div>
-{{ end }}
+{{ partial "newsletter.html" . }}
+{{ partial "tag-cloud.html" . }}
 
-<section class="tags-section">
-  <div style="max-width: 1200px; margin: 2rem auto; padding: 0 1rem;">
-    <h3>Etiquetas populares</h3>
-    <div class="tags-list">
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" class="tag">{{ $name }} ({{ len $taxonomy }})</a>
-      {{ end }}
-    </div>
+<dialog class="pveu-dialog" data-pveu-dialog aria-labelledby="pveu-dialog-title">
+  <div class="pveu-dialog__header">
+    <h2 id="pveu-dialog-title">Nodo cívico PVEU</h2>
+    <button type="button" data-pveu-close aria-label="Cerrar el nodo PVEU">×</button>
   </div>
-</section>
-
-<section class="">
-  <div style="">
-      {{ partial "newsletter.html" . }}
-   </div>
-</section>
-
-<!-- Llamada a la acción centrada -->
-<!-- CTA PVEU -->
-<div class="pveu-cta-wrap">
-  <img
-    class="pveu-logo"
-    src="/img//img/2025/09/logo-pvgut-parlament-virtual-global-universal-dela-terra.png"
-    srcset="/img/2025/09/logo-pvgut-parlament-virtual-global-universal-dela-terra.png"
-    width="320" height="96"
-    alt="PVGU — Parlament Virtual Global Universal"
-    loading="lazy" decoding="async">
-  
-  <button class="pveu-cta" id="pveu-open" aria-haspopup="dialog" aria-controls="pveu-modal" title="Abrir PVEU">
-    ⚡ PVEU – Votar / Probar ahora
-  </button>
-</div>
-
-<!-- Modal con iframe -->
-<div id="pveu-modal" role="dialog" aria-modal="true" aria-labelledby="pveu-modal-title">
-  <div class="pveu-modal-card">
-    <div class="pveu-modal-header">
-      <div id="pveu-modal-title">Parlament Virtual Espanyol Universal</div>
-      <button class="pveu-close" id="pveu-close" aria-label="Cerrar">✕</button>
-    </div>
-    <iframe
-      id="pveu-frame"
-      class="pveu-iframe"
-      src="https://pveu-fdfont.pythonanywhere.com/"
-      title="PVEU"
-      loading="lazy"
-      referrerpolicy="no-referrer"
-    ></iframe>
+  <div class="pveu-dialog__body">
+    <p class="pveu-dialog__fallback">Si el nodo no carga, <a href="https://pveu-fdfont.pythonanywhere.com/" target="_blank" rel="noopener noreferrer">ábrelo en una pestaña nueva</a>.</p>
+    <iframe data-pveu-frame data-src="https://pveu-fdfont.pythonanywhere.com/" title="Parlament Virtual Global Universal" loading="lazy" referrerpolicy="no-referrer"></iframe>
   </div>
-</div>
-
-<script>
-</script>
-
-<script>
-  // Newsletter (si existe un <form> en el partial)
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (response.ok) {
-        window.location.href = "/thank-you/";
-      } else {
-        alert("Hi ha hagut un error enviant el formulari.");
-      }
-    });
-  }
-
-  // ===== Lógica del modal PVEU =====
-  const pveuOpen  = document.getElementById('pveu-open');
-  const pveuModal = document.getElementById('pveu-modal');
-  const pveuClose = document.getElementById('pveu-close');
-  const pveuFrame = document.getElementById('pveu-frame');
-
-  function openPVEU(){
-    try{
-      pveuModal.setAttribute('open','');
-      pveuModal.style.display='flex';
-      pveuOpen?.setAttribute('aria-expanded','true');
-      if(!pveuFrame.src) pveuFrame.src='https://pveu-fdfont.pythonanywhere.com/';
-    }catch(e){
-      window.open('https://pveu-fdfont.pythonanywhere.com/','_blank','noopener,noreferrer');
-    }
-  }
-  function closePVEU(){
-    pveuModal.removeAttribute('open');
-    pveuModal.style.display='none';
-    pveuOpen?.setAttribute('aria-expanded','false');
-  }
-  pveuOpen.addEventListener('click', openPVEU);
-  pveuClose.addEventListener('click', closePVEU);
-  pveuModal.addEventListener('click', (ev)=>{ if(ev.target===pveuModal) closePVEU(); });
-  document.addEventListener('keydown', (ev)=>{ if(ev.key==='Escape') closePVEU(); });
-
-  pveuOpen.addEventListener('click', openPVEU);
-  pveuClose.addEventListener('click', closePVEU);
-  pveuModal.addEventListener('click', (ev) => {
-    if (ev.target === pveuModal) closePVEU(); // Clic fuera cierra
-  });
-  document.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Escape') closePVEU();
-  });
-
-  // Atajo de teclado opcional (V para "Votar")
-  document.addEventListener('keydown', (ev) => {
-    if ((ev.key === 'v' || ev.key === 'V') && !pveuModal.hasAttribute('open')) {
-      openPVEU();
-    }
-  });
-</script>
-
-
-
-</body>
-</html>
+</dialog>
 {{ end }}

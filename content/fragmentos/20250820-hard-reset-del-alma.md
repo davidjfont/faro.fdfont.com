@@ -4,7 +4,7 @@ date: 2025-08-20
 draft: false
 tags: ["codex-harr", "inmortalidad", "identidad", "era-sintética", "crónicas"]
 categories: ["Crónicas de la Era Sintética"]
-image: "/img/2025/08/20250820-hard-reset-del-alma-00.png"
+image: "/optimized/img/2025/08/20250820-hard-reset-del-alma-00.webp"
 description: "El relato fragmentado del primer ser humano que se ofreció al Codex H.A.R.R. Una conciencia reducida a patrones, resucitada en mil versiones, buscando aún una identidad que ya no existe."
 ---
 

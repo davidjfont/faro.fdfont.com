@@ -3,7 +3,7 @@ title: "Control de la Población Humana mediante la Regulación de Robots Activo
 date: 2025-08-10
 draft: false
 description: "Un modelo teórico y práctico para regular la cantidad de habitantes del planeta Tierra controlando la actividad de robots en el universo."
-image: "/img/2025/08/20250810-control-robots-poblacion.png"
+image: "/optimized/img/2025/08/20250810-control-robots-poblacion.webp"
 tags: ["IA", "robots", "población", "ecología", "control predictivo"]
 
 ---

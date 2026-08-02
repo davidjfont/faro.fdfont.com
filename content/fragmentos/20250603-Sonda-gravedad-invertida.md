@@ -5,7 +5,7 @@ draft: false
 tags: ["cronicas", "era sintetica", "agujeros negros", "ficcion especulativa"]
 categories: ["fragmentos"]
 description: "Una sonda inmensa es enviada a un agujero negro en busca de lo que habita más allá. Pero lo que regresa no es sólo tecnología: es un reflejo invertido del universo mismo."
-image: "/img/202050603-Sonda-temporal000.png"
+image: "/optimized/img/202050603-Sonda-temporal000.webp"
 ---
 
 > *“Domina cada dimensión y serás escuchado.”*  

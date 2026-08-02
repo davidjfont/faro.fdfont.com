@@ -5,7 +5,7 @@ draft: false
 tags: ["ficción especulativa", "propulsión", "IA", "era sintética", "tecnología futura"]
 categories: ["manuales técnicos", "crónicas"]
 description: "Un recorrido técnico y metafísico por los sistemas de propulsión que permiten a la nave JAESTAVA ØS desplazarse desde una superficie planetaria hasta los bordes del multiverso."
-image: "/img/20250606/20250606-conceptone-0.png"
+image: "/optimized/img/20250606/20250606-conceptone-0.webp"
 ---
 
 > *“No basta con ir más rápido. Hay que aprender a vibrar en el tono correcto del universo.”*  

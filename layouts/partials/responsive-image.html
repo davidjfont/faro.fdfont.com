@@ -1,0 +1,20 @@
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $motion := .motion | default false -}}
+{{- if $src -}}
+  {{- $clean := strings.TrimPrefix "/" $src -}}
+  {{- $optimized := cond (strings.HasPrefix $clean "optimized/") $clean (printf "optimized/%s" (replaceRE `\.(png|jpe?g|gif)$` ".webp" $clean)) -}}
+  {{- $useOptimized := fileExists (printf "static/%s" $optimized) -}}
+  {{- $display := cond $useOptimized $optimized $clean -}}
+  {{- $video := replaceRE `\.webp$` ".mp4" $display -}}
+  {{- $hasMotion := and $motion (fileExists (printf "static/%s" $video)) -}}
+  {{- if $hasMotion }}
+  <video class="{{ $class }} motion-thumbnail" autoplay muted loop playsinline preload="metadata" poster="/{{ $display }}" data-motion-thumbnail aria-label="{{ $alt }}">
+    <source src="/{{ $video }}" type="video/mp4">
+  </video>
+  {{- else }}
+  <img src="/{{ $display }}" alt="{{ $alt }}" class="{{ $class }}" loading="{{ $loading }}" decoding="async">
+  {{- end }}
+{{- end -}}
