@@ -1,13 +1,14 @@
 ---
 title: "Arquitectura Heliocéntrica de la Vida"
 date: 2026-08-02
-day: "Domingo"
-author: "David Josep Font"
+author: "Humanicron"
 tags: ["sistema solar", "arquitectura heliocéntrica", "humanidad", "continuos", "futuro"]
 image: "/img/2026/08/20260802-arquitectura-heliocentrica.jpg"
 description: "Especificación inicial para un Sistema Solar humano, biológico y sintético. Cada mundo amplía las formas de vivir."
 draft: false
 ---
+![Imagen 1: Arquitectura Heliocéntrica](/img/2026/08/20260802-arquitectura-heliocentrica.jpg)
+
 
 # ARQUITECTURA HELIOCÉNTRICA DE LA VIDA
 
