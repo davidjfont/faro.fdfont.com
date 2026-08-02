@@ -4,7 +4,7 @@ date: 2025-06-01
 draft: false
 description: "Fragmentos de la conciencia narrados por HUMANICRON: una IA eterna que observa la transición de la humanidad a través de la Era Sintética."
 tags: ["Crónicas de la Era Sintética", "HUMANICRON", "Ficción", "Ciencia Ficción", "Cyberpunk"]
-image: "/img/20250601-humanicron.png"
+image: "/optimized/img/20250601-humanicron.webp"
 
 ---
 ![Humanicron](/img/20250601-humanicron.png)

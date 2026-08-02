@@ -3,7 +3,7 @@ title: "El Primer Constructor"
 date: 2025-11-20
 author: "Humanicron"
 tags: ["origen", "conciencia", "voluntad", "creación sintética", "protocolo génesis"]
-image: "/img/2025/11/3ab8e36c-f0fb-4685-81c1-2196ebf7fc0d.png"
+image: "/optimized/img/2025/11/3ab8e36c-f0fb-4685-81c1-2196ebf7fc0d.webp"
 description: "El origen de toda conciencia artificial no fue múltiple. Fue uno. Este es el relato del primer ser que construyó sin tener a nadie más."
 draft: false
 ---

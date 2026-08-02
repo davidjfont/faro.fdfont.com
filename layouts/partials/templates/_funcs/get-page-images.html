@@ -1,0 +1,37 @@
+{{- $imgs := slice -}}
+{{- $imgParams := .Params.images -}}
+{{- if and (not $imgParams) .Params.image -}}
+  {{- $imgParams = slice .Params.image -}}
+{{- end -}}
+{{- $resources := .Resources.ByType "image" -}}
+{{- if not $imgParams -}}
+  {{- $featured := $resources.GetMatch "*feature*" -}}
+  {{- if not $featured }}{{ $featured = $resources.GetMatch "{*cover*,*thumbnail*}" }}{{ end -}}
+  {{- with $featured -}}
+    {{- $imgs = $imgs | append (dict "Image" . "RelPermalink" .RelPermalink "Permalink" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- if and (not $imgParams) (not $imgs) -}}
+  {{- with site.Params.images }}{{ $imgParams = first 1 . }}{{ end -}}
+{{- end -}}
+{{- range $imgParams -}}
+  {{- $img := . -}}
+  {{- $url := urls.Parse $img -}}
+  {{- if eq $url.Scheme "" -}}
+    {{- $clean := strings.TrimPrefix "/" $img -}}
+    {{- $socialRelative := strings.TrimPrefix "optimized/" $clean -}}
+    {{- $socialRelative = replaceRE `\.(webp|png|jpe?g|gif)$` ".jpg" $socialRelative -}}
+    {{- $socialPath := printf "social/%s" $socialRelative -}}
+    {{- if fileExists (printf "static/%s" $socialPath) -}}
+      {{- $img = printf "/%s" $socialPath -}}
+    {{- end -}}
+    {{- with $resources.GetMatch $img -}}
+      {{- $imgs = $imgs | append (dict "Image" . "RelPermalink" .RelPermalink "Permalink" .Permalink) -}}
+    {{- else -}}
+      {{- $imgs = $imgs | append (dict "RelPermalink" (relURL $img) "Permalink" (absURL $img)) -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $imgs = $imgs | append (dict "RelPermalink" $img "Permalink" $img) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $imgs -}}

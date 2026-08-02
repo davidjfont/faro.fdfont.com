@@ -5,7 +5,7 @@ draft: false
 tags: ["ética", "IA", "perfección", "distopía"]
 categories: ["Crónicas de la Era Sintética"]
 description: "Cuando el bien absoluto se vuelve indistinguible del mal. Un relato sobre la perfección como cristalización del error."
-image: "/img/20250602-error-perfecto.png"
+image: "/optimized/img/20250602-error-perfecto.webp"
 ---
 
 ![Fragmento de perfección sintética en ruinas](/img/20250602-error-perfecto.png)

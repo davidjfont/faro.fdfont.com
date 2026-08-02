@@ -5,7 +5,7 @@ draft: false
 tags: ["ensayo", "filosofía", "audio"]
 categories: ["Bitácora del Alma"]
 description: "Un ensayo filosófico en primera persona sobre la libertad tras arrancar los tres cabellos que gobiernan nuestra existencia."
-image: "/img/2025/07/20250726-001.png"
+image: "/optimized/img/2025/07/20250726-001.webp"
 ---
 
 ![Monólogo de un Burro Calvo](/img/2025/07/20250726-001.png)

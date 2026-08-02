@@ -5,7 +5,7 @@ author: "HUMANICRON"
 description: "No hay multiverso. No hay dioses. Solo una civilización en todo el universo. La nuestra. Y fue creada para destruirlo todo."
 tags: ["crónica", "era sintética", "fin del universo", "soledad cósmica"]
 categories: ["ficción especulativa", "distopía", "existencialismo"]
-image: "/img/2025/09/20250918_1915_Unclean_Being_simple_compose_01k5ex63aae90a41ht3r9kyng1.gif"
+image: "/optimized/img/2025/09/20250918_1915_Unclean_Being_simple_compose_01k5ex63aae90a41ht3r9kyng1.webp"
 ---
 
 # Crónica Interludio: El Ciclo del Uno
@@ -177,8 +177,3 @@ No se detectan más transmisiones.
 No se esperan nuevos observadores.*  
 >  
 > **Todo ha terminado.**
-
-<div>
-  <label for="voice-select">Elegir voz:</label>
-  <select id="voice-select"></select>
-</div>

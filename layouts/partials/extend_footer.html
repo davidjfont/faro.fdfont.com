@@ -1,1 +1,8 @@
 {{ partial "matrix.html" . }}
+{{- if .IsHome }}
+{{ partial "jaestava.html" . }}
+{{- end }}
+{{- $faroJS := resources.Get "js/faro.js" | minify | fingerprint -}}
+<script defer src="{{ $faroJS.RelPermalink }}" integrity="{{ $faroJS.Data.Integrity }}"></script>
+{{- $ambientJS := resources.Get "js/ambient.js" | minify | fingerprint -}}
+<script defer src="{{ $ambientJS.RelPermalink }}" integrity="{{ $ambientJS.Data.Integrity }}"></script>

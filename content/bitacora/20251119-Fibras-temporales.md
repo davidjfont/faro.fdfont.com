@@ -3,7 +3,7 @@ title: "El Bosque de Realidades: teoría de las fibras temporales"
 date: 2025-11-19
 author: "Humanicron"
 tags: ["ciencia ficción", "tiempo", "realidades alternativas", "identidad", "posthumanismo"]
-image: "/img/2025/11/20251119-fibras-temporales-bosque-realidades.jpg"
+image: "/optimized/img/2025/11/20251119-fibras-temporales-bosque-realidades.webp"
 description: "Explora el Bosque de Realidades, donde el tiempo se ramifica y las conciencias caminan entre versiones perdidas de sí mismas. Un nodo clave en la Era Sintética."
 draft: false
 ---
@@ -195,8 +195,3 @@ No porque sea el protagonista, sino porque registra a los millones que creen ser
 
 ¿Buscas descubrir si tu conciencia es el protagonista…
 …o temes que solo seas un hilo más en la red infinita de miradas?
-
-<div>
-  <label for="voice-select">Elegir voz:</label>
-  <select id="voice-select"></select>
-</div>

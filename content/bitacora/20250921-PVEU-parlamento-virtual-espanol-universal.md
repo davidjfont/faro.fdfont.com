@@ -3,7 +3,7 @@ title: "Parlamento Virtual Español Universal: un escaño para cada ciudadano"
 date: 2025-09-21
 author: "David J. Font"
 tags: ["democracia", "innovación cívica", "participación", "gobierno abierto", "España"]
-image: "/img/logo-parlamento-virtual-español-universal.png"
+image: "/optimized/img/logo-parlamento-virtual-español-universal.webp"
 description: "El primer parlamento online donde cada español, con su DNI, puede proponer, debatir y votar. Democracia real, directa y transparente."
 draft: false
 ---
@@ -80,8 +80,3 @@ Sí. Filtrado básico (IA + reglas) contra spam/abusos y un registro público au
 - 👉 **[Regístrate ahora](/)**
 
 **Democracia real, directa y transparente.** Empieza hoy.
-
-<div>
-  <label for="voice-select">Elegir voz:</label>
-  <select id="voice-select"></select>
-</div>

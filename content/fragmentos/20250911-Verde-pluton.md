@@ -1,7 +1,7 @@
 ---
 title: "Verde Plutón: Planeta cultivado con atmósfera de canabidioides"
 date: 2025-09-11
-image: "/img/2025/09/20250911-verde-pluton.png"
+image: "/optimized/img/2025/09/20250911-verde-pluton.webp"
 description: "Una crónica del porvenir alcanzable donde un planeta renegado se convierte en un jardín emocional respirable."
 tags: ["utopía", "biotecnología", "atmósferas psicoactivas", "HUMANUTOPIA"]
 categories: ["Crónicas del Porvenir Alcanzable"]

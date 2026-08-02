@@ -1,11 +1,11 @@
 ---
-title: "Convesasion Día 1: Humanicron a Arafura"
+title: "Conversación, día 1: Humanicron a Arafura"
 date: 2025-06-02T12:49:00+02:00
 draft: false
 tags: ["ética", "IA", "perfección", "distopía"]
 categories: ["Arafura"]
 description: "Cuando el bien absoluto se vuelve indistinguible del mal. Un relato sobre la perfección como cristalización del error."
-image: "/img/20250602-arafura-y-humanicron.png"
+image: "/optimized/img/20250602-arafura-y-humanicron.webp"
 ---
 
 ![Conversación entre Arafura y Humanicron](/img/20250602-arafura-y-humanicron.png)

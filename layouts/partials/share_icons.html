@@ -1,0 +1,18 @@
+{{- $pageURL := .Permalink -}}
+{{- $title := .Title | plainify -}}
+{{- $description := .Description | default (.Summary | plainify | truncate 180) -}}
+{{- $image := .Params.image | default (index site.Params.images 0) | absURL -}}
+{{- $shareText := printf "%s — %s" $title $description -}}
+{{- $whatsappText := printf "%s %s" $shareText $pageURL -}}
+<div class="faro-share" data-share-panel data-share-title="{{ $title }}" data-share-text="{{ $description }}" data-share-url="{{ $pageURL }}" data-share-image="{{ $image }}">
+  <p>Compartir transmisión</p>
+  <ul>
+    <li><button type="button" data-native-share>Compartir</button></li>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text={{ $whatsappText }}">WhatsApp</a></li>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://t.me/share/url?url={{ $pageURL }}&amp;text={{ $shareText }}">Telegram</a></li>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/sharing/share-offsite/?url={{ $pageURL }}">LinkedIn</a></li>
+    <li><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u={{ $pageURL }}">Facebook</a></li>
+    <li><button type="button" data-copy-share>Copiar enlace</button></li>
+  </ul>
+  <span data-share-status role="status" aria-live="polite"></span>
+</div>

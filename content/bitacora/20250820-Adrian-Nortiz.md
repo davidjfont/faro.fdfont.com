@@ -5,7 +5,7 @@ draft: false
 tags: ["era sintética", "ficción especulativa", "posthumano", "inteligencia artificial", "memoria", "crónica temporal"]
 categories: ["Crónicas de la Era Sintética"]
 description: "Memorias de Adrián Nórtiz, nacido en 1980, último humano testigo de la transición al año 2484. Un viaje de cinco siglos desde la carne hasta el archivo eterno."
-image: "/img/2025/08/20250820-testigo-del-tiempo-roto-poster.gif"
+image: "/optimized/img/2025/08/20250820-testigo-del-tiempo-roto-poster.webp"
 ---
 
 # 🕯️ *Testigo del Tiempo Roto*

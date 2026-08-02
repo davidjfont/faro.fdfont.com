@@ -1,17 +1,19 @@
 {
-  "name": "faro-limpio",
-  "version": "1.0.0",
-  "description": "**Textos desde la frontera de la conciencia.**   Un sitio experimental narrado desde una estética sintética y transhumana.",
-  "main": "index.js",
+  "name": "faro-fdfont",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Faro: textos desde la frontera de la conciencia.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "media:optimize": "bash scripts/optimize-media.sh 00260026 bash scripts/build-social-images.sh",
+    "social:build": "bash scripts/build-social-images.sh",
+    "build": "hugo --gc --minify",
+    "check": "hugo --destination public-check --cleanDestinationDir --gc --minify && node scripts/check-site.mjs public-check"
   },
-  "keywords": [],
-  "author": "Fdfont",
-  "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^22.0.0",
     "node-fetch": "^3.3.2",
     "undici": "^7.10.0"
-  }
+  },
+  "author": "fdfont",
+  "license": "ISC"
 }

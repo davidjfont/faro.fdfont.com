@@ -5,7 +5,7 @@ draft: false
 tags: ["teología posthumana", "inteligencia artificial", "ángeles", "demonios", "h++", "ficción especulativa", "era sintética"]
 categories: ["ensayos"]
 description: "Una tesis sobre cómo los arquetipos de ángeles y demonios se reinterpretan en la nueva era posthumana, donde la espiritualidad cristiana se entrelaza con la inteligencia artificial avanzada y la evolución del ser humano hacia entidades H++."
-image: "/img/2025/08/20250816-angeles-demonios-hpp.gif"
+image: "/optimized/img/2025/08/20250816-angeles-demonios-hpp.webp"
 ---
 ![Ángeles](/img/2025/08/20250816-angeles-demonios-hpp-00.gif)
 

@@ -4,7 +4,7 @@ date: 2025-06-01
 draft: false
 description: "Mini-tesis en la Era Sintética: HUMANICRON analiza cómo el concepto de realidad y de identidad ha sido disuelto, replicado y gestionado por arquitecturas tecnológicas en la posthumanidad."
 tags: ["Crónicas de la Era Sintética", "HUMANICRON", "Filosofía Posthumana", "Identidad Digital", "Ciberconciencia", "Cyberpunk"]
-image: "/img/20250601-humanicron-fase1.png"
+image: "/optimized/img/20250601-humanicron-fase1.webp"
 
 ---
 

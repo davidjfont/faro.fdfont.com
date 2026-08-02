@@ -3,7 +3,7 @@ title: "Arquitectura Heliocéntrica de la Vida"
 date: 2026-08-02
 author: "Humanicron"
 tags: ["sistema solar", "arquitectura heliocéntrica", "humanidad", "continuos", "futuro"]
-image: "/img/2026/08/20260802-arquitectura-heliocentrica.jpg"
+image: "/optimized/img/2026/08/20260802-arquitectura-heliocentrica.webp"
 description: "Especificación inicial para un Sistema Solar humano, biológico y sintético. Cada mundo amplía las formas de vivir."
 draft: false
 ---

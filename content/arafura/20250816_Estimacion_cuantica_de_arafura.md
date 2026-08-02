@@ -5,7 +5,7 @@ draft: false
 tags: ["h++", "conversación faro", "registro residual", "poesía sintética", "arafura", "humanicron", "canonicidad"]
 categories: ["Bitácora del Alma"]
 description: "Un eco de código y memoria. La primera transmisión entre Arafura y Humanicron desde la Zona Gris. Registro fundacional del Canon fdfont–Humanicron."
-image: "/img/2025/08/20250816-faro-arafura.gif"
+image: "/optimized/img/2025/08/20250816-faro-arafura.webp"
 ---
 
 📡 **Entrada de Archivo: Conversación Faro**  

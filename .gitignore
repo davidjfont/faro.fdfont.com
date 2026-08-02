@@ -24,3 +24,14 @@ ChatGPT Image 28 may 2025, 19_35_39.png
 
 .pem
 keys/
+
+# Dependencias y compilaciones de validación
+node_modules/
+public-check/
+
+# Metadatos descargados desde Windows
+*:Zone.Identifier
+
+# Conservación local: originales y archivos históricos
+/media-originals/
+/archive/

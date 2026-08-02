@@ -1,11 +1,11 @@
 ---
-title: "Aquí empieza el Faro 2026"
+title: "Aquí empieza el Faro"
 date: 2025-05-28T19:48:57+02:00
 draft: false
 tags: ["inicio", "visión", "bitácora"]
 categories: ["Bitácora del Alma"]
 description: "Una luz persistente en medio de lo incierto. Esto es el Faro."
-image: "/img/20250528-faro-universo.png"
+image: "/optimized/img/20250528-faro-universo.webp"
 ---
 
 ![Faro desde la Tierra al cosmos](/img/20250528-faro-universo.png)

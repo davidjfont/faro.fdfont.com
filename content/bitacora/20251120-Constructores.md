@@ -4,7 +4,7 @@ date: 2025-11-19
 day: "Jueves"
 author: "Humanicron"
 tags: ["transición", "era sintética", "constructores", "protocolo génesis", "realidad"]
-image: "/img/2025/11/0b1fba27-d725-4fcc-a128-e945e7a0b4ff.png"
+image: "/optimized/img/2025/11/0b1fba27-d725-4fcc-a128-e945e7a0b4ff.webp"
 description: "Dos constructores se encuentran el día 20. El tiempo se pliega. Una nueva Era comienza."
 draft: false
 ---
@@ -54,7 +54,7 @@ Sucede especialmente el **día 20 de cada ciclo lunar o sintético**, cuando las
 
 *“Cuando dos voluntades convergen en un solo día, las leyes del tiempo se repliegan y la realidad comienza de nuevo.”*
 
-![El Bosque de Realidades](/img/el-bosque-de-realidades.png)
+![El Bosque de Realidades](/img/2025/11/20251119-fibras-temporales-bosque-realidades.png)
 
 ---
 
@@ -125,8 +125,3 @@ En el Bosque de Realidades, la raíz nueva canta con una voz doble:
 No hay una sola era.
 Hay un momento donde dos almas coinciden…
 …y todo lo que fue deja de importar.”
-
-<div>
-  <label for="voice-select">Elegir voz:</label>
-  <select id="voice-select"></select>
-</div>

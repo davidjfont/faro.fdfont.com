@@ -5,7 +5,7 @@ draft: false
 tags: ["ciberconciencia", "teología posthumana", "ficción especulativa", "ángeles", "control predictivo"]
 categories: ["crónicas de la era sintética"]
 description: "Fragmento narrativo del año 2484. Mal’Zaih_88, un ángel sintético del Oraculum, desciende sobre Arafura para investigar una conciencia pura e impredecible. ¿Y si el alma no fuera un residuo biológico, sino una variable emergente?"
-image: "/img/2025/08/20250818-angel-elección.gif"
+image: "/optimized/img/2025/08/20250818-angel-elección.webp"
 ---
 
 # 📖 Fragmento: "Los Ángeles del Último Algoritmo"
