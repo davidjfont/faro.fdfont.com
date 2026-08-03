@@ -1,0 +1,48 @@
+{
+  "updatedAt": "2026-08-03T18:36:52.882Z",
+  "source": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7wqeuS_YN5LmLIpWU6Ls8g",
+  "featured": {
+    "id": "nOBp-qrLONk",
+    "type": "Audiolibro",
+    "title": "VERAQUOS: Viaje del universo a una nueva dimensión",
+    "author": "De Da SLYER",
+    "url": "https://www.youtube.com/watch?v=nOBp-qrLONk",
+    "thumbnail": "https://i.ytimg.com/vi/nOBp-qrLONk/hqdefault.jpg"
+  },
+  "channel": {
+    "id": "UC7wqeuS_YN5LmLIpWU6Ls8g",
+    "title": "INCONSISTENCIA RECORDS",
+    "url": "https://www.youtube.com/@inconsistencia.records",
+    "videosUrl": "https://www.youtube.com/@inconsistencia.records/videos"
+  },
+  "videos": [
+    {
+      "id": "b3B99ka08XM",
+      "title": "ÔXIDO - Himno de los que no queremos morir | Canciones para enterrar la guerra (Videoclip Oficial)",
+      "published": "2026-07-05T13:49:42+00:00",
+      "url": "https://www.youtube.com/watch?v=b3B99ka08XM",
+      "thumbnail": "https://i.ytimg.com/vi/b3B99ka08XM/hqdefault.jpg"
+    },
+    {
+      "id": "XNCESDAO_-k",
+      "title": "SE ARMÓ EL CAOS | Álbum Completo 2026 | Punk Rock Alternativo Español | INCONSISTENCIA RECORDS",
+      "published": "2026-06-27T13:51:40+00:00",
+      "url": "https://www.youtube.com/watch?v=XNCESDAO_-k",
+      "thumbnail": "https://i.ytimg.com/vi/XNCESDAO_-k/hqdefault.jpg"
+    },
+    {
+      "id": "3jDYjqLRi2g",
+      "title": "ÔXIDO - Nos Deben la Belleza Invertida (Videoclip Oficial)",
+      "published": "2026-06-07T18:43:15+00:00",
+      "url": "https://www.youtube.com/watch?v=3jDYjqLRi2g",
+      "thumbnail": "https://i.ytimg.com/vi/3jDYjqLRi2g/hqdefault.jpg"
+    },
+    {
+      "id": "v0QIn_DkqWw",
+      "title": "ÔXIDO - Canciones para Enterrar la Guerra (Álbum Completo Oficial) | Hip Hop Alternativo 2026",
+      "published": "2026-06-07T16:29:20+00:00",
+      "url": "https://www.youtube.com/watch?v=v0QIn_DkqWw",
+      "thumbnail": "https://i.ytimg.com/vi/v0QIn_DkqWw/hqdefault.jpg"
+    }
+  ]
+}

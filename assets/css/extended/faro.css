@@ -432,3 +432,199 @@ body:has(.jaestava-btn) .top-link { bottom: 5.25rem; }
     min-height: 0;
   }
 }
+
+/* Resonancia: biblioteca sonora */
+#menu a[href$="/resonancia/"] {
+  color: #d7b5ff;
+  background: rgba(139, 92, 246, 0.12);
+}
+#menu a[href$="/resonancia/"]:hover,
+#menu a[href$="/resonancia/"][aria-current="page"] {
+  color: #f1e4ff;
+  background: rgba(139, 92, 246, 0.28);
+}
+.resonance-header {
+  max-width: 52rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.resonance-header h1 {
+  margin: 0;
+  color: var(--faro-text);
+  font-size: clamp(2.8rem, 9vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+.resonance-header > p:last-child {
+  max-width: 42rem;
+  margin: 1.1rem 0 0;
+  color: var(--faro-muted);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+}
+.resonance-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 1.15fr);
+  align-items: center;
+  gap: clamp(1.25rem, 4vw, 3rem);
+  margin-bottom: 4.5rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  border: 1px solid rgba(168, 119, 255, 0.28);
+  border-radius: var(--faro-radius-lg);
+  background:
+    radial-gradient(circle at 85% 15%, rgba(139, 92, 246, 0.18), transparent 35rem),
+    var(--faro-surface);
+  box-shadow: var(--faro-shadow);
+}
+.resonance-feature__copy h2 {
+  margin: 0;
+  color: var(--faro-text);
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+.resonance-label,
+.resonance-card__meta {
+  margin: 0 0 0.55rem;
+  color: #b991ff;
+  font-size: 0.76rem;
+  font-weight: 780;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.resonance-byline {
+  margin: 0.8rem 0;
+  color: var(--faro-accent);
+  font-weight: 700;
+}
+.resonance-feature__copy > p:not([class]) {
+  color: var(--faro-muted);
+}
+.resonance-channel {
+  margin-bottom: 4rem;
+}
+.resonance-channel__heading h2 {
+  margin: 0;
+  color: var(--faro-text);
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.resonance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  gap: 1.15rem;
+}
+.resonance-card {
+  overflow: hidden;
+  border: 1px solid var(--faro-line);
+  border-radius: var(--faro-radius);
+  background: var(--faro-surface);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.1);
+}
+.resonance-player {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 0;
+  color: white;
+  background: #02050a;
+  cursor: pointer;
+}
+.resonance-player img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease, filter 300ms ease;
+}
+.resonance-player:hover img {
+  transform: scale(1.025);
+  filter: brightness(0.78);
+}
+.resonance-player__overlay {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.6rem;
+  padding: 0.8rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+  font-weight: 760;
+  text-shadow: 0 2px 8px black;
+}
+.resonance-player__overlay span {
+  display: grid;
+  width: 2rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.72);
+  font-size: 0.72rem;
+}
+.resonance-iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #000;
+}
+.resonance-card__body {
+  padding: 1rem;
+}
+.resonance-card__body h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+.resonance-card__body h3 a {
+  color: var(--faro-text);
+  text-decoration: none;
+}
+.resonance-card__body h3 a:hover {
+  color: var(--faro-accent-strong);
+  text-decoration: underline;
+}
+.resonance-source {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--faro-line);
+  color: var(--faro-muted);
+  font-size: 0.78rem;
+}
+.resonance-source p {
+  margin: 0;
+}
+
+@media (max-width: 47.99rem) {
+  .resonance-header {
+    margin-top: 0.5rem;
+  }
+  .resonance-feature {
+    grid-template-columns: 1fr;
+    margin-bottom: 3rem;
+  }
+  .resonance-feature__copy {
+    order: 2;
+  }
+  .resonance-feature .resonance-player,
+  .resonance-feature .resonance-iframe {
+    order: 1;
+  }
+  .resonance-channel__heading {
+    align-items: end;
+  }
+  .resonance-channel__heading .faro-text-link {
+    display: inline;
+    font-size: 0.82rem;
+  }
+}

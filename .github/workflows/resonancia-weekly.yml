@@ -1,0 +1,29 @@
+name: Actualizar Resonancia
+
+on:
+  schedule:
+    # Dos ventanas UTC permiten ejecutar a las 05:00 en Europe/Madrid durante todo el año.
+    - cron: "0 3,4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Activar build semanal o manual
+        env:
+          NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" != "workflow_dispatch" ] && [ "$(TZ=Europe/Madrid date +%H)" != "05" ]; then
+            echo "Fuera de la ventana de las 05:00 en Europe/Madrid; no se lanza un segundo build."
+            exit 0
+          fi
+          if [ -z "$NETLIFY_BUILD_HOOK_URL" ]; then
+            echo "::error::Configura el secreto NETLIFY_BUILD_HOOK_URL con un Build Hook de Netlify."
+            exit 1
+          fi
+          curl --fail --silent --show-error --request POST "$NETLIFY_BUILD_HOOK_URL"
+          echo "Build de Resonancia solicitado a Netlify."

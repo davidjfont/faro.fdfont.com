@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{- $data := site.Data.resonancia -}}
+
+<header class="resonance-header">
+  <p class="faro-kicker">Biblioteca sonora</p>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Description }}</p>
+</header>
+
+{{- with $data.featured }}
+<section class="resonance-feature" aria-labelledby="resonance-feature-title">
+  <div class="resonance-feature__copy">
+    <p class="resonance-label">{{ .type }} destacado</p>
+    <h2 id="resonance-feature-title">{{ .title }}</h2>
+    <p class="resonance-byline">Una narración de {{ .author }}</p>
+    <p>Un viaje sonoro desde el origen del universo hacia una dimensión nueva. Escúchalo dentro del Faro o continúa la travesía directamente en YouTube.</p>
+    <a class="faro-text-link" href="{{ .url }}" target="_blank" rel="noopener noreferrer">Abrir audiolibro en YouTube ↗</a>
+  </div>
+  <button class="resonance-player resonance-player--feature" type="button" data-youtube-player data-youtube-id="{{ .id }}" data-youtube-title="{{ .title }}" aria-label="Reproducir {{ .title }}">
+    <img src="{{ .thumbnail }}" alt="Portada de {{ .title }}" loading="eager" decoding="async" referrerpolicy="no-referrer">
+    <span class="resonance-player__overlay"><span aria-hidden="true">▶</span> Escuchar audiolibro</span>
+  </button>
+</section>
+{{- end }}
+
+<section class="resonance-channel" aria-labelledby="resonance-channel-title">
+  <div class="faro-section__heading resonance-channel__heading">
+    <div>
+      <p class="faro-kicker">Frecuencias recientes</p>
+      <h2 id="resonance-channel-title">{{ $data.channel.title }}</h2>
+    </div>
+    <a class="faro-text-link" href="{{ $data.channel.videosUrl }}" target="_blank" rel="noopener noreferrer">Visitar el canal ↗</a>
+  </div>
+
+  <div class="resonance-grid">
+    {{- range first 12 $data.videos }}
+    <article class="resonance-card">
+      <button class="resonance-player" type="button" data-youtube-player data-youtube-id="{{ .id }}" data-youtube-title="{{ .title }}" aria-label="Reproducir {{ .title }}">
+        <img src="{{ .thumbnail }}" alt="Miniatura de {{ .title }}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <span class="resonance-player__overlay"><span aria-hidden="true">▶</span> Reproducir</span>
+      </button>
+      <div class="resonance-card__body">
+        <p class="resonance-card__meta">Música · {{ time.Format ":date_medium" (time.AsTime .published) }}</p>
+        <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+
+  <footer class="resonance-source">
+    <p>Contenido conectado con YouTube. Los reproductores solo se cargan cuando decides activarlos.</p>
+    {{- with $data.updatedAt }}<p>Última sincronización: {{ time.Format ":date_long" (time.AsTime .) }}.</p>{{- end }}
+  </footer>
+</section>
+{{ end }}

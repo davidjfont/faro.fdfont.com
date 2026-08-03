@@ -6,8 +6,9 @@
   "scripts": {
     "media:optimize": "bash scripts/optimize-media.sh 00260026 bash scripts/build-social-images.sh",
     "social:build": "bash scripts/build-social-images.sh",
-    "build": "hugo --gc --minify",
-    "check": "hugo --destination public-check --cleanDestinationDir --gc --minify && node scripts/check-site.mjs public-check"
+    "build": "npm run resonancia:sync && hugo --gc --minify",
+    "check": "npm run resonancia:sync && hugo --destination public-check --cleanDestinationDir --gc --minify && node scripts/check-site.mjs public-check",
+    "resonancia:sync": "node scripts/sync-youtube.mjs"
   },
   "dependencies": {
     "@octokit/rest": "^22.0.0",

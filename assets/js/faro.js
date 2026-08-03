@@ -171,3 +171,20 @@
     }
   });
 })();
+
+(() => {
+  document.querySelectorAll('[data-youtube-player]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const videoId = button.dataset.youtubeId;
+      if (!/^[A-Za-z0-9_-]{11}$/.test(videoId || '')) return;
+      const iframe = document.createElement('iframe');
+      iframe.className = 'resonance-iframe';
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title = button.dataset.youtubeTitle || 'Reproductor de YouTube';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.allowFullscreen = true;
+      button.replaceWith(iframe);
+    }, { once: true });
+  });
+})();

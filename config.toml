@@ -79,15 +79,20 @@ googleAnalytics = "G-48NSGTEX0J"
     url = "/mrconcept/"
     weight = 40
   [[menu.main]]
+    identifier = "resonancia"
+    name = "Resonancia"
+    url = "/resonancia/"
+    weight = 50
+  [[menu.main]]
     identifier = "comic"
     name = "Cómic"
     url = "/comic/"
-    weight = 50
+    weight = 60
   [[menu.main]]
     identifier = "nadie"
     name = "Zona Nadie"
     url = "/nadie/"
-    weight = 60
+    weight = 70
 
 [outputs]
   home = ["HTML", "RSS"]
