@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-03T18:36:52.882Z",
+  "updatedAt": "2026-08-03T19:56:13.140Z",
   "source": "https://www.youtube.com/feeds/videos.xml?channel_id=UC7wqeuS_YN5LmLIpWU6Ls8g",
   "featured": {
     "id": "nOBp-qrLONk",
@@ -7,7 +7,7 @@
     "title": "VERAQUOS: Viaje del universo a una nueva dimensión",
     "author": "De Da SLYER",
     "url": "https://www.youtube.com/watch?v=nOBp-qrLONk",
-    "thumbnail": "https://i.ytimg.com/vi/nOBp-qrLONk/hqdefault.jpg"
+    "thumbnail": "/optimized/resonancia/nOBp-qrLONk.jpg"
   },
   "channel": {
     "id": "UC7wqeuS_YN5LmLIpWU6Ls8g",
@@ -17,32 +17,49 @@
   },
   "videos": [
     {
+      "id": "6HoXge7Erv0",
+      "title": "ÔXIDO — EL AMANECER DEL GREMIO | Álbum completo | Hip Hop moral, humano e independiente",
+      "published": "2026-08-03T19:41:50+00:00",
+      "url": "https://www.youtube.com/watch?v=6HoXge7Erv0",
+      "thumbnail": "/optimized/resonancia/6HoXge7Erv0.jpg",
+      "durationSeconds": 3666,
+      "duration": "1:01:06"
+    },
+    {
       "id": "b3B99ka08XM",
       "title": "ÔXIDO - Himno de los que no queremos morir | Canciones para enterrar la guerra (Videoclip Oficial)",
       "published": "2026-07-05T13:49:42+00:00",
       "url": "https://www.youtube.com/watch?v=b3B99ka08XM",
-      "thumbnail": "https://i.ytimg.com/vi/b3B99ka08XM/hqdefault.jpg"
+      "thumbnail": "/optimized/resonancia/b3B99ka08XM.jpg",
+      "durationSeconds": 240,
+      "duration": "4:00"
     },
     {
       "id": "XNCESDAO_-k",
       "title": "SE ARMÓ EL CAOS | Álbum Completo 2026 | Punk Rock Alternativo Español | INCONSISTENCIA RECORDS",
       "published": "2026-06-27T13:51:40+00:00",
       "url": "https://www.youtube.com/watch?v=XNCESDAO_-k",
-      "thumbnail": "https://i.ytimg.com/vi/XNCESDAO_-k/hqdefault.jpg"
+      "thumbnail": "/optimized/resonancia/XNCESDAO_-k.jpg",
+      "durationSeconds": 3522,
+      "duration": "58:42"
     },
     {
       "id": "3jDYjqLRi2g",
       "title": "ÔXIDO - Nos Deben la Belleza Invertida (Videoclip Oficial)",
       "published": "2026-06-07T18:43:15+00:00",
       "url": "https://www.youtube.com/watch?v=3jDYjqLRi2g",
-      "thumbnail": "https://i.ytimg.com/vi/3jDYjqLRi2g/hqdefault.jpg"
+      "thumbnail": "/optimized/resonancia/3jDYjqLRi2g.jpg",
+      "durationSeconds": 158,
+      "duration": "2:38"
     },
     {
       "id": "v0QIn_DkqWw",
       "title": "ÔXIDO - Canciones para Enterrar la Guerra (Álbum Completo Oficial) | Hip Hop Alternativo 2026",
       "published": "2026-06-07T16:29:20+00:00",
       "url": "https://www.youtube.com/watch?v=v0QIn_DkqWw",
-      "thumbnail": "https://i.ytimg.com/vi/v0QIn_DkqWw/hqdefault.jpg"
+      "thumbnail": "/optimized/resonancia/v0QIn_DkqWw.jpg",
+      "durationSeconds": 2973,
+      "duration": "49:33"
     }
   ]
 }

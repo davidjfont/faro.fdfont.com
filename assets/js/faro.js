@@ -26,13 +26,17 @@
   const openButton = document.querySelector('[data-pveu-open]');
   const closeButton = document.querySelector('[data-pveu-close]');
   const frame = document.querySelector('[data-pveu-frame]');
-  const openPveu = () => {
+  const loadPveu = () => {
     if (!dialog || typeof dialog.showModal !== 'function') {
       window.open('https://pveu-fdfont.pythonanywhere.com/', '_blank', 'noopener,noreferrer');
       return;
     }
     if (frame && !frame.getAttribute('src')) frame.setAttribute('src', frame.dataset.src);
     dialog.showModal();
+  };
+  const openPveu = () => {
+    if (window.FaroConsent) window.FaroConsent.requireExternal(loadPveu);
+    else loadPveu();
   };
   openButton?.addEventListener('click', openPveu);
   closeButton?.addEventListener('click', () => dialog?.close());
@@ -175,16 +179,20 @@
 (() => {
   document.querySelectorAll('[data-youtube-player]').forEach((button) => {
     button.addEventListener('click', () => {
-      const videoId = button.dataset.youtubeId;
-      if (!/^[A-Za-z0-9_-]{11}$/.test(videoId || '')) return;
-      const iframe = document.createElement('iframe');
-      iframe.className = 'resonance-iframe';
-      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-      iframe.title = button.dataset.youtubeTitle || 'Reproductor de YouTube';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-      iframe.allowFullscreen = true;
-      button.replaceWith(iframe);
-    }, { once: true });
+      const play = () => {
+        const videoId = button.dataset.youtubeId;
+        if (!/^[A-Za-z0-9_-]{11}$/.test(videoId || '')) return;
+        const iframe = document.createElement('iframe');
+        iframe.className = 'resonance-iframe';
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        iframe.title = button.dataset.youtubeTitle || 'Reproductor de YouTube';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        button.replaceWith(iframe);
+      };
+      if (window.FaroConsent) window.FaroConsent.requireExternal(play);
+      else play();
+    });
   });
 })();

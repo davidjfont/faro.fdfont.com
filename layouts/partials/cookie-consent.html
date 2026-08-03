@@ -1,0 +1,61 @@
+<section class="consent-banner" data-consent-banner hidden aria-label="Preferencias de privacidad">
+  <div>
+    <strong>Una señal respetuosa</strong>
+    <p>El Faro usa almacenamiento necesario para recordar tus preferencias. Con tu permiso, también realizamos medición de audiencia y activamos contenidos externos.</p>
+  </div>
+  <div class="consent-actions">
+    <button type="button" data-consent-essential>Solo necesarias</button>
+    <button type="button" data-consent-accept>Aceptar opcionales</button>
+    <button class="consent-link" type="button" data-consent-configure>Configurar</button>
+  </div>
+  <a href="/privacidad-y-cookies/">Más información</a>
+</section>
+
+<dialog class="consent-dialog" data-consent-dialog aria-labelledby="consent-title">
+  <form method="dialog" data-consent-form>
+    <div class="consent-dialog__head">
+      <div>
+        <span class="consent-kicker">Privacidad en el Faro</span>
+        <h2 id="consent-title">Elige qué señales compartir</h2>
+      </div>
+      <button class="consent-close" value="cancel" aria-label="Cerrar">×</button>
+    </div>
+    <p>Las opciones no necesarias están apagadas por defecto. Puedes cambiar esta decisión cuando quieras.</p>
+
+    <div class="consent-choice">
+      <div>
+        <strong>Necesarias</strong>
+        <small>Tema visual, navegación, progreso de lectura y tu elección de privacidad. Permanecen activas para que el sitio funcione.</small>
+      </div>
+      <span class="consent-always">Siempre activas</span>
+    </div>
+
+    <label class="consent-choice">
+      <span>
+        <strong>Medición de audiencia</strong>
+        <small>Google Analytics nos ayuda a conocer, de forma agregada, qué transmisiones se leen. No se carga hasta que lo permites.</small>
+      </span>
+      <input type="checkbox" name="analytics">
+    </label>
+
+    <label class="consent-choice">
+      <span>
+        <strong>Contenido externo</strong>
+        <small>Permite reproducir YouTube y abrir nodos interactivos externos dentro del Faro.</small>
+      </span>
+      <input type="checkbox" name="external">
+    </label>
+
+    <div class="consent-dialog__actions">
+      <button type="button" data-consent-dialog-essential>Solo necesarias</button>
+      <button type="submit" value="save">Guardar preferencias</button>
+    </div>
+    <a href="/privacidad-y-cookies/">Consulta el inventario de servicios y almacenamiento</a>
+  </form>
+</dialog>
+
+<div data-consent-config
+  data-version="1"
+  data-storage-key="faro-consent-v1"
+  data-analytics-id="{{ site.Params.privacy.googleAnalyticsID }}"
+  hidden></div>

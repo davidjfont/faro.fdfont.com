@@ -13,9 +13,10 @@ const featured = {
   title: 'VERAQUOS: Viaje del universo a una nueva dimensión',
   author: 'De Da SLYER',
   url: 'https://www.youtube.com/watch?v=nOBp-qrLONk',
-  thumbnail: 'https://i.ytimg.com/vi/nOBp-qrLONk/hqdefault.jpg'
+  thumbnail: '/optimized/resonancia/nOBp-qrLONk.jpg'
 };
 const outputPath = resolve('data/resonancia.json');
+const thumbnailDir = resolve('static/optimized/resonancia');
 const feedUrl = process.env.RESONANCIA_FEED_URL || `https://www.youtube.com/feeds/videos.xml?channel_id=${channel.id}`;
 const videosPageUrl = process.env.RESONANCIA_VIDEOS_URL || channel.videosUrl;
 const requestHeaders = { 'user-agent': 'Faro Resonancia/1.0 (+https://faro.fdfont.com/resonancia/)' };
@@ -32,6 +33,25 @@ function decodeXml(value = '') {
     .replace(/&([a-z]+);/gi, (match, name) => entities[name] ?? match)
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+async function cacheThumbnail(id) {
+  const response = await fetch(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`, {
+    headers: requestHeaders,
+    signal: AbortSignal.timeout(10000)
+  });
+  if (!response.ok) throw new Error(`La miniatura de ${id} respondió ${response.status}`);
+  await mkdir(thumbnailDir, { recursive: true });
+  await writeFile(resolve(thumbnailDir, `${id}.jpg`), Buffer.from(await response.arrayBuffer()));
+}
+
+function formatDuration(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor(totalSeconds / 60) % 60;
+  const seconds = totalSeconds % 60;
+  return hours
+    ? `${hours}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+    : `${minutes}:${String(seconds).padStart(2, "0")}`;
 }
 
 function tag(entry, name) {
@@ -68,11 +88,32 @@ try {
       title: tag(entry, 'title'),
       published: tag(entry, 'published'),
       url: `https://www.youtube.com/watch?v=${id}`,
-      thumbnail: `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+      thumbnail: `/optimized/resonancia/${id}.jpg`
     };
   }).filter((video) => video.id && video.title);
-  const videos = feedVideos.filter((video) => regularVideoIds.has(video.id));
+  let videos = feedVideos.filter((video) => regularVideoIds.has(video.id));
+  const cached = await existingData();
+  videos = await Promise.all(videos.map(async (video) => {
+    const previous = cached.videos?.find((item) => item.id === video.id);
+    try {
+      const response = await fetch(video.url, {
+        headers: requestHeaders,
+        signal: AbortSignal.timeout(10000)
+      });
+      if (!response.ok) throw new Error(`YouTube respondió ${response.status}`);
+      const html = await response.text();
+      const durationSeconds = Number(html.match(/"lengthSeconds":"([0-9]+)"/)?.[1]);
+      if (!durationSeconds) throw new Error("Duración no disponible");
+      return { ...video, durationSeconds, duration: formatDuration(durationSeconds) };
+    } catch {
+      return previous?.duration
+        ? { ...video, durationSeconds: previous.durationSeconds, duration: previous.duration }
+        : video;
+    }
+  }));
   if (!videos.length) throw new Error('El cruce con la pestaña Vídeos no produjo resultados válidos');
+
+  await Promise.all([featured.id, ...videos.map((video) => video.id)].map(cacheThumbnail));
 
   const payload = {
     updatedAt: new Date().toISOString(),

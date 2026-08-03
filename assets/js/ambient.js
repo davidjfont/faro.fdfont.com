@@ -102,7 +102,7 @@
   const frameWrap = dialog?.querySelector('.jaestava-frame');
   const loader = dialog?.querySelector('[data-jaestava-loader]');
   let loaded = false;
-  const open = () => {
+  const loadJaestava = () => {
     if (!dialog || typeof dialog.showModal !== 'function') {
       window.open('https://fdfont.pythonanywhere.com/', '_blank', 'noopener,noreferrer');
       return;
@@ -120,6 +120,10 @@
       loaded = true;
     }
     dialog.showModal();
+  };
+  const open = () => {
+    if (window.FaroConsent) window.FaroConsent.requireExternal(loadJaestava);
+    else loadJaestava();
   };
   opener?.addEventListener('click', open);
   closer?.addEventListener('click', () => dialog?.close());

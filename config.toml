@@ -7,7 +7,6 @@ copyright = "Faro · fdfont"
 enableRobotsTXT = true
 enableGitInfo = false
 summaryLength = 28
-googleAnalytics = "G-48NSGTEX0J"
 
 [pagination]
   pagerSize = 12
@@ -36,6 +35,9 @@ googleAnalytics = "G-48NSGTEX0J"
   ShowCodeCopyButtons = true
   tts = true
 
+  [params.privacy]
+    googleAnalyticsID = "G-48NSGTEX0J"
+
   [params.assets]
     favicon = "favicon.ico"
     favicon16x16 = "favicon-16x16.png"
@@ -46,16 +48,6 @@ googleAnalytics = "G-48NSGTEX0J"
 
   [params.footer]
     text = "Textos desde la frontera de la conciencia"
-
-[services]
-  [services.googleAnalytics]
-    id = "G-48NSGTEX0J"
-
-[privacy]
-  [privacy.googleAnalytics]
-    anonymizeIP = true
-    respectDoNotTrack = true
-    useSessionStorage = true
 
 [menu]
   [[menu.main]]

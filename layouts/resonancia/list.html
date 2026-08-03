@@ -40,7 +40,7 @@
         <span class="resonance-player__overlay"><span aria-hidden="true">▶</span> Reproducir</span>
       </button>
       <div class="resonance-card__body">
-        <p class="resonance-card__meta">Música · {{ time.Format ":date_medium" (time.AsTime .published) }}</p>
+        <p class="resonance-card__meta">Música · {{ time.Format ":date_medium" (time.AsTime .published) }}{{ with .duration }} · {{ . }}{{ end }}</p>
         <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
       </div>
     </article>

@@ -2,6 +2,9 @@
 {{- if .IsHome }}
 {{ partial "jaestava.html" . }}
 {{- end }}
+{{ partial "cookie-consent.html" . }}
+{{- $consentJS := resources.Get "js/consent.js" | minify | fingerprint -}}
+<script defer src="{{ $consentJS.RelPermalink }}" integrity="{{ $consentJS.Data.Integrity }}"></script>
 {{- $faroJS := resources.Get "js/faro.js" | minify | fingerprint -}}
 <script defer src="{{ $faroJS.RelPermalink }}" integrity="{{ $faroJS.Data.Integrity }}"></script>
 {{- $ambientJS := resources.Get "js/ambient.js" | minify | fingerprint -}}

@@ -628,3 +628,156 @@ body:has(.jaestava-btn) .top-link { bottom: 5.25rem; }
     font-size: 0.82rem;
   }
 }
+
+/* Consentimiento: compacto, reversible y sin patrones de presión. */
+.footer-consent-link {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+.footer-consent-link:hover { text-decoration: underline; }
+.consent-banner {
+  position: fixed;
+  z-index: 120;
+  right: 1rem;
+  bottom: 1rem;
+  width: min(39rem, calc(100% - 2rem));
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--faro-line);
+  border-radius: 0.8rem;
+  background: var(--theme);
+  background: color-mix(in srgb, var(--theme) 94%, transparent);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(14px);
+}
+.consent-banner[hidden] { display: none; }
+.consent-banner strong { color: var(--primary); }
+.consent-banner p {
+  margin: 0.25rem 0 0.7rem;
+  color: var(--secondary);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.consent-banner > a,
+.consent-dialog a {
+  color: var(--secondary);
+  font-size: 0.78rem;
+}
+.consent-actions,
+.consent-dialog__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 0.55rem;
+}
+.consent-actions button,
+.consent-dialog__actions button {
+  min-height: 2.4rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--faro-line);
+  border-radius: 0.5rem;
+  color: var(--primary);
+  background: var(--entry);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+.consent-actions button:not(.consent-link),
+.consent-dialog__actions button {
+  flex: 1 1 10rem;
+}
+.consent-actions button:hover,
+.consent-dialog__actions button:hover {
+  border-color: var(--faro-accent-strong);
+  color: var(--faro-accent-strong);
+}
+.consent-actions .consent-link {
+  border-color: transparent;
+  background: transparent;
+}
+.consent-dialog {
+  width: min(42rem, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 1px solid var(--faro-line);
+  border-radius: 0.85rem;
+  color: var(--primary);
+  background: var(--theme);
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.45);
+}
+.consent-dialog::backdrop {
+  background: rgba(0, 6, 14, 0.48);
+  backdrop-filter: blur(3px);
+}
+.consent-dialog form { padding: 1.25rem; }
+.consent-dialog__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.consent-dialog h2 { margin: 0.1rem 0 0; font-size: 1.35rem; }
+.consent-kicker {
+  color: var(--faro-accent-strong);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.consent-close {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  color: var(--secondary);
+  background: var(--entry);
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+.consent-dialog > form > p {
+  color: var(--secondary);
+  font-size: 0.88rem;
+}
+.consent-choice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.7rem 0;
+  padding: 0.85rem;
+  border: 1px solid var(--faro-line);
+  border-radius: 0.65rem;
+  background: var(--entry);
+}
+.consent-choice strong,
+.consent-choice small { display: block; }
+.consent-choice small {
+  margin-top: 0.2rem;
+  color: var(--secondary);
+  line-height: 1.4;
+}
+.consent-choice input {
+  flex: 0 0 auto;
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: var(--faro-accent-strong);
+}
+.consent-always {
+  flex: 0 0 auto;
+  color: var(--secondary);
+  font-size: 0.72rem;
+}
+.consent-dialog__actions { margin-top: 1rem; }
+
+@media (max-width: 35rem) {
+  .consent-banner {
+    right: 0.55rem;
+    bottom: 0.55rem;
+    width: calc(100% - 1.1rem);
+  }
+  .consent-choice { align-items: start; }
+  .consent-always { max-width: 5rem; text-align: right; }
+}
