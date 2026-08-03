@@ -1,7 +1,8 @@
 {{- define "main" }}
 {{- $isNobody := hasPrefix .RelPermalink "/nadie/" -}}
 
-<article class="post-single">
+<article class="post-single" data-immersive-reading data-matrix-min-characters="3000" data-matrix-fade-start-minutes="5"
+  data-matrix-fade-end-minutes="8" data-matrix-fade-start-progress="0.35" data-matrix-fade-end-progress="0.72">
   <header class="post-header">
     {{ partial "breadcrumbs.html" . }}
     <h1 class="post-title entry-hint-parent">
@@ -39,9 +40,9 @@
   <div class="post-content">
     {{- /* TTS Feature Integration */ -}}
     {{- if and (ne .Params.tts false) (not $isNobody) }}
-      {{- partial "tts-v5.html" . }}
+    {{- partial "tts-v5.html" . }}
     {{- end }}
-    
+
     <div id="tts-text-container-v2">
       {{- if not (.Param "disableAnchoredHeadings") }}
       {{- partial "anchored_headings.html" .Content -}}
