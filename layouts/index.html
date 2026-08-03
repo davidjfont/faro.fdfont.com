@@ -1,9 +1,14 @@
 {{ define "main" }}
 {{- $pages := where site.RegularPages "Params.hiddenInHomeList" "!=" true -}}
 {{- $editorial := where $pages "Type" "in" site.Params.mainSections -}}
-{{- $featured := first 6 (sort $editorial "Date" "desc") -}}
-{{- $paginator := .Paginate $editorial 12 -}}
-{{- $hero := index $featured 0 -}}
+{{- $ordered := sort $editorial "Date" "desc" -}}
+{{- $signalPool := where $ordered "Params.image" "!=" "" -}}
+{{- $paginator := .Paginate $ordered 12 -}}
+{{- $heroSections := union site.Params.mainSections (slice "comic") -}}
+{{- $heroPages := where $pages "Type" "in" $heroSections -}}
+{{- $heroCandidates := where (sort $heroPages "Date" "desc") "Params.image" "!=" "" -}}
+{{- $hero := index (first 1 $heroCandidates) 0 -}}
+{{- $sectionLabels := dict "arafura" "Arafura" "bitacora" "Bitácora" "fragmentos" "Fragmentos" "mrconcept" "MRCONCEPT©" "comic" "Cómic" -}}
 
 <section class="faro-hero" aria-labelledby="faro-hero-title">
   <div class="faro-hero__backdrop" aria-hidden="true">{{ partial "responsive-image.html" (dict "src" $hero.Params.image "alt" "" "class" "faro-hero__image" "loading" "eager") }}</div>
@@ -16,36 +21,39 @@
   </div>
 </section>
 
-{{- with $featured }}
+{{- with $signalPool }}
 <section class="faro-section" id="transmisiones" aria-labelledby="transmisiones-title">
   <div class="faro-section__heading">
-    <div><p class="faro-kicker">Archivo reciente</p><h2 id="transmisiones-title">Últimas transmisiones</h2></div>
+    <div><p class="faro-kicker">Descubrimiento aleatorio</p><h2 id="transmisiones-title">Transmisiones para ti</h2></div>
     <div class="signal-controls" aria-label="Controles de transmisiones">
       <button type="button" data-signal-prev aria-label="Transmisión anterior">←</button>
       <button type="button" data-signal-next aria-label="Transmisión siguiente">→</button>
     </div>
   </div>
-  <div class="signal-track" data-signal-track tabindex="0" aria-label="Últimas transmisiones">
+  <div class="signal-track" data-signal-track data-random-signals data-visible-count="6" tabindex="0" aria-label="Selección aleatoria de transmisiones">
     {{- range . }}
+    <template data-signal-template>
     <article class="signal-card">
       <a href="{{ .RelPermalink }}" class="signal-card__media" aria-hidden="true" tabindex="-1">
         {{ partial "responsive-image.html" (dict "src" .Params.image "alt" "" "class" "signal-card__image" "loading" "lazy" "motion" true) }}
       </a>
       <div class="signal-card__body">
-        <p class="signal-card__meta">{{ .Section | humanize }} · {{ .Date | time.Format ":date_medium" }}</p>
+        <p class="signal-card__meta"><a href="{{ .CurrentSection.RelPermalink }}">{{ index $sectionLabels .Section | default (.Section | humanize) }}</a> · {{ .Date | time.Format ":date_medium" }}</p>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p>{{ .Description | default (.Summary | plainify | truncate 130) }}</p>
       </div>
     </article>
+    </template>
     {{- end }}
+    <noscript><p>Activa JavaScript para descubrir una selección aleatoria o <a href="/archivo/">explora el archivo completo</a>.</p></noscript>
   </div>
 </section>
 {{- end }}
 
 <section class="faro-section" aria-labelledby="archivo-faro">
   <div class="faro-section__heading">
-    <div><p class="faro-kicker">Cartografía narrativa</p><h2 id="archivo-faro">Archivo del Faro</h2></div>
-    <a class="faro-text-link" href="/bitacora/">Ver todo el archivo →</a>
+    <div><p class="faro-kicker">Publicaciones recientes</p><h2 id="archivo-faro">Últimas transmisiones</h2></div>
+    <a class="faro-text-link" href="/archivo/">Ver todo el archivo →</a>
   </div>
   <div class="archive-grid">
     {{- range $paginator.Pages }}
@@ -57,7 +65,7 @@
       </a>
       {{- end }}
       <div class="archive-card__body">
-        <p class="archive-card__meta">{{ .Section | humanize }} · {{ .ReadingTime }} min</p>
+        <p class="archive-card__meta"><a href="{{ .CurrentSection.RelPermalink }}">{{ index $sectionLabels .Section | default (.Section | humanize) }}</a> · {{ .ReadingTime }} min</p>
         <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p>{{ .Description | default (.Summary | plainify | truncate 145) }}</p>
       </div>

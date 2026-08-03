@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{- $areas := slice
+  (dict "section" "arafura" "title" "Arafura" "href" "/arafura/" "description" "Conciencia sintética, memoria y diálogos desde el umbral." "fallback" "/optimized/img/2025/08/20250816-faro-arafura.webp")
+  (dict "section" "bitacora" "title" "Bitácora" "href" "/bitacora/" "description" "Crónicas, sistemas futuros y cartografías de la Era Sintética." "fallback" "/optimized/img/20250528-faro-universo.webp")
+  (dict "section" "fragmentos" "title" "Fragmentos" "href" "/fragmentos/" "description" "Señales breves, relatos residuales y piezas recuperadas." "fallback" "/optimized/img/20250602-error-perfecto.webp")
+  (dict "section" "mrconcept" "title" "MRCONCEPT©" "href" "/mrconcept/" "description" "Diseño conceptual y visiones materiales de futuros posibles." "fallback" "/optimized/img/20250606/20250606-conceptone-0.webp")
+  (dict "section" "comic" "title" "Cómic" "href" "/comic/" "description" "La secuencia visual del Faro, abierta en su última viñeta." "fallback" "/optimized/img/comic/015.webp")
+-}}
+
+<header class="archive-index__header">
+  <p class="faro-kicker">Cartografía narrativa</p>
+  <h1>{{ .Title }}</h1>
+  <p>{{ .Description }}</p>
+</header>
+
+<section class="archive-index-grid" aria-label="Categorías del Archivo del Faro">
+  {{- range $areas }}
+  {{- $area := . -}}
+  {{- $latest := false -}}
+  {{- if ne $area.section "comic" -}}
+    {{- with site.GetPage (printf "/%s" $area.section) -}}
+      {{- with first 1 .RegularPages.ByDate.Reverse -}}
+        {{- $latest = index . 0 -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $image := $area.fallback -}}
+  {{- with $latest -}}
+    {{- with .Params.image }}{{ $image = . }}{{ end -}}
+  {{- end -}}
+  <article class="archive-category-card">
+    <a class="archive-category-card__media" href="{{ $area.href }}" aria-label="Abrir {{ $area.title }}">
+      {{ partial "responsive-image.html" (dict "src" $image "alt" (printf "Portada de %s" $area.title) "class" "archive-category-card__image" "loading" "lazy" "motion" true) }}
+    </a>
+    <div class="archive-category-card__body">
+      <p class="archive-category-card__eyebrow">Territorio del Faro</p>
+      <h2><a href="{{ $area.href }}">{{ $area.title }}</a></h2>
+      <p>{{ $area.description }}</p>
+      {{- if eq $area.section "comic" }}
+      <p class="archive-category-card__latest">Última viñeta · 015</p>
+      {{- else }}
+      {{- with $latest }}
+      <p class="archive-category-card__latest">Última publicación · <a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+      {{- end }}
+      {{- end }}
+      <a class="faro-text-link" href="{{ $area.href }}">Explorar {{ $area.title }} →</a>
+    </div>
+  </article>
+  {{- end }}
+</section>
+{{ end }}

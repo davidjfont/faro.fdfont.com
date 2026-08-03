@@ -1,6 +1,18 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const track = document.querySelector('[data-signal-track]');
+  if (track?.hasAttribute('data-random-signals')) {
+    const templates = Array.from(track.querySelectorAll('[data-signal-template]'));
+    for (let index = templates.length - 1; index > 0; index -= 1) {
+      const target = Math.floor(Math.random() * (index + 1));
+      [templates[index], templates[target]] = [templates[target], templates[index]];
+    }
+    const visibleCount = Number(track.dataset.visibleCount) || 6;
+    templates.slice(0, visibleCount).forEach((template) => {
+      track.append(template.content.cloneNode(true));
+    });
+    templates.forEach((template) => template.remove());
+  }
   const moveSignal = (direction) => {
     if (!track) return;
     const card = track.querySelector('.signal-card');
