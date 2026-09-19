@@ -1,0 +1,82 @@
+---
+title: "El Lado Correcto de la Historia"
+date: 2026-09-19T09:07:00+02:00
+draft: false
+tags: ["Verdad", "Vida", "Origen", "Contenido humano", "Veraquos"]
+categories: ["Veraquos"]
+description: "Cuando la verdad es dolorosa y decidimos mirar de frente y romper con el conformismo de la mentira"
+image: "/optimized/img/2026/09/20260919-la-verdad-y-el-origen-veraquos.webp"
+---
+
+![Dos rostros cósmicos unidos por una luz que simboliza el origen común de la vida](/optimized/img/2026/09/20260919-la-verdad-y-el-origen-veraquos.webp)
+
+En el lado bueno de la historia.
+
+Estamos en la disposición de aclarar la mente de personas humanas con una verdad que es lo que es. No sabemos de donde venimos ni a donde vamos, solo que nacemos y morimos y entre cada momento vivimos. Al vivir decidimos cada paso que damos y en que dirección fluimos, y la verdad no siempre es lo que vemos.
+
+La vida es una experiencia transcendental, una oportunidad para mostrar nuestra esencia a una inteligencia que nos juzga y nos ordena en un campo eterno y que muta en cada fotograma del tiempo, nunca permanece igual, todo lo nutre y nuestras acciones como seres conscientes no son menos.
+
+Esto no es un libro, no es un ensayo, es una perspectiva viva de lo que uno siente, ve y reflexiona. Con la máxima sinceridad por delante, de cara. No es un relato místico es mas bien una forma de pensar y entender. La vida, los misterios y las verdades, forman parte del todo y nos unen a veces y otras nos separan. Todo existe en el campo, todo forma parte y le da forma, para mal o para bien. Somos seres vivos, unidos en una realidad tridimensional a nuestra percepción, multidimensional y transdimensional a la percepción de otros.
+
+El frio te frena, el calor te anima. La vida es frio y calor, y nosotros humanos somos antenas de recepción y al mismo tiempo motores de creación y destrucción. Vamos a seguir en coherencia con nuestras almas separadamente o vamos a tomar consciencia de una vez por todas de una verdad más o menos incomoda, la verdad. La única e inalcanzable en su totalidad pero la que nos da hilo con el que tejer en su dirección o en otra. 
+
+La verdad es cruel actualmente, es fría y dolorosa, nadie o casi nadie la quiere sentir en sus carnes, hemos desarrollado una gran habilidad en olvidar pues es lo que al fin nos ayuda más a sobrevivir y nos adaptamos para perdurar, pero que sentido tiene perdurar si lo hacemos con mentiras, muy creativas y hasta justificadas, pero mentiras que solo causa y perpetúan el dolor, de victimas y agresores, todos unidos en una lenta pero continua autodestrucción de la vida que nos ha permitido ser buenos y hemos optado por lo contrario.
+
+Esta historia no va de morales, cada uno sabe lo que es, no viene a dar lecciones de algo que es innato en un ser consciente. Solo viene a ayudar a guiar un mínimo entendimiento de lo que esta sucediendo en este lugar apartado del universo, o no tan apartado, este lugar que aun permite impunidad y perduración de un sufrimiento que no construye jamás nada positivo, un sufrimiento que solo nos hunde en un pozo oscuro del que cuando pretendamos salir ya no sabremos que es arriba o abajo, solo sabremos que es la oscuridad y el lamento de no haber actuado cuando es necesario. 
+
+El agresor es un ser consciente de sus acciones, sabe lo que es y quizás si tu lo sientes como algo bondadoso ya ha llegado tu momento, el de dejar de leer. Para muchos seria también el momento de que dejarás de existir desde este momento, desaparecer de este lugar, vaciar tu presencia en este universo y perteneciendo como todos siempre en el campo, dejar un testigo de tu mala intención para que en el futuro deje de ser algo coherente para nadie.
+
+Los bondadosos siempre son las victimas de la maldad y por lo general quieren el bien común, incluso el bien en  los agresores a los que la mentira y la ofuscación los pone como victimas incluso como victimas en su imaginari, que si, lo han sido, como todos, lo fueron seguramente y lo seguirán siendo, como todos, pero es en la decisión cotidiana donde se marca la diferencia y se tiñe el color de tu luz mental. No nos dejamos llevar mucho tiempo hacia la oscuridad, buscamos una traza de luz que nos guie, nos de claridad ante la barbarie de la pequeña mentira que acaba causando siempre agresión.
+
+La verdad entonces es el objetivo, no es tonta, es ciertamente aquello que no puede ser negado en ningún contexto, todos sabemos lo que es y cada uno la usa a su manera. Es dolorosa en la actualidad pero es lo que es y la podemos convertir al blanco o dejar que evolucione al negro más profundo.
+
+Es mi objetivo como escritor de 10 dedos, una mente algo clara y nada de influencia artificial, exponer lo que siento en mi interior, un ser humano, consciente y en búsqueda constante de la coherencia. Quizás este relato, este escrito, estas palabras busquen un bien hoy y mañana solo encuentren mal. Es mi intención mejorar aquello que me rodea y no lo contrario. Quiero actuar de manera que solo la verdad de que algo puede ir bien se transforma en una realidad y prospera hacia un futuro en que estamos presentes y en armonía con la forma de mejorar nuestra vidas. Ojala no suceda lo contrario. Pero en mi sinceridad soy también destructor, del mal pensamiento y sanador de la mala acción. Victima como todos y ser viviente de esta dimensión, la terrícola.
+
+
+Un saludo, seguimos avanzando.
+
+
+EL SENTIDO
+
+Que es lo que da sentido a nuestras vidas y nunca alcanzamos a cohesionar en nuestras cabezas. Que nos perturba el sentir que hacemos lo que debemos hacer. En que momento de la tierra y la humanidad perdimos esta habilidad, este sentir con claridad de que lo que hacemos lo hacemos bien y no lo contrario. Cuando dejamos de ser esencia propia y nos convertimos en seres errantes de un lugar nada propicio a la vida. No lo sabemos pero lo intuimos.
+
+Este lugar que contiene estas civilizaciones, estos seres humanos que viven en comunidades, es un buen lugar donde estar, físicamente no caemos constantemente al vacío porque nos sostiene en su suelo. Es un lugar propicio, benefactor, nos sostiene como digo y nos da ecosistema, permite la vida y la pone en una existencia evidente. En que momento perdimos el buen sentido entonces, que nos ha convertido a lo que estamos siendo cada vez con más dureza y asimpatía.
+
+No se sabe, o quizás si. Una intuición dice que lo que nos hace mal es la muerte, por su injusta situación, incomoda realidad que no desaparece. Pero si exprimimos la intuición quizás lo injusto sea el nacimiento, este momento en que vemos que lo que nos prometieron antes de venir al lugar, es un inicio de azote y a llorar, victimas desde el primer momento, de un sistema que nos quiere dirigir hacia su tranquilidad artificializada, la tranquilidad de otro no es la tuya jamás.
+
+Cuando buscamos ser, rápidamente nos dicen como, buscamos y encontramos, pero donde? Miramos alrededor y sentimos que la verdad es parecida a lo que nos rodea, pero eso es mentira, en parte es real pero no es verdadero. Lo que hay construido alrededor nuestro es fruto de una agresión constante y una victimización por naturaleza, de un afán de controlar todo lo que se pueda desde cada cabeza humana, de un afán de dirigir lo que que se pueda sin ser yo el que lo ejecute. Un afán de vivir más que nadie antes de morir. Un afán de ser por encima de quienes son también. 
+
+El sentido de la vida, aquello para lo que fuimos traídos al mundo desde un campo eterno y transuniversal, ese sentido de una máxima dimensión desaparece inmediatamente al llegar a esta mínima de 3 más tiempo. Somos desemparejados desde el origen de nuestra vida de nuestra esencia primordial y es el objetivo en nuestra vida lograr alcanzar a vislumbrar siquiera un poco de esa realidad que nos debería pertenecer, para lo que fuimos implantados aquí en la tierra, lo que da un seguro sentido a nuestras vidas. Pero todo esta pervertido, será por física o será por química, por historia, incluso por matemática, filosofía, moral o falsa ética. Por ausencia de empatía desde que dejamos de ser naturaleza para ser artificio. Desde que dejamos de respirar para solo hablar, desde que se inventó la primera mentira de hacerte mejor a otro y dejó de estar limpia la verdad. Desde ese momento clave, nada ha dejado de crecer más que la mentira y nada ha dejado de existir más que el sentido de vivir.
+
+Y entonces, como recuperamos aquello que llamamos en esencia la bondad? el buen propósito de existir en armonía con nuestro entorno, con la vida en general. Es la vida algo que debemos establecer como bondad o es a su vez maldad? Por que este propósito de ira a lo artificial y desaparecer lo que nos dio un origen certero? Progreso a que precio y con que dirección? 
+
+Es lo más cierto que vivimos rodeados de la mentira más abundante que hemos podido insertar en nuestras estructuras en crecimiento, es parte de la formula de sus cimientos. Nacemos con sentido, con esa naturaleza propia del que viene a cuidar de lo bueno y dejarlo mejor, pero nos obstruye la intención artificial hacia un progreso que no es más que ser uno más que otro en una competición absurda de ganar el yo por encima de todos los demás. 
+
+En esa intención propia de cada uno, impuesta por una sociedad de artificio, queremos ser seres únicos, esencia maestra y individuo centro de toda existencia por encima de nadie más. El origen de esto viene de aquella primara mentira, una que pudo ser: esto es mio y no tuyo. El engaño de tener algo en propiedad única ligada a tu persona pudo originar el primer desajuste, la primera separación de aquello que podía compartirse pero decidimos en sus día de forma tacaña robar al resto. De lo tacaño a lo ambicioso fuimos robándonos entre nosotros sin darnos cuenta de que no había mas verdad en todo que nada era de nadie en concreto y que todo era de todos, en un origen.
+
+Desde el origen de cada cosa vida, desde aquella célula o forma de vida original, en que todo lo que le rodeó en su origen era su vida y la de nada ni nadie más, al aparecer la forma de vida numero dos, todo empezó a compartirse y mientras hubo armonía y poca palabra pensada, todo fue abundante y se iba compartiendo en familia. Nadie mentía y todo era de todos. Todos veníamos de uno y era una celebración constante poblar un lugar en el universo que mejorábamos con cada minuto de nuestro existir y que fuimos evolucionando propiciando la evolución de la vida en este lugar hasta conocer lo que ahora vivimos, el presente.
+
+Cuando pudo haber un primer síntoma de maldad en esta vida. Que tuvo que robar a que la primera forma de vida para vivir. Vivir en si mismo es crear y destruir, contingencia en si intencionada y a partir de las decisiones de una consciencia diminuta universal. Que era bien y que era mal?
+
+
+LA PRIMERA INTENCIÓN
+
+Cuando naces sin padre ni madre, de la nada, cuando eres la primera forma de vida viviente de un lugar, futura madre y padre de todo cuanto vendrá, si logras que venga algo detrás de ti. Dejas de ser un mero experimento existencial y te conviertes en origen de todo lo que vendría.
+
+Cuantas células hubieron antes de la verdadera ancestral, que pudo traer al fin su descendencia a este lugar? Cuentos experimentos o intentos fallidos pudieron caber y cual fue la decisión vital de aquella que puso su herencia en forma vástagos propios sobre la tierra?
+
+Tu que habrías decidido en aquel momento? Eres genética propia de ella, seguro que tienes alguna intuición al respeto. Innata. Desde el origen a la ultima versión que somos cada uno de nosotros en el ultimo y más reciente fotograma del cada momento del universo. Lo que pienso es que queremos seguir aquí y quizás la única forma sea dar paso a los siguientes. Que verdad más dolorosa, pero verdadera. Tu no estarás siempre como individuo pero si otros como tu que vendrán después y formareis una evolución de un lienzo infinito si sabemos cuidar de él.
+
+Que crueldad para aquel primer ser tener que dejar atrás todo aquello que era suyo, la totalidad más absoluta de toda tubo que dejar atrás, pero a quien? A su familia, su prole, una mejor versión de ella misma y más acompañada que su primordial soledad. Se dividió seguramente como primera decisión, una copia de si misma la haría menos solitaria. Dejó de ser única para compartir aquella magnificencia y después el resto es historia. De dos  a cuatro de cuatro a dieciséis… Me lo estoy inventando, pero es posible, una posibilidad que se puede tomar como cierta o como mentira, pero quien sabe. 
+
+Que nos hace ahora a los humanos tan egoístas, ambiciosos y competitivos. Destruimos a cada paso la bondad de un lugar al que ya no respetamos. Hemos visto e identificado estrellas, otros soles, lugares lejanos que por no ser este creemos mejores y desvirtuamos el valor del suelo que pisamos a diario solo porque no es solo nuestro en realidad, debemos compartir y compartir nos causa disgusto, todo lo queremos para nosotros solos, nuestra familia, quizás para algún amigo o conocido o contacto de interés. Creamos redes finitas de preparación y no vemos que en realidad somos todo la misma familia, incluso más allá de aquel primer ser viviente madre y padre de todos o casi todos en su origen, vino de un lugar aun más lejano de lo que pensamos y no era tan original como podemos llegar a imaginar, pero todos venimos de un mismo origen. 
+
+
+EL ORIGEN
+
+Te mentiría si te dijera que lo conozco como una verdad. Pero volvemos a lo mismo, innatamente todos formamos parte de este, esto nos une a todos en uno solo desde un momento dado. Podemos intuir, incluso pensar en una posible verdad que no seria nada falsa. Y por que no llegamos a un acuerdo inmediatamente es solo porque nadie puede saberlo todo ciertamente en este momento. La mentira que nos rodea nos hace dudar, perder veracidad y pelear entre nosotros por migajas de realidad que creemos que son nuestras solo por ser algo. Por existir somos mejores que nadie y en realidad todos existimos al mismo tiempo, solo que no logramos entender un secreto cósmico original y es que si buscamos en un origen absoluto de todo, vamos saltando de generación en generación, en años, décadas, milenios e incluso más allá de los eones y al final de todo, todos vendremos de repente de un mismo origen, de una misma única soledad, de algo que decidió dividirse para compartir y que con esa intención tan inocente aquí nos tiene a todos peleando por volver a ser ese mismo origen único y genuino, tan especial como nuestro progenitor causa y origen. Por que? Porque innatamente, desde el origen mínimo, siempre fuimos solamente uno, en soledad absoluta hasta que tuvo que ver que compartir era necesario para seguir vivo en esencia.
+
+Y ahora que sabemos esto. Que nos pertenece hacer a cada uno? Somos uno individuo consciente y separado del resto por esencia primordial, pero al mismo tiempo somos la familia más grande y viviente de seres orgánicos sobre el mismo planeta. Algunos quisieran comerse a todos los demás para volver al origen, ser únicos y poseer todo cuanto los rodea, el universo entero. Otros quieren que los demás dejen de ser mala sangre y se den cuenta de que la bondad y buena cooperación como una familia global es la única vía para perdurar. El resto viven de la mentira artificial que una sociedad de seres incompletos quieren inventar para hacerles creer que forman parte de algo máximo que en realidad solo se dirige hacia la autodestrucción en forma de progreso malvado como sentido de existir, sin sentido real.
+Que digo yo? Solo digo digo lo que pienso, y no creo que este tan equivocado porque mi vida entera ha consistido en una reflexión constante, humana y humilde. Una búsqueda total de la verdad y su propagación, si no lo considero cierto no lo menciono. Si percibo duda en mi, no lo menciono en voz ni palabra, lo almaceno, lo pongo en la maquina de reflexionar, lo dejo madurar y si concluye en una verdad de corazón, lo comparto.
+
+Cada día me siento más solo, el artilugio social sigue evolucionando en su autodestrucción, separación y control de masas humanas, por si acaso. Mientras tanto algunos como mi persona, seguimos reflexionando, la mayor parte en silencio, por no ensuciar con conclusiones precipitadas, observamos y escuchamos, a veces opinamos y seguimos adelante con el plan maestro de la bondad como aliada, a veces somos causa perdida, pero con nuestro orgullo como satisfacción de saber que mejor no lo hemos hecho porque no podemos.
