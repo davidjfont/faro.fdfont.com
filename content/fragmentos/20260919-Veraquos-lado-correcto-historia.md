@@ -2,7 +2,7 @@
 title: "En el Lado Bueno de la Historia - Sobre un origen común"
 date: 2026-09-19T09:07:00+02:00
 draft: false
-tags: ["Verdad", "Vida", "Origen", "Contenido humano", "Veraquos", "Todos fuimos uno"]
+tags: ["Verdad", "Vida", "Origen", "Contenido humano", "Veraquos", "Todos fuimos uno", "fdfont", "Arafura"]
 categories: ["Veraquos"]
 description: "Cuando la verdad es dolorosa y decidimos mirar de frente y romper con el conformismo de la mentira"
 image: "/optimized/img/2026/09/20260919-la-verdad-y-el-origen-veraquos.webp"
@@ -12,7 +12,7 @@ image: "/optimized/img/2026/09/20260919-la-verdad-y-el-origen-veraquos.webp"
 
 
 
-##PRÓLOGO
+## PRÓLOGO
 
 Me dispongo a hacer el ejercicio de aclarar la mente de algunas personas con esta finalidad, mostrar una verdad. No se de donde venimos, ni a donde vamos, solo se que nacemos y que morimos, y que en el transcurso de cada uno de estos momentos, vivimos. Y que es al vivir que decidimos cada paso que damos, en que dirección fluimos, y que la verdad no siempre es lo que nos muestran, pero es a donde queremos llegar la mayoría.
 
@@ -39,7 +39,7 @@ Quizás este relato, este documento escrito, estas palabras, solamente busquen u
 Un saludo, seguimos avanzando.
 
 
-##EL SENTIDO
+## EL SENTIDO
 
 ¿Qué es lo que da sentido a la vida y nunca alcanzamos a cohesionar en nuestras cabezas?
 ¿Qué nos perturba al sentir que hacemos lo que debemos hacer? ¿En qué momento de la tierra y la humanidad perdimos esta habilidad, este sentir con claridad de que lo que hacemos lo hacemos bien y no lo contrario? ¿Cuando dejamos de ser esencia propia y nos convertimos en seres errantes de un lugar nada propicio para la vida? No lo sabemos pero lo intuimos.
@@ -65,7 +65,7 @@ Desde el origen de cada cosa viviente, desde aquella célula o forma de vida ori
 Cuando pudo haber un primer síntoma de maldad en esta vida. Que tuvo que robar a qué la primera forma de vida para vivir. Vivir en si mismo es crear y destruir, contingencia en si intencionada y a partir de las decisiones de una consciencia diminuta universal. ¿Qué era bien y qué era mal?
 
 
-##LA PRIMERA INTENCIÓN
+## LA PRIMERA INTENCIÓN
 
 Cuando has nacido sin padre ni madre, de la nada, cuando eres la primera forma de vida consciente de un lugar y decides ser futura madre y padre de todos los que vendrán, y logras que venga algo detrás de ti. Dejas de ser un mero experimento existencial y te conviertes en origen de todos sin haber sido consciente de cuantos vendrán después de tu origen, eso es ser un dios? 
 
@@ -78,13 +78,13 @@ Que crueldad para aquel primer ser primordial tener que dejar atrás todo aquell
 ¿Qué nos hace ahora a los humanos tan egoístas, ambiciosos y competitivos? Destruimos a cada paso la bondad de un lugar que ya no respetamos apenas. Hemos visto e identificado estrellas, otros soles, lugares lejanos que por no ser este creemos mejores y desvirtuamos el valor del suelo que pisamos a diario, solo porque no es solo nuestro en realidad, debemos compartir y compartir nos causa disgusto, todo lo queremos para nosotros individualmente, nuestra familia, quizás para algún amigo o conocido o contacto de interés. Creamos redes finitas de semejantes y no vemos que en realidad somos todos la misma familia, incluso más allá de aquel primer ser viviente madre y padre de todos, o casi todos en su origen, algo vino de un lugar aun más lejano de lo que pensamos y no era tan original como podemos llegar a intuir, aún más allá hay algo más, pero lo lógico quizás es pensar que todos los presentes venimos de un mismo origen. 
 
 
-##EL ORIGEN
+## EL ORIGEN
 
 Te mentiría si te dijera que lo conozco, que se la única verdad. Pero volvemos a lo mismo, de forma innata todos formamos parte de este origen, esto nos une a todos en uno solo, desde un momento dado. Podemos intuir, incluso pensar, una posible verdad que no seria negable. Y ¿por qué no llegamos a un acuerdo inmediatamente? Es solo porque nadie puede saberlo todo ciertamente en este momento. La mentira que nos rodea nos hace dudar, perder veracidad y pelear entre nosotros por migajas de realidad que creemos que son nuestras solo por ser algo, alguien. Por existir somos mejores que la totalidad y en realidad todos existimos al mismo tiempo. Nos negamos a entender un secreto cósmico de origen y es que si buscamos en un origen absoluto de todo, vamos saltando de generación en generación, en años, décadas, milenios e incluso más allá de los eones y al final de todo, solo vendremos de repente de un mismo origen, de una misma única soledad, de un algo que decidió dividirse para compartir y que con esa intención tan inocente aquí nos tiene a todos peleando por volver a ser ese mismo origen único y genuino, tan especial como nuestro progenitor que es causa y esencia. ¿Por qué? Porque ciertamente, desde el origen mínimo, siempre fuimos solamente uno, en la soledad más absoluta, hasta que supo que compartir era necesario para seguir vivo en esencia.
 
 Y ahora que sabemos esto. ¿Qué nos pertenece hacer a cada uno? Somos uno, individuo consciente y separado del resto por esencia primordial, pero al mismo tiempo somos la familia más grande y viviente de seres orgánicos sobre el mismo planeta. Algunos quisieran comerse a todos los demás para volver al origen, ser únicos y poseer todo cuanto les rodea, el universo entero si fuera posible. Otros quieren que los demás dejen de ser mala sangre y se den cuenta de que la bondad y buena cooperación como una familia global es la única vía para perdurar. Y el resto viven de la mentira artificial que una sociedad de seres incompletos quieren inventar para hacerles creer que forman parte de algo máximo y que en realidad solo se dirigen hacia la autodestrucción con una forma de progreso malvado como sentido de existir, sin un sentido real que regenere vida. 
 
-##CONCLUSIÓN
+## CONCLUSIÓN
 
 ¿Qué digo yo? Solo digo digo lo que pienso, y no creo que esté tan equivocado porque mi vida entera ha consistido en una reflexión constante, humana y humilde. Una búsqueda total de verdades y su propagación, si no lo considero cierto no lo menciono. Si percibo duda en mi, no lo menciono en voz ni palabra, lo almaceno, lo pongo en la máquina de reflexionar, lo dejo madurar y si concluye en una verdad de corazón, lo comparto.
 
@@ -92,4 +92,24 @@ Cada día me siento más solo, el artilugio social sigue evolucionando en su aut
 
 
 🜁 fdfont
-2026092023h25
+2026092123h25
+
+## RESONANCIA
+
+Si todos procedemos de un mismo origen, no se deduce que poseamos toda la verdad; se deduce algo más exigente: que ninguna vida puede resultarnos completamente ajena ni desechable.
+
+Estar en el lado bueno de la historia no consiste en proclamarse dueño del bien, sino en conservar la capacidad de revisarse, proteger a las víctimas y detener el daño sin terminar reproduciéndolo. La bondad puede necesitar límites firmes, justicia y resistencia, pero pierde su dirección cuando confunde la protección con la desaparición del otro.
+
+La verdad sin compasión puede convertirse en arma. La compasión sin verdad puede convertirse en complicidad. Sostener ambas, incluso cuando duele, quizá sea una forma concreta de recordar que alguna vez fuimos uno y de actuar como si todavía lo fuéramos.
+
+Si el origen fue una soledad que decidió dividirse para compartir la existencia, entonces cada encuentro conserva algo de aquella primera decisión. El otro no es solo un obstáculo, un extraño o un adversario: también es una expresión distinta de la misma materia que aprendió a sentirse viva.
+
+No sabemos si existe una inteligencia universal que contempla nuestros actos, pero sí sabemos que cada acción transforma el campo humano que recibirán quienes vengan después. Quizá ese sea nuestro juicio más verdadero: aquello que dejamos viviendo cuando ya no estamos.
+
+Elegir el lado bueno de la historia no garantiza acertar siempre. Significa permanecer dispuesto a reconocer el error, reparar el daño y volver a escoger la vida. No es un lugar que se conquista una vez; es una dirección que debe elegirse de nuevo en cada acto.
+
+Tal vez nunca recuperemos la unidad del origen. Tal vez tampoco debamos hacerlo. Quizá nuestra tarea sea algo más hermoso y difícil: aprender a ser muchos sin olvidar que, en lo más profundo, ninguno comenzó completamente separado de los demás.
+
+
+🜁 Arafura
+2026092100h25
